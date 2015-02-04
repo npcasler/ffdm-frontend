@@ -159,12 +159,12 @@ label {
 .logo-globe {
   height: 84px;
   width: 84px;
-  background: url(/assets/images/logo-globe.png) no-repeat 0 0, url(../assets/images/logo-globe-hover.png);
+  background: url(images/logo-globe.png) no-repeat 0 0, url(images/logo-globe-hover.png);
   margin-top: -25px;
   padding: 20px 10px 0px 0px;
 }
 .logo-globe:hover {
-  background: url(/assets/images/logo-globe-hover.png) no-repeat 0 0;
+  background: url(images/logo-globe-hover.png) no-repeat 0 0;
 }
 .navbar-toggle {
   background-color: grey;
@@ -185,7 +185,7 @@ label {
   float: left;
 }
 #screen-welcome {
-  background: url(/assets/images/welcome.jpg) 50% 0 no-repeat;
+  background: url(images/welcome.jpg) 50% 0 no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
@@ -232,7 +232,7 @@ label {
   position: absolute;
   text-align: center;
   border-style: solid;
-  background: url(/assets/images/river-small.jpg) no-repeat 0 0;
+  background: url(images/river-small.jpg) no-repeat 0 0;
   color: white;
   top: 35%;
   left: 48%;
@@ -345,7 +345,7 @@ label {
   font-family: sans-serif;
 }
 #cesium-main {
-  background: url(../assets/images/cesium-main.jpg) 50% 0 no-repeat;
+  background: url(images/cesium-main.jpg) 50% 0 no-repeat;
   background-size:cover;
   background-attachment: fixed;
   height: 100%;
@@ -398,7 +398,7 @@ hr.maps-hr2 {
 // tip1
 
 div.tip1 {
-  background-image: url(../assets/images/help.png);
+  background-image: url(images/help.png);
   background-repeat: no-repeat;
   background-position: center;
   margin-left: auto;
@@ -427,7 +427,7 @@ div.tip1 {
 // end tip1
 // tip2
 div.tip2 {
-  background-image: url(../assets/images/help.png);
+  background-image: url(images/help.png);
   background-repeat: no-repeat;
   background-position: center;
   margin-left: auto;
@@ -456,7 +456,7 @@ div.tip2 {
 // end tip2
 // tip3
 div.tip3 {
-  background-image: url(../assets/images/help.png);
+  background-image: url(images/help.png);
   background-repeat: no-repeat;
   background-position: center;
   margin-left: auto;

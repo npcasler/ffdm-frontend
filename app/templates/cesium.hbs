@@ -26,14 +26,14 @@
       <p><hr class="maps-hr"></p>
       <div class="form-group form-group-1">
         <div class="controls">
-          {{!--{{view Emeber.Select
+          {{view "select"
             id="plantSelect"
-            contentBinding="controller.plants.arrangedContent"
+            contentBinding=plants
             optionValuePath="content.sci_name"
             optionLabelPath="content.name"
             valueBinding="selectedPlant"
             prompt="Select a Species..."
-          }}--}}
+          }}
         </div>
       </div>
     </div>
