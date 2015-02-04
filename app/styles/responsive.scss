@@ -1,0 +1,53 @@
+// Responsive styling
+//
+// View thresholds:
+//   welcome.hbs: 1001px
+//
+
+@media screen and (max-width: 1001px) {
+  #breadcrumbs {
+    display: none !important;
+  }
+  #welcome-left {
+    margin-left: -164% !important;
+  }
+  #welcome-right {
+    margin-left: 50% !important;
+  }
+  .explore-text {
+    font-size: 0.75em !important;
+  }
+  .sloganContainer {
+    font-size: 2.3em !important;
+  }
+  .navbar-hide {
+    display: none !important; 
+  }
+  .navbar-header {
+    width: 100% !important;
+  }
+  .navbar-brand {
+    font-size: 2.6em !important;
+  }
+  .navbar-brand-collapsed {
+    padding-left: 0 !important;
+  }
+  .navbar-toggle {
+    visibility: visible !important;
+  }
+  .navbar-right {
+    overflow: hidden !important;
+  }
+  .breadcrumbs li:before {
+    top: -3px !important;
+  }
+  .breadcrumbs li:after {
+    top: -3px !important;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #navbar-brand-collapsed {
+    display: none !important;
+  }
+}

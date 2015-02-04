@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ffdm-frontend',
     environment: environment,
-    baseURL: '/',
+    baseURL: '/ffdm-frontend/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {

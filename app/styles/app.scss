@@ -1,0 +1,469 @@
+@import 'bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap';
+@import 'bower_components/fontawesome/scss/font-awesome';
+@import 'responsive.scss';
+//sass variables 
+//colors
+$primary-green: #118c4e;
+$primary-red: red;
+
+//font weight
+$font-low: 300;
+$font-med: 400;
+$font-high: 700;
+
+//font transition
+@mixin text-transition($transition) {
+  transition: $transition;
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+}
+@mixin box-shadow($shadow) {
+  box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+}
+
+//global
+html {
+  height: 100%;
+}
+body {
+  font-family: 'Oswald', sans-serif;
+  font-weight: $font-low;
+//  padding-top: 120px;
+  height: 100%;
+}
+html, body {
+  box-sizing: border-box;
+}
+//Set the default view size
+.ember-view { 
+  height: 100% ;
+}
+@media (max-width: 1000px) {
+  body {font-size: large; }
+}
+@media (max-width: 500px) {
+  body {font-size: medium; }
+}
+*, *:before, *:after{
+  box-sizing: border-box;
+}
+.full-height {
+  height: 100%
+}
+.double-height {
+  height: 150%
+}
+.full-width {
+  width: 100%;
+}
+.full-hw {
+  height: 100%;
+  width: 100%;
+}
+label { 
+  margin: 0px;
+}
+
+//top navigation
+//remove space between body and navbar
+.navbar {
+  margin-bottom: 0px !important;
+  border: none !important;
+  width: 100%;
+}
+#header-right {
+  overflow: hidden;
+  padding-right: 10px;
+}
+//breadcrumbs navigation
+.breadcrumbs {
+  overflow: hidden !important;
+  padding-right: 10px;
+}
+.breadcrumbs li {
+  font-size: 1.4em;
+  display: block;
+  float: left;
+  background: $primary-green;
+  text-align: center;
+  padding: 0px 40px 0px 40px;
+  margin: 0 45px 0 0;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+.breadcrumbs li:hover {
+  background: $primary-red;
+}
+.breadcrumbs li:after {
+  content: "";
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-left: 40px solid $primary-green;
+  position: absolute;
+  right: -40px;
+  top: -10px;
+}
+.breadcrumbs li:before {
+  content: "";
+  position: absolute;
+  border-width: 40px 0 40px 40px;
+  border-style: solid;
+  border-color: $primary-green $primary-green $primary-green transparent;
+  left: -40px;
+  top: -10px;
+}
+.breadcrumbs li:hover::before {
+  border-color: $primary-red $primary-red $primary-red transparent;
+}
+.breadcrumbs li:hover::after {
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-left: 40px solid $primary-red;
+}
+.breadcrumbs li:first-child::before {
+  display:none;
+}
+.breadcrumbs li:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 1px;
+}
+.navbar {
+  background-color: white;
+}
+.navbar-simple {
+  display: table;
+}
+.navbar-brand {
+  padding-bottom: 15px;
+  font-size: 4em;
+  outline: 0;
+  color: $primary-green;
+  cursor: pointer;
+}
+.navbar-brand:hover {
+  color: $primary-red !important;
+}
+.navbar-brand:visited {
+  color: $primary-green;
+}
+.container-fluid {
+  display: table-cell;
+  height: 120px;
+  vertical-align: middle;
+  padding-top: 25px;
+}
+.logo-globe {
+  height: 84px;
+  width: 84px;
+  background: url(/assets/images/logo-globe.png) no-repeat 0 0, url(../assets/images/logo-globe-hover.png);
+  margin-top: -25px;
+  padding: 20px 10px 0px 0px;
+}
+.logo-globe:hover {
+  background: url(/assets/images/logo-globe-hover.png) no-repeat 0 0;
+}
+.navbar-toggle {
+  background-color: grey;
+}
+
+//welcome
+.bcg {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+.screen {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  float: left;
+}
+#screen-welcome {
+  background: url(/assets/images/welcome.jpg) 50% 0 no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.fill-lite {
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+}
+.fill-dark {
+  height: 100%;
+  background-color: rgba(191,84,48,0.4);
+}
+.sloganContainer {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  border: none;
+  color: white;
+  top: 20%;
+  font-size: 3em;
+  text-shadow: 3px 3px 4px black;
+  vertical-align: middle;
+  z-index: 10;
+}
+.slogan {
+  display: inline-block;
+}
+#banner-text {
+  font-size: 2.4em;
+  text-transform: uppercase;
+  color: white;
+  text-align: justify;
+  text-shadow: 2px 2px 4px black;
+  border: none;
+  @include text-transition(all 0.3s ease-in-out 0s);
+}
+#banner-text:hover {
+  color: $primary-red;
+  text-decoration: none;
+}
+.img-circle {
+  border-radius: 50%;
+}
+.bannerContainer {
+  position: absolute;
+  text-align: center;
+  border-style: solid;
+  background: url(/assets/images/river-small.jpg) no-repeat 0 0;
+  color: white;
+  top: 35%;
+  left: 48%;
+  width: 300px;
+  height: 300px;
+  margin-left: -127px;
+  vertical-align: middle;
+  overflow: hidden;
+  z-index: 3;
+}
+.bannerContainer:hover {
+  border-style: 2px dashed white;
+  color: $primary-red;
+}
+.explore-text {
+  font-size: 1em;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 4px black;
+  border: none;
+  @include text-transition(all 0.3s ease-in-out 0s);
+}
+.explore-text:hover {
+  color: $primary-red;
+  text-decoration: none;
+}
+.left-overlap {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left:0;
+  text-align: center;
+  padding: 20%;
+  min-height: 100%;
+}
+.right-overlap {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  text-align: center;
+  padding: 20%;
+  min-height: 100%;
+}
+.welcome-content {
+  padding-top: 175px;
+}
+
+//for parallax scrolling 
+.hsContainer {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  vertical-align: middle;
+  opacity: 1;
+}
+.hs-content {
+  margin: 150px auto 0 auto;
+  display: table-cell;
+  vertical-align: middle;
+  color: #ebebeb;
+  height: 80%;
+  width: 80%;
+  z-index: 20;
+  padding: 0 8%;
+  text-align: center;
+}
+
+.btn-text {
+  padding: 20px;
+  background: rgba(0,0,0,0.4);
+  background-image: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline;
+  border: solid white 1px;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 1.5em;
+  text-align: justify;
+  text-shadow: none;
+  text-transform: uppercase;
+  @include text-transition(all 0.3s ease-in-out 0s);
+}
+.btn-text:hover {
+  @include box-shadow(none);
+  border: dashed white 1px;
+  color: red !important;
+  text-decoration: none;
+}
+.btn-text:focus {
+  outline: 0;
+}
+.btn-text:active {
+  border:none;
+}
+
+// cesium
+#cesiumContainer {
+  width: 100%;
+  height: 90%;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  font-family: sans-serif;
+}
+#cesium-main {
+  background: url(../assets/images/cesium-main.jpg) 50% 0 no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+}
+.map-step {
+  color: white;
+  padding-top: 2%;
+  font-size: 1.5em;
+}
+hr.maps-hr {
+  background: white 	!important;
+  height: 1px		!important;
+  width: 100%		!important;
+  border: none		!important;
+  margin: 0px auto 0px auto !important;
+  padding: none		!important;
+}
+hr.maps-hr2 {
+  background: white 	!important;
+  height: 1px		!important;
+  width: 100%		!important;
+  border: none		!important;
+  margin: 0px auto 0px auto !important;
+  padding: none		!important;
+}
+// maptips
+.tips {
+  background: rgba(192,192,192,1);
+}
+#maptips:hover {
+}
+// tip1
+
+div.tip1 {
+  background-image: url(../assets/images/help.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: auto;
+  width: 16px;
+  display: table-cell;
+  float: right;
+  vertical-align: middle;
+}
+.tip1 span {
+  margin-left: -999em !important;
+  position: absolute !important;
+  z-index: 1 !important;
+  border-radius: 10%;
+  text-align: left;
+  padding: 20px;
+}
+.tip1:hover span {
+  position: absolute !important;
+  left: 50px !important;
+  top: 180px !important;
+  z-index: 1 !important;
+  margin-left: 10px !important;
+  width: 350px !important;
+  height: 400px;
+}
+// end tip1
+// tip2
+div.tip2 {
+  background-image: url(../assets/images/help.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: auto;
+  width: 16px;
+  display: table-cell;
+  float: right;
+  vertical-align: middle;
+}
+.tip2 span {
+  margin-left: -999em !important;
+  position: absolute !important;
+  z-index: 1 !important;
+  border-radius: 10%;
+  text-align: left;
+  padding: 20px;
+}
+.tip2:hover span {
+  position: absolute !important;
+  left: 50px !important;
+  top: 22px !important;
+  z-index: 1 !important;
+  margin-left: 10px !important;
+  width: 350px !important;
+  height: 400px;
+}
+// end tip2
+// tip3
+div.tip3 {
+  background-image: url(../assets/images/help.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: auto;
+  width: 16px;
+  display: table-cell;
+  float: right;
+  vertical-align: middle;
+}
+.tip3 span {
+  margin-left: -999em !important;
+  position: absolute !important;
+  z-index: 1 !important;
+  border-radius: 10%;
+  text-align: left;
+  padding: 20px;
+}
+.tip3:hover span {
+  position: absolute !important;
+  right: 10px !important;
+  top: 220px !important;
+  z-index: 1 !important;
+  margin-left: 10px !important;
+  width: 350px !important;
+  height: 400px;
+}
+// end tip3
+

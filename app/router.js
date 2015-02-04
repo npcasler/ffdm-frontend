@@ -6,6 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route("welcome", { path: "/"});
+  this.route("cesium");
 });
 
 export default Router;
