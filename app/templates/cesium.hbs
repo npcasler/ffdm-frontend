@@ -1,7 +1,7 @@
 {{!-- see cesium-tmp.hbs for code --}}
 <div id="cesium-main" data-video="http://player.vimeo.com/external/97766233.sd.mp4?s=5df211c4da525ce8da33fddd981d52df">
-  <div class="col-md-12 full-height" style="overflow:hidden;">
-    <div class="col-md-3 full-height" style="margin-top:120px;">
+  <div id="cesium-submain" class="col-md-12 full-height">
+    <div id="cesium-left-col" class="col-md-3 full-height">
       <div class="form-horizontal span8">
         <div id="plant-desc" class="map-step">
           <button class="button-primary" {{action "reloadLayers"}}>
@@ -24,7 +24,7 @@
         </div> 
       </div>
       <p><hr class="maps-hr"></p>
-      <div class="form-group" style="margin:0px !important;">
+      <div class="form-group form-group-1">
         <div class="controls">
           {{!--{{view Emeber.Select
             id="plantSelect"
@@ -38,11 +38,17 @@
       </div>
     </div>
     <!-- start here -->
-    <div class="col-md-1 full-height">
+    <div id="rcp-group" class="rcp-toolbar btn-group rcp-group-toolbar">
     </div>
-    <div class="col-md-8 full-height">
+
+
+
+
+    <div id="cesium-mid-col" class="col-md-1 full-height">
+    </div>
+    <div id="cesium-right-col" class="col-md-8 full-height">
       <div id="cesiumViewContainer" class="container full-hw">
-        <div id="cesiumContainer" style="margin-top:120px;"></div>
+        <div id="cesiumContainer"></div>
       </div>
     </div>
   </div>
