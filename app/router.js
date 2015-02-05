@@ -9,6 +9,7 @@ Router.map(function() {
   this.route("welcome", { path: "/"});
   this.route("cesium");
   this.route("plants");
+  this.resource("headlines", {path: '/headlines/:pageId'});
 });
 
 export default Router;
