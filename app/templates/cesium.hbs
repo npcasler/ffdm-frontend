@@ -1,4 +1,3 @@
-{{!-- see cesium-tmp.hbs for code --}}
 <div id="cesium-main" data-video="http://player.vimeo.com/external/97766233.sd.mp4?s=5df211c4da525ce8da33fddd981d52df">
   <div id="cesium-submain" class="full-height map-overlap">
     <div id="cesium-left-col" class="col-md-3 full-height">
@@ -69,7 +68,7 @@
 
 <!-- set visibility to hidden once functionality has been set!! -->
 
-        <div id="year-group" class="form-group btn-group" class="">
+        <div id="year-group" class="form-group btn-group full-width">
           <p id="year-desc" class="map-step" class="year-desc-3">
            Step 3: Pick a year
             <hr class="maps-hr">
@@ -100,9 +99,38 @@
         {{!--{{view Forests.SliderView id="time-slider" class="slider-view"}}--}}
 
        </div>
+       <!-- add submit-group visibility:hidden once functionality set!! -->
+       <div id="submit-group" class="form-group">
+        <div style="margin-bottom:15px;">
+          <p id="submit-desc" style="color:white;margin-top:20px;font-size:1.5em;">
+            Step 4: Get the map
+          </p>
+          <hr class="maps-hr">
+          <p></p>
+          {{!--<button type="submit" id="map-submit" class="btn btn-map" {{action 'getMap' target="view.earthInstance"}}>
+            Get Map
+            <i class="spinner">
+              <div class="glyphicon glyphicon-refresh">
+              </div>
+            </i>
+            <span class="arrow">
+              <i class="glyphicon glyphicon-arrow-right">
+              </i>
+            </span>
+          </button>--}}
+        </div>
+       </div>
 
-       <!-- start here -->
+<!-- set cycle-group to display:none once functionality has been set!! -->
 
+       <div id="cycle-group" class="form-group" style="">
+        {{!--<button id="map-animate" classs="btn btn-map" {{action 'toggleCycle' target="view.earthInstance"}}> --}}
+
+          <!-- set animate-icon to display:none once functionality has been set!! -->
+          <i id="animate-icon" class="glyphicon glyphicon-stop" style="">
+          </i>
+        </button>--}}
+       </div>
       </div>
       <div id="cesium-mid-col" class="col-md-1 full-height">
       </div>
