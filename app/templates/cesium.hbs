@@ -26,9 +26,9 @@
       <p><hr class="maps-hr"></p>
       <div class="form-group form-group-1">
         <div class="controls">
-          {{view "select"
+          {{view Ember.Select
             id="plantSelect"
-            contentBinding=plants
+            contentBinding="controllers.plants.arrangedContent"
             optionValuePath="content.sci_name"
             optionLabelPath="content.name"
             valueBinding="selectedPlant"

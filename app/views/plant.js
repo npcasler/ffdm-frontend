@@ -1,5 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.View.extend({
-  wrapper: 'div'
+  wrapper: 'div',
+  templateName: 'plant'
 });
