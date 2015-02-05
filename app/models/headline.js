@@ -9,6 +9,14 @@ export default DS.Model.extend({
   chart: DS.attr('string'),
   down: DS.attr('boolean'),
   createdAt: DS.attr(),
-  updatedAt: DS.attr()
+  updatedAt: DS.attr(),
+
+  detailId: function() {
+    return this.get('classId') + '-detail';
+  }.property('classId'),
+
+  scrollId: function() {
+    return this.get('classId') + '-scroll';
+  }.property('scrollId')
   
 });
