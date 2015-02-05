@@ -335,7 +335,10 @@ label {
   border:none;
 }
 
-// cesium
+// Cesium
+.map-overlap {
+  background-color: rgba(0,0,0,0.4);
+}
 #cesiumContainer {
   width: 100%;
   height: 90%;
@@ -343,6 +346,9 @@ label {
   overflow: hidden;
   padding: 0;
   font-family: sans-serif;
+}
+#cesiumViewContainer {
+  padding-right: 0px !important;
 }
 #cesium-main {
   background: url(images/cesium-main.jpg) 50% 0 no-repeat;
@@ -360,26 +366,253 @@ label {
 #cesium-mid-col {
   margin-top: 120px;
 }
+#cesium-right-col {
+  padding-right: 0px !important;
+}
+input[type=checkbox] {
+  padding: 0;
+}
+.rcp-toolbar
+  input[type="radio"] {
+    margin: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding: none;
+}
+.rcp-toolbar label {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+// Uncomment visibility:hidden once functionality has been set in cesium.hbs!!
+
 .rcp-group-toolbar {
-  visibility: hidden;
+//  visibility: hidden;
   vertical-align: center;
+  width: 100%;
 }
 // .form-group currently not being used!!
 .form-group-1 {
  margin: 0px !important;
- }
+}
+.year-desc-3 {
+  padding-top: 5%;
+}
+// cesium buttons
+.btn-temp {
+  height: 100%;
+  background: none;
+  background-image: none;
+  border-radius: 0%;
+  padding-left: 0px;
+  padding-right: 0px;
+  -webkit-box-shadow: 1px 1px 2px 2px #000;
+  -moz-box-shadow: 1px 1px 2px 2px #000;
+  box-shadow: 1px 1px 2px 2px #000;
+  border: 1px solid white; 
+  color: #fff;
+  font-size: 1em; 
+  text-decoration: none !important;
+  text-shadow: none;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+.btn-temp:hover {
+  background: rgba(0,0,0,0.3);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  /*-webkit-transform: scale(1.1);*/
+  /*-moz-transform: scale(1.1);*/
+  border: 2px dashed white; 
+}
+.btn-temp:focus {
+}
+.btn-temp:active {
+  border: 4px solid white;
+}
+div.best-case-label{
+  height: 60px;
+  width: 60px;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  background: url(images/best-case-red-60.png) no-repeat 0 0;
+}
+div.worst-case-label {
+  height: 60px;
+  width: 60px;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  background: url(images/stable-red-60.png) no-repeat 0 0;
+}
+.rcp-label {
+  color: white!important;
+  background: none;
+  width: 100%; 
+  text-align: center;
+  text-transform: none;
+  font-size: 1.2em; 
+  transition-duration: 0.3s;
+  transition-property: all;
+  transition-timing-function: ease-in;
+  font-weight: 300 !important;
+}
+.rcp-label:hover {
+  background: rgba(0,0,0,0.6);
+  color: red !important;
+  -webkit-background-origin: padding-box;
+  -moz-background-origin: padding-box;
+  /*-webkit-transform: scale(1.1);*/
+ /* -moz-transform: scale(1.1);*/
+}
+.ember-select {
+  background: rgba(0,0,0, 0.3);
+  color: white;
+  width: 100%;
+  padding: 5px;
+  font-size: 1em;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  height: 34px;
+/*  -moz-appearance: none;
+  -webkit-appearance: none;*/
+}
+.ember-select option {
+  background: transparent;
+  width: 100%;
+  padding: 5px;
+  font-size: 1em;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  overflow: hidden;
+}
+.ember-text-field {
+  background: rgba(0,0,0, 0.5);
+  color: white;
+  font-size: 1em;
+  line-height: 1;
+  border: 0;
+  width: 100%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  height: 40px;
+}
+.ember-text-field:focus {
+  background: rgba(0,0,0,0.6);
+  -webkit-box-shadow: none;
+  outline: 0;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-transform: scale(1.1);
+  border: 2px dashed white; 
+}
+
+// Slider
+.slider-year {
+  color: white;
+  margin-top: 20px;
+  font-size: 1.5em;
+}
+.slider-period {
+  color: white;
+}
+.slider-view {
+  min-height: 20px;
+}
+.slider {
+  width: 250px !important;
+  height: 20px;
+  margin: auto;
+  display: block;
+}
+.ui-slider {
+	position: relative;
+	text-align: left;
+}
+.ui-slider .ui-slider-handle {
+	position: absolute;
+	z-index: 2;
+	width: 1.2em;
+	height: 1.2em;
+	cursor: default;
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.ui-slider .ui-slider-range {
+	position: absolute;
+	z-index: 1;
+	font-size: .7em;
+	display: block;
+	border: 0;
+	background-position: 0 0;
+}
+
+/* support: IE8 - See #6727 */
+.ui-slider.ui-state-disabled .ui-slider-handle,
+.ui-slider.ui-state-disabled .ui-slider-range {
+	filter: inherit;
+}
+
+.ui-slider-horizontal {
+	height: .8em;
+}
+.ui-slider-horizontal .ui-slider-handle {
+	top: -.3em;
+	margin-left: -.6em;
+}
+.ui-slider-horizontal .ui-slider-range {
+	top: 0;
+	height: 100%;
+}
+.ui-slider-horizontal .ui-slider-range-min {
+	left: 0;
+}
+.ui-slider-horizontal .ui-slider-range-max {
+	right: 0;
+}
+
+.ui-slider-vertical {
+	width: .8em;
+	height: 100px;
+}
+.ui-slider-vertical .ui-slider-handle {
+	left: -.3em;
+	margin-left: 0;
+	margin-bottom: -.6em;
+}
+.ui-slider-vertical .ui-slider-range {
+	left: 0;
+	width: 100%;
+}
+.ui-slider-vertical .ui-slider-range-min {
+	bottom: 0;
+}
+.ui-slider-vertical .ui-slider-range-max {
+	top: 0;
+}
+
+// map steps
 .map-step {
   color: white;
   padding-top: 2%;
   font-size: 1.5em;
 }
 hr.maps-hr {
-  background: white 	!important;
-  height: 1px		!important;
-  width: 100%		!important;
-  border: none		!important;
-  margin: 0px auto 0px auto !important;
-  padding: none		!important;
+  background: white;
+  height: 1px;
+  width: 100%;
+  border: none;
+  margin: 0px auto 0px auto;
+  padding: 0px;
 }
 hr.maps-hr2 {
   background: white 	!important;

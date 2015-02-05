@@ -1,6 +1,6 @@
 {{!-- see cesium-tmp.hbs for code --}}
 <div id="cesium-main" data-video="http://player.vimeo.com/external/97766233.sd.mp4?s=5df211c4da525ce8da33fddd981d52df">
-  <div id="cesium-submain" class="col-md-12 full-height">
+  <div id="cesium-submain" class="full-height map-overlap">
     <div id="cesium-left-col" class="col-md-3 full-height">
       <div class="form-horizontal span8">
         <div id="plant-desc" class="map-step">
@@ -36,19 +36,80 @@
           }}
         </div>
       </div>
-    </div>
-    <!-- start here -->
-    <div id="rcp-group" class="rcp-toolbar btn-group rcp-group-toolbar">
-    </div>
+    
+    <!-- uncomment .rcp-group-toolbar {visibility:hidden;} once functionality has been set for buttons -->
 
+      <div id="rcp-group" class="rcp-toolbar btn-group rcp-group-toolbar">
+        <div id="rcp-desc" class="map-step">
+          Step 2: Choose a Climate Scenario
+            <div id="maptips" class="tip2">&nbsp;
+              <span class="tips">The best-case climate change scenario (rcp 2.6) is where C)<sub>2</sub> emissions rise from current-day rates of ~9 billion tons per year, peak around mid-21<sup>st</sup> century, then decline to zero by the end of the 21<sup>st</sup> century. Under the worst-case scenario (rcp 8.5) - "business as usual" - emissions continue to rise at a relatively high rate throughout most of the 21<sup>st</sup> century, then stabilize at ~30 billion tons per year by the end of the century. See <a href="#/headlines/climate">Forest Change</a> for more information.
+              </span>
+            </div>
+            <p><hr class="maps-hr"></p>
+            <div class="btn-row">
+              <div id="rcp26-label" class="col-sm-6 btn-temp">
+                {{!--{{view Forest.RadioButton id="best-case" name="rcp-radio" selectionBinding="selectedRcp" value="rcp26"}}--}}
+                <label class="rcp-label" for="best-case">
+                  <div class="best-case-label"></div>
+                  Best Case
+                </label>
+              </div>
+              <div id="rcp85-label" class="col-sm-6 btn-temp">
+                {{!--{view Forest.RadioButton id="worst-case" class="rcp-radio" selectedBinding="selectedRcp" value="rcp85"}}--}}
+                <label class="rcp-label" for="worst-case">
+                  <div class="worst-case-label"></div>
+                  Worst Case
+                </label>
+              </div>
+            </div>
+        </div>
+      </div>
+        <br>
 
+<!-- set visibility to hidden once functionality has been set!! -->
 
+        <div id="year-group" class="form-group btn-group" class="">
+          <p id="year-desc" class="map-step" class="year-desc-3">
+           Step 3: Pick a year
+            <hr class="maps-hr">
+          </p>
+            {{!--<button class="col-sm-6 btn-control" {{action "switchCurrent"}} value="2011 id="current">
+              <h3 class="map-year">
+                Now
+              </h3>
+            </button>--}}
+            {{!--<button class="col-sm-6 btn-control" {{action "switchFeature"}} value="2081" id="feature">
+              <h3 class="map-year">
+                2081
+              <h3>
+            </button>--}}
+       </div><!-- end year-group -->
 
-    <div id="cesium-mid-col" class="col-md-1 full-height">
-    </div>
-    <div id="cesium-right-col" class="col-md-8 full-height">
-      <div id="cesiumViewContainer" class="container full-hw">
-        <div id="cesiumContainer"></div>
+<!-- need css below -->
+<!-- set slider-group to display:none once functionaliy has been set !! -->
+
+       <div id="slider-group" class="form-group">
+        <p id="slider-desc" class="slider-year">
+          Step 3: Slider through years
+        </p>
+        <hr class="maps-hr">
+        <p></p>
+        <h3 id="period" class="slider-period">
+        </h3>
+        {{!--{{view Forests.SliderView id="time-slider" class="slider-view"}}--}}
+
+       </div>
+
+       <!-- start here -->
+
+      </div>
+      <div id="cesium-mid-col" class="col-md-1 full-height">
+      </div>
+      <div id="cesium-right-col" class="col-md-8 full-height">
+        <div id="cesiumViewContainer" class="container full-hw">
+          <div id="cesiumContainer"></div>
+        </div>
       </div>
     </div>
   </div>
