@@ -6,13 +6,45 @@ export default Ember.Controller.extend({
   species: 'Abies_lasiocarpa',
   year: '2011',
   rcp: 'rcp26',
+  selectedPlant: null,
+  selectedYear: null,
+  selectedRcp: 'rcp26',
   imageryLayers: '',
   myTimer: '',
   viewer: '',
   clock: '',
   years: [1,2,3,4,5,6,7,8],
   activeDate: 1,
-  
+
+
+  plantsSelected: function() {
+    console.log('plant selection changed ' + this.get('selectedPlant'));
+    $('#rcp-group').css('visibility', 'visible');
+    this.remindSubmit();
+  }.observes('selectedPlant'),
+
+    
+  rcpSelected: function() {
+    console.log('rcp selection has changed! ' + this.get('selectedRcp'));
+    $('#year-group').css('visibility', 'visible');
+    if (this.get('selectedRcp') === 'rcp85') {
+      $('#rcp85-label').css('border', '2px solid #bf3604');
+      $('#rcp26-label').css('border', '1px solid white');
+    } else {
+      $('#rcp26-label').css('border', '2px solid #bf3604');
+      $('#rcp85-label').css('border', '1px solid white');
+    }
+    this.remindSubmit();
+    
+  }.observes('selectedRcp'),
+
+  yearSelected: function() {
+    console.log('year selection changed! ' + this.get('selectedYear'));
+    $('#submit-group').css('visibility', 'visible');
+    $('#slider-control').css('visibility', 'visible');
+    
+  }.observes('selectedYear'), 
+
   stepClock: function() {
     var currentDate = this.get('activeDate');
     console.log('StepClock called on cesiumController');
@@ -64,7 +96,7 @@ export default Ember.Controller.extend({
     //Add all the decade layers for the given species and rcp
     //This will need to be refactored to allow it to be species specific
     var proxy = this.get('proxy');
-    var rcp = this.get('rcp');
+    var rcp = this.get('selectedRcp');
     var years = this.get('years');
     var species = this.get('species');
     //Iterate through the years for each layer
@@ -94,7 +126,7 @@ export default Ember.Controller.extend({
   },
 
   changeSpecies: function() {
-    this.set('species', 'Quercus_gambelii');
+    this.set('species', this.get('selectedPlant'));
     console.log('The new species is '+ this.get('species'));
   },
   actions: {
@@ -102,7 +134,20 @@ export default Ember.Controller.extend({
       this.removeLayers();
       this.changeSpecies();
       this.setupLayers();
-  }
-  }
+  },
+
+    pulseObject: function(varname) {
+      $(String(varname)).removeClass('pulse');
+      setTimeout(
+          function() {
+            console.log('Pulsing ' + varname);
+            $(String(varname)).addClass('pulse');}, 1);
+    },
   
+    remindSubmit: function() {
+      if (this.get('selectedYear') !== null) {
+        this.pulseObject('#submit-desc');
+      }
+    },
+  } 
 });

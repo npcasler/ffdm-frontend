@@ -10,7 +10,7 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src': "'self'",
       'font-src': "'self' http://fonts.googleapis.com http://fonts.gstatic.com",
-      'connect-src': "'self' localhost:1337",
+      'connect-src': "'self' http://192.81.135.213:1337",
       'img-src': "'self'",
       'style-src': "'self' http://fonts.googleapis.com",
       'frame-src': "'self'"
