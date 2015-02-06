@@ -1,7 +1,8 @@
 @import 'bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap';
 @import 'bower_components/fontawesome/scss/font-awesome';
 @import 'responsive.scss';
-//sass variables 
+
+// sass variables //
 //colors
 $primary-green: #118c4e;
 $primary-red: red;
@@ -22,8 +23,15 @@ $font-high: 700;
   -webkit-box-shadow: $shadow;
   -moz-box-shadow: $shadow;
 }
+%vertical-align {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+// end sass variables //
 
-//global
+// global //
 html {
   height: 100%;
 }
@@ -65,8 +73,10 @@ html, body {
 label { 
   margin: 0px;
 }
+// end global //
 
-//top navigation
+// application.hbs navigation //
+
 //remove space between body and navbar
 .navbar {
   margin-bottom: 0px !important;
@@ -169,8 +179,9 @@ label {
 .navbar-toggle {
   background-color: grey;
 }
+// end application.hbs navigation //
 
-//welcome
+// welcome.hbs //
 .bcg {
   background-position: center center;
   background-repeat: no-repeat;
@@ -294,7 +305,7 @@ label {
   vertical-align: middle;
   opacity: 1;
 }
-.hs-content {
+.hsContent {
   margin: 150px auto 0 auto;
   display: table-cell;
   vertical-align: middle;
@@ -305,7 +316,6 @@ label {
   padding: 0 8%;
   text-align: center;
 }
-
 .btn-text {
   padding: 20px;
   background: rgba(0,0,0,0.4);
@@ -334,8 +344,9 @@ label {
 .btn-text:active {
   border:none;
 }
+// end welcome.hbs //
 
-// Cesium
+// cesium.hbs //
 .map-overlap {
   background-color: rgba(0,0,0,0.4);
 }
@@ -515,8 +526,7 @@ div.worst-case-label {
   -webkit-transform: scale(1.1);
   border: 2px dashed white; 
 }
-
-// Slider
+//slider
 .slider-year {
   color: white;
   margin-top: 20px;
@@ -555,13 +565,11 @@ div.worst-case-label {
 	border: 0;
 	background-position: 0 0;
 }
-
 /* support: IE8 - See #6727 */
 .ui-slider.ui-state-disabled .ui-slider-handle,
 .ui-slider.ui-state-disabled .ui-slider-range {
 	filter: inherit;
 }
-
 .ui-slider-horizontal {
 	height: .8em;
 }
@@ -579,7 +587,6 @@ div.worst-case-label {
 .ui-slider-horizontal .ui-slider-range-max {
 	right: 0;
 }
-
 .ui-slider-vertical {
 	width: .8em;
 	height: 100px;
@@ -599,8 +606,7 @@ div.worst-case-label {
 .ui-slider-vertical .ui-slider-range-max {
 	top: 0;
 }
-
-// map steps
+//map steps
 .map-step {
   color: white;
   padding-top: 2%;
@@ -622,14 +628,13 @@ hr.maps-hr2 {
   margin: 0px auto 0px auto !important;
   padding: none		!important;
 }
-// maptips
+//maptips
 .tips {
   background: rgba(192,192,192,1);
 }
 #maptips:hover {
 }
-// tip1
-
+//tip1
 div.tip1 {
   background-image: url(images/help.png);
   background-repeat: no-repeat;
@@ -657,8 +662,8 @@ div.tip1 {
   width: 350px !important;
   height: 400px;
 }
-// end tip1
-// tip2
+//end tip1
+//tip2
 div.tip2 {
   background-image: url(images/help.png);
   background-repeat: no-repeat;
@@ -686,8 +691,8 @@ div.tip2 {
   width: 350px !important;
   height: 400px;
 }
-// end tip2
-// tip3
+//end tip2
+//tip3
 div.tip3 {
   background-image: url(images/help.png);
   background-repeat: no-repeat;
@@ -715,5 +720,284 @@ div.tip3 {
   width: 350px !important;
   height: 400px;
 }
-// end tip3
+//end tip3
 
+// end cesium.hbs //
+
+
+// headlines.hbs //
+#headlinesContainer {
+  height: 100%;
+  position: absolute;
+}
+//navigation
+div#rightNavContainer {
+  z-index: 1 !important;
+  position: fixed;
+  right: 40px;
+  padding-top: 120px;
+  @extend %vertical-align;
+}
+div.right-nav-icon {
+  margin: 25px 0px 25px 0px;
+  content: url(images/right-nav-circle.png) no-repeat 0 0;
+  cursor: pointer;
+}
+div.right-nav-icon:hover {
+  content: url(images/right-nav-circle-active.png) no-repeat 0 0;
+}
+div.right-nav-icon:active {
+  content: url(images/right-nav-circle-active.png) no-repeat 0 0;
+}
+div.right-nav-active {
+  content: url(images/right-nav-circle-active.png) no-repeat 0 0;
+  cursor: pointer;
+}
+// end headlines.hbs //
+
+// headline.hbs //
+.down-arrow {
+  font-size: 2em;
+  left: 48%;
+  display: block;
+  position: absolute;
+  bottom: 20px !important;
+  margin: 0px 0px 1% 0px;
+  cursor: pointer;
+}
+.svg-down-arrow {
+  background-image: url(images/down-arrow-white.svg), url(images/down-arrow-red.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 95px;
+  width: 50px;
+}
+.svg-down-arrow:hover {
+  background-image: url(images/down-arrow-red.svg);
+}
+.detail-content {
+  color: black;
+}
+.detail-text-med {
+  font-size: 1.5em
+}
+// end headline.hbs //
+
+
+// cesium.hbs buttons //
+
+@-webkit-keyframes spin {
+  100% {-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes spin {
+  100% {-moz-transform: rotate(360deg);}
+}
+@keyframes spin {
+  100% {transform: rotate(360deg);}
+}
+@-webkit-keyframes pulse {
+  0% {-webkit-transform: scale(1);}
+  50% {-webkit-transform: scale(1.2); color: red;}
+  100% {-webkit-transform: scale(1);}
+}
+@-moz-keyframes pulse {
+  0% {-moz-transform: scale(1);}
+  50% {-moz-transform: scale(1.2); color: red;}
+  100% {-moz-transform: scale(1);}
+}
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.2); color: red;}
+  100%{transform: scale(1);}
+}
+.btn-control {
+  font-family: 'Oswald', 'sans';
+  height: 100%;
+  background-image: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 0%;
+  -webkit-box-shadow: 1px 1px 2px 2px #000;
+  -moz-box-shadow: 1px 1px 2px 2px #000;
+  box-shadow: 1px 1px 2px 2px #000;
+  border: 1px solid white; 
+  color: #fff;
+  font-size: 1em; 
+  text-decoration: none !important;
+  text-shadow: none;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+.btn-control:hover {
+  background: rgba(0,0,0,0.6);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  /*-webkit-transform: scale(1.1);*/
+  /*-moz-transform: scale(1.1);*/
+  border: 2px dashed white;
+  color: red !important;
+}
+.btn-control:focus {
+}
+.btn-control:active {
+  border: 4px solid white;
+}
+.btn-temp {
+  height: 100%;
+  background: none;
+  background-image: none;
+  border-radius: 0%;
+  padding-left: 0px;
+  padding-right: 0px;
+  -webkit-box-shadow: 1px 1px 2px 2px #000;
+  -moz-box-shadow: 1px 1px 2px 2px #000;
+  box-shadow: 1px 1px 2px 2px #000;
+  border: 1px solid white; 
+  color: #fff;
+  font-size: 1em; 
+  text-decoration: none !important;
+  text-shadow: none;
+  text-transform: uppercase;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+}
+.btn-temp:hover {
+  background: rgba(0,0,0,0.3);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  /*-webkit-transform: scale(1.1);*/
+  /*-moz-transform: scale(1.1);*/
+  border: 2px dashed white; 
+}
+.btn-temp:focus {
+}
+.btn-temp:active {
+  border: 4px solid white;
+}
+.btn-map {
+  padding: 15px 20px 15px 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff !important;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  overflow: hidden;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  font: -webkit-small-control;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  top: 0;  
+  -webkit-font-smoothing: antialiased;
+  -webkit-box-shadow: 1px 1px 2px 2px #000;
+  -moz-box-shadow: 1px 1px 2px 2px #000;
+  box-shadow: 1px 1px 2px 2px #000;
+}
+.btn-map:hover {
+    background: rgba(0,0,0,0.6);
+    -webkit-background-origin: padding-box;
+    -moz-background-origin: padding-box;
+    background-attachment: scroll;
+    border: 2px dashed white;
+    color: red !important; 
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    /*-webkit-transform: scale(1.1);*/
+    /*-moz-transform: scale(1,1.1);*/
+}
+.btn-map:focus {
+  outline: 0
+}
+.btn-map:active {
+  background: rgba(0,0,0,0.3);
+  //font-weight:900;
+  border: 2px solid #bf3604;
+  color: #bf3604;
+  cursor: progress;
+}
+.spinner{
+  display: inline-block;
+  opacity: 0;
+  width: 0;
+  
+  -webkit-transition: opacity 0.25s, width 0.25s;
+  -moz-transition: opacity 0.25s, width 0.25s;
+  -o-transition: opacity 0.25s, width 0.25s;
+  transition: opacity 0.25s, width 0.25s;
+}
+.arrow{
+  display: inline-block;
+  opacity: 1;
+  width: auto;
+
+  -webkit-transition: opacity 0s, width 0s;
+  -moz-transition: opacity 0s, width 0s;
+  -o-transition: opacity 0s, width 0s;
+  transition: opacity 0s, width 0s;
+}
+.has-spinner {
+  cursor: progress;
+}
+.has-spinner .spinner {
+  opacity: 1;
+  width: auto;
+  -webkit-animation: spin 1s linear infinite;
+  -moz-animation: spin 1s linear infinite;
+  
+}
+.has-spinner .arrow {
+  opacity: 0;
+  width: 0;
+}
+.spinThis {
+  opacity: 1;
+  width: auto;
+  -webkit-animation: spin 4s infinite;
+  -moz-animation: spin 4s infinite;
+  
+}
+.rcp-label {
+  color: white!important;
+  background: none;
+  width: 100%; 
+  text-align: center;
+  text-transform: none;
+  font-size: 1.2em; 
+  transition-duration: 0.3s;
+  transition-property: all;
+  transition-timing-function: ease-in;
+  font-weight: 300 !important;
+}
+.rcp-label:hover {
+  background: rgba(0,0,0,0.6);
+  //font-weight: 800;
+  color: red !important;
+  -webkit-background-origin: padding-box;
+  -moz-background-origin: padding-box;
+  /*-webkit-transform: scale(1.1);*/
+ /* -moz-transform: scale(1.1);*/
+}
+.pulse {
+  -webkit-animation: pulse 1s 2;
+  -moz-animation: pulse 1s 2;
+ }
+.pulseOnce {
+  -webkit-animation: pulse 1s 1;
+  -moz-animation: pulse 1s 1;
+}
+.navbar-simple .navbar-inner .nav li.active a {
+  color: #118C4E;
+}
+
+// end cesium.hbs buttons //

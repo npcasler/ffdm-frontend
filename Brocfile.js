@@ -3,23 +3,36 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp();
+var pickFiles = require('broccoli-static-compiler');
+var mergeTrees = require('broccoli-merge-trees');
 
-// Bootstrap
 app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js');
 
-// Glyphicons
-var pickFiles = require('broccoli-static-compiler');
+// Glyphicons -- 404 cannot GET
 var bootstrapFonts= pickFiles('bower_components/bootstrap-sass-official/assets/fonts/bootstrap', {
   srcDir: '/',
-  destDir: '/fonts'
+  files: [
+  'glyphicons-halflings-regular.*',
+    ],
+  destDir: '/ffdm/fonts/bootstrap'
 });
 
-var mergeTrees = require('broccoli-merge-trees');
+// Cesium
 var cesiumFiles = pickFiles('vendor/cesium/Build/Cesium', {
   srcDir: '/',
   files: ['*'],
-  destDir: '/assets/cesium'
+  destDir: '/assets/cesium',
 });
+
+// Bootstrap .scss
+var bootstrap = pickFiles('bower_components/bootstrap-sass-official/assets/stylesheets/', {
+  srcDir: '/',
+  files: ['*'],
+  destDir: '/ffdm/fonts/bootstrap'
+});
+
+
+
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
@@ -34,4 +47,4 @@ var cesiumFiles = pickFiles('vendor/cesium/Build/Cesium', {
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-module.exports = mergeTrees([app.toTree(), cesiumFiles, bootstrapFonts]);
+module.exports = mergeTrees([app.toTree(), cesiumFiles, bootstrapFonts, bootstrap]);
