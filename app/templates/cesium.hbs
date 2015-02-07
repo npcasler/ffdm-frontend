@@ -3,9 +3,6 @@
     <div id="cesium-left-col" class="col-md-3 full-height">
       <div class="form-horizontal span8">
         <div id="plant-desc" class="map-step">
-          <button class="button-primary" {{action "reloadLayers"}}>
-            Click me!
-          </button>
           <br>
           Step 1: Choose a species
           <div id="maptips" class="tip1">&nbsp;
@@ -107,7 +104,7 @@
           </p>
           <hr class="maps-hr">
           <p></p>
-          <button type="submit" id="map-submit" class="btn btn-map" {{action 'getMap' target="view.earthInstance"}}>
+          <button type="submit" id="map-submit" class="btn btn-map" {{action 'reloadLayers'}}>
             Get Map
             <i class="spinner">
               <div class="glyphicon glyphicon-refresh">
@@ -124,12 +121,16 @@
 <!-- set cycle-group to display:none once functionality has been set!! -->
 
        <div id="cycle-group" class="form-group" style="">
-        {{!--<button id="map-animate" classs="btn btn-map" {{action 'toggleCycle' target="view.earthInstance"}}> --}}
+        {{!--<button id="map-animate" classs="btn btn-map" {{action 'toggleCycle' target="view.earthInstance"}}> 
 
           <!-- set animate-icon to display:none once functionality has been set!! -->
           <i id="animate-icon" class="glyphicon glyphicon-stop" style="">
           </i>
         </button>--}}
+        <button id="minusYear" class="btn-control" {{action 'minusYear'}}>{{fa-icon "minus"}}</button>
+        {{!--x-toggle toggle='isAnimated'--}}
+        {{view Ember.TextField valueBinding="controller.year" }}
+        <button id="plusYear" class="btn-control" {{action 'plusYear'}}>{{fa-icon "plus"}}</button>
        </div>
       </div>
       <div id="cesium-mid-col" class="col-md-1 full-height">

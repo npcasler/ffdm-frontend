@@ -4,24 +4,24 @@ export default Ember.Controller.extend({
   needs: ['plants'],
   proxy: '/cgi-bin/proxy.cgi?url=http://scooby.iplantcollaborative.org/maxent/',
   species: 'Abies_lasiocarpa',
-  year: '2011',
+  year: '',
   rcp: 'rcp26',
-  selectedPlant: null,
-  selectedYear: null,
+ // selectedYear: null,
   selectedRcp: 'rcp26',
   imageryLayers: '',
   myTimer: '',
   viewer: '',
   clock: '',
+  isAnimated: 0,
   years: [1,2,3,4,5,6,7,8],
-  activeDate: 1,
+  activeDate: 0,
 
 
   plantsSelected: function() {
-    console.log('plant selection changed ' + this.get('selectedPlant'));
+    console.log('plant selection changed ' + this.get('species'));
     $('#rcp-group').css('visibility', 'visible');
     this.remindSubmit();
-  }.observes('selectedPlant'),
+  }.observes('species'),
 
     
   rcpSelected: function() {
@@ -37,6 +37,22 @@ export default Ember.Controller.extend({
     this.remindSubmit();
     
   }.observes('selectedRcp'),
+
+  yearChanged: function() {
+    var active = this.get('activeDate');
+    var newYear = "20" + active + "1";
+    this.set('year', newYear);
+    console.log('Year has changed to '+ this.get('year'));
+  }.observes('activeDate'),
+
+  animateChanged: function() {
+    var animate = this.get('isAnimated');
+    if (animate) {
+      animateMaps(1);
+    } else {
+      animateMaps(0);
+    }
+  },
 
   yearSelected: function() {
     console.log('year selection changed! ' + this.get('selectedYear'));
@@ -109,24 +125,70 @@ export default Ember.Controller.extend({
       var name = species + '-20' + years[i] + '1';
       console.log('Layer name is :'+ name); 
       this.addLayerOption(name, imageryProvider, alpha, 1);
+     
     }
   },
  
   removeLayers: function() {
     //Clear old layers before adding new ones
+    animateMaps(0);
     console.log('Remove layers called');
-    for (var i = this.get('years').length -1; i > 0; i--){
-      var year = this.get('years')[i];
-      console.log('year is ' + year);
-      var layer = this.get('imageryLayers').get(year)
-      console.log("Layer is "+ layer);
+    for (var i = this.get('years').length; i > 0; i--){
+      console.log('Removing layer ' + i+ ' out of '+this.get('years').length+ " layers");
+      var layer = this.get('imageryLayers').get(i)
+      //console.log("Layer is "+ layer);
+      
       this.get('imageryLayers').remove(layer);
-      console.log(this.get('imageryLayers'));
+      //console.log(this.get('imageryLayers'));
+    }
+  },
+//If direction is 1, it will move forward in time, else it goes backward in time
+  changeYear: function(direction) {
+   
+    var active = this.get('activeDate');
+    console.log('Active layer is: '+active);
+    var oldLayer = this.get('imageryLayers').get(active);
+    if (direction === 1){ 
+      if (active < this.get('years').length) {
+        console.log('Moving forward in time');
+        active = active + 1;
+      } else {
+        console.log('Moving to start');
+        active = 1;
+      }
+    } else {
+      if (active > 1) {
+        console.log('Moving backward in time');
+        active = active - 1;
+      } else {
+        console.log('Moving to end');
+        active = this.get('years').length;
+      }
+    }
+    this.set('activeDate', active);
+    var newLayer = this.get('imageryLayers').get(active);
+    oldLayer.alpha = 0;
+    newLayer.alpha = 1;
+  },
+    
+  animateMaps: function(start) {
+    if (start) {
+      var self = this;
+      this.set('myTimer', null);
+      console.log('Animating maps...');
+      this.set('myTimer', setInterval(function() {
+        self.changeYear(1);
+        console.log("Animated");
+      }, 1000));
+    } else {
+      console.log('Stopping animation');
+      clearInterval(this.get('myTimer'));
     }
   },
 
+
   changeSpecies: function() {
-    this.set('species', this.get('selectedPlant'));
+    this.set('species', this.get('species'));
     console.log('The new species is '+ this.get('species'));
   },
   actions: {
@@ -135,6 +197,13 @@ export default Ember.Controller.extend({
       this.changeSpecies();
       this.setupLayers();
   },
+
+    plusYear: function() {
+      this.changeYear(1);
+    },
+    minusYear: function() {
+      this.changeYear(0);
+    },
 
     pulseObject: function(varname) {
       $(String(varname)).removeClass('pulse');
