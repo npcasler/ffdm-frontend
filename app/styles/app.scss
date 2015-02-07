@@ -73,6 +73,12 @@ html, body {
 label { 
   margin: 0px;
 }
+h1, h2, .h1, .h2  {
+  text-shadow: 2px 2px 4px #000000;
+}
+h3, h4, h5, h6, p, div {
+  font-weight: 300;
+}
 // end global //
 
 // application.hbs navigation //
@@ -606,6 +612,178 @@ div.worst-case-label {
 .ui-slider-vertical .ui-slider-range-max {
 	top: 0;
 }
+.map-animation {
+	width: 100%;
+	height: 52px;
+	display: block;
+  margin: 0 0 20px 0; 
+	text-align: center;
+	overflow: hidden;
+}
+.map-animation label {
+	width: 68px;
+	height: 30px;
+	display: inline-block;
+	position: relative;
+	border-radius: 14px;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding-box;
+	background-clip: padding-box;
+	background: rgb(138,138,138);
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(56,56,56,1) 0%, rgba(88,88,88,1) 24%, rgba(120,120,120,1) 55%, rgba(152,152,152,1) 100%);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(56,56,56,1) 0%, rgba(88,88,88,1) 24%, rgba(120,120,120,1) 55%, rgba(152,152,152,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(56,56,56,1) 0%, rgba(88,88,88,1) 24%, rgba(120,120,120,1) 55%, rgba(152,152,152,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(56,56,56,1) 0%, rgba(88,88,88,1) 24%, rgba(120,120,120,1) 55%, rgba(152,152,152,1) 100%);
+	background: radial-gradient(center, ellipse cover, rgba(56,56,56,1) 0%, rgba(88,88,88,1) 24%, rgba(120,120,120,1) 55%, rgba(152,152,152,1) 100%);
+	/*box-shadow: inset 0 2px 5px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 0 rgba(0, 0, 0, 0.1); */
+	line-height: 30px;
+	font-style: normal;
+	color: #fff;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+	/*-webkit-box-reflect: below 0px*/
+	/*	-webkit-gradient(linear, left top, left bottom,*/
+	/*	color-stop(0.5, transparent),*/
+	/*	to(rgba(255, 255, 255, 0.3)));*/
+	-moz-transition: all 1s ease-in;
+	-webkit-transition: all 1s ease-in;
+	-o-transition: all 1s ease-in;
+	transition: all 1s ease-in;
+	cursor: pointer;
+}
+.map-animation label.attention:hover:before {
+	content: "☢"; /* &#9762; */
+	font-size: 22px
+}
+.map-animation input[type=checkbox]:checked ~ label.attention:hover:before  {
+	content: "on";
+	font-size: 14px
+}
+.map-animation label:before {
+	content: "off";
+	margin-left: 18px;
+	text-transform: uppercase;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.map-animation input[type=checkbox]:checked ~ label:before {
+	content: "on";
+	text-transform: uppercase;
+	margin-right: 30px;
+	margin-left: 0;
+}
+.map-animation input[type=checkbox]:checked ~ label:after {
+	content: "";
+	right: -130px;
+}
+.map-animation input[type=checkbox]:checked ~ label{
+	background: rgb(141,173,51);
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(0,185,0,1) 0%, rgba(0,150,0,1) 24%, rgba(0,110,0,1) 55%, rgba(0,70,0,1) 100%);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(0,185,0,1) 0%, rgba(0,150,0,1) 24%, rgba(0,110,0,1) 55%, rgba(0,70,0,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(0,185,0,1) 0%, rgba(0,150,0,1) 24%, rgba(0,110,0,1) 55%, rgba(0,70,0,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(0,185,0,1) 0%, rgba(0,150,0,1) 24%, rgba(0,110,0,1) 55%, rgba(0,70,0,1) 100%);
+	background: radial-gradient(center, ellipse cover, rgba(0,185,0,1) 0%, rgba(0,150,0,1) 24%, rgba(0,110,0,1) 55%, rgba(0,70,0,1) 100%);
+}
+.map-animation input[type=checkbox]:checked ~ label i {
+	right: -6px;
+}
+/* hide checkbox */
+.map-animation input {
+	opacity: 0;
+  -webkit-transition: all 0.3s ease-out; 
+     -moz-transition: all 0.3s ease-out; 
+       -o-transition: all 0.3s ease-out; 
+          transition: all 0.3s ease-out; 
+} 
+.map-animation-play {
+	width: 100%;
+	height: 52px;
+	display: block;
+  margin: 0 0 20px 0; 
+	text-align: center;
+	overflow: hidden;
+}
+.map-animation-play label {
+	width: 68px;
+	height: 30px;
+	display: inline-block;
+	position: relative;
+	border-radius: 14px;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding-box;
+	background-clip: padding-box;
+	background: rgb(138,138,138);
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(56,56,56,1) 0%, rgba(88,88,88,1) 24%, rgba(120,120,120,1) 55%, rgba(152,152,152,1) 100%);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(56,56,56,1) 0%, rgba(88,88,88,1) 24%, rgba(120,120,120,1) 55%, rgba(152,152,152,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(56,56,56,1) 0%, rgba(88,88,88,1) 24%, rgba(120,120,120,1) 55%, rgba(152,152,152,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(56,56,56,1) 0%, rgba(88,88,88,1) 24%, rgba(120,120,120,1) 55%, rgba(152,152,152,1) 100%);
+	background: radial-gradient(center, ellipse cover, rgba(56,56,56,1) 0%, rgba(88,88,88,1) 24%, rgba(120,120,120,1) 55%, rgba(152,152,152,1) 100%);
+	/*box-shadow: inset 0 2px 5px 0 rgba(0, 0, 0, 0.1), inset 0 -1px 0 0 rgba(0, 0, 0, 0.1); */
+	line-height: 30px;
+	font-style: normal;
+	color: #fff;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+	/*-webkit-box-reflect: below 0px*/
+	/*	-webkit-gradient(linear, left top, left bottom,*/
+	/*	color-stop(0.5, transparent),*/
+	/*	to(rgba(255, 255, 255, 0.3)));*/
+	-moz-transition: all 1s ease-in;
+	-webkit-transition: all 1s ease-in;
+	-o-transition: all 1s ease-in;
+	transition: all 1s ease-in;
+	cursor: pointer;
+}
+.map-animation-play label.attention:hover:before {
+	content: "☢"; /* &#9762; */
+	font-size: 22px
+}
+.map-animation input[type=checkbox]:checked ~ label.attention:hover:before  {
+  content: ""; 
+	font-size: 14px
+}
+.map-animation-play label:before {
+/*	content: ""; */
+  content: 'Play';
+	margin-left: 18px;
+	text-transform: uppercase;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.map-animation-play input[type=checkbox]:checked ~ label:before {
+/* 	content: ""; */
+  content: 'pause';
+	text-transform: uppercase;
+	margin-right: 14px;
+	margin-left: 0;
+}
+.map-animation-play input[type=checkbox]:checked ~ label:after {
+	content: "";
+	right: -130px;
+}
+.map-animation-play input[type=checkbox]:checked ~ label{
+	background: rgb(141,173,51);
+	background: -webkit-radial-gradient(center, ellipse cover, rgba(0,185,0,1) 0%, rgba(0,150,0,1) 24%, rgba(0,110,0,1) 55%, rgba(0,70,0,1) 100%);
+	background: -moz-radial-gradient(center, ellipse cover, rgba(0,185,0,1) 0%, rgba(0,150,0,1) 24%, rgba(0,110,0,1) 55%, rgba(0,70,0,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover, rgba(0,185,0,1) 0%, rgba(0,150,0,1) 24%, rgba(0,110,0,1) 55%, rgba(0,70,0,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover, rgba(0,185,0,1) 0%, rgba(0,150,0,1) 24%, rgba(0,110,0,1) 55%, rgba(0,70,0,1) 100%);
+	background: radial-gradient(center, ellipse cover, rgba(0,185,0,1) 0%, rgba(0,150,0,1) 24%, rgba(0,110,0,1) 55%, rgba(0,70,0,1) 100%);
+}
+.map-animation-play input[type=checkbox]:checked ~ label i {
+	right: -6px;
+}
+/* hide checkbox */
+.map-animation-play input {
+	opacity: 0;
+  -webkit-transition: all 0.3s ease-out; 
+     -moz-transition: all 0.3s ease-out; 
+       -o-transition: all 0.3s ease-out; 
+          transition: all 0.3s ease-out; 
+} 
 //map steps
 .map-step {
   color: white;
@@ -756,6 +934,22 @@ div.right-nav-active {
 // end headlines.hbs //
 
 // headline.hbs //
+hr.headline {
+  margin: 25px 0;
+  height: 1px;
+  background: #a8a8a8;
+  background: -webkit-gradient(linear, 0 0, 100% 0, from(white), to(white), color-stop(50%, #a8a8a8));
+}
+.detail {
+  max-height: 0;
+  overflow: hidden;
+  background: white;  
+  text-align: center;
+  width: 100%;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
 .down-arrow {
   font-size: 2em;
   left: 48%;
@@ -775,15 +969,535 @@ div.right-nav-active {
 .svg-down-arrow:hover {
   background-image: url(images/down-arrow-red.svg);
 }
-.detail-content {
+#headline-detail {
   color: black;
+  font-size: 1.3em;
 }
-.detail-text-med {
-  font-size: 1.5em
+#detail-content div > p {
+  text-align: left;
 }
+#summary  {
+  background: url(images/DSC-tahoe-forests.jpg); 
+  background-size: cover;
+  background-attachment: fixed;
+}
+#cover-change{
+  background: url(images/DSC-yosemite-forests.jpg) 50% 0 no-repeat; background-size: cover;  
+  background-attachment: fixed;
+}
+#forest-loss{
+  background: url(images/dead_trees.jpg) 50% 0 no-repeat; background-size: cover; 
+  background-attachment:fixed;
+}
+#desert-expansion{
+  background: url(images/DSC_0360.jpg) 50% 0 no-repeat; background-size: cover; 
+  background-attachment: fixed;
+}
+#range-change{
+  background: url(images/DSC_4674.jpg) 50% 0 no-repeat; background-size: cover;  
+  background-attachment: fixed;
+}
+#elevation{
+  background: url(images/dead_trees_with_plane.jpg) 50% 0 no-repeat; background-size: cover; 
+  background-attachment: fixed;
+}
+#shift {
+  background: url(images/DSC_5716.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#services {
+  background: url(images/meadow.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#impacts {
+  background: url(images/mbp_damage.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#biblio {
+  background: url(images/spruce_bud.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#welcome {
+  background: url(images/columbine_and_aspen.jpg) 50% 0 no-repeat; background-size: cover; 
+  background-attachment: fixed;
+}
+#intro {
+  background: url(images/summer_aspens.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#screen-welcome {
+  background: url(images/welcome.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#screen-maps {
+  background: url(images/map.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#screen-about {
+  background: url(images/about.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#screen-methods {
+  background: url(images/methods.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#screen-intro {
+  background: url(images/intro.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#climate-home { 
+  background: url(images/DSC-denver-forests.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#climate-overview {
+  background: url(images/image_2.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#climate-current {
+  background: url(images/image_3.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#climate-future {
+  background: url(images/image_4.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#climate-choice {
+  background: url(images/image_5.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#climate-temp {
+  background: url(images/DSC-ca-redwood-forest.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#climate-precip {
+  background: url(images/image_7.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#climate-influence {
+  background: url(images/image_8.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#climate-mortality {
+  background: url(images/image_10.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#climate-dry {
+  background: url(images/image_12.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#climate-cite {
+  background: url(images/image_11.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#method-detail {
+  background: url(images/image_13.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#desert-increase {
+  background: url(images/pinyon.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#summary-diff {
+  background: url(images/IMG_0043_2.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+
+}
+#summary-green {
+  background: url(images/green-forest.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#summary-elev {
+  background: url(images/DSC_0409.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#summary-impacts {
+  background: url(images/IMG_0519_2.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#summary-cite {
+  background: url(images/DSC_6057.jpg) 50% 0 no-repeat; background-size: cover;
+  background-attachment: fixed;
+}
+#lost-main {
+  background: url(images/DSC-portland-forests.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#lost-summary {
+  background: url(images/DSC_5688.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#lost-humanity{
+  background: url(images/DSC_4974.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#lost-three{
+  background: url(images/DSC_7342.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#lost-fire {
+ background: url(images/DSC_7083.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#lost-water {
+  background: url(images/DSC_9838.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#lost-climate {
+  background: url(images/IMG_1497.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#lost-movies {
+  background: url(images/DSC_6055.jpg) 50% 0 no-repeat;  background-size: cover;  background-attachment: fixed;
+}
+#lost-references {
+  background: url(images/IMG_8017.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#about-1 {
+  background: url(images/DSC-ca-oaks.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#about-2 {
+  background: url(images/DSC_4382.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#about-3 {
+  background: url(images/DSC_4216.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#about-4 {
+  background: url(images/DSC_4048.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#about-5 {
+  background: url(images/DSC_5290.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#about-6 {
+  background: url(images/DSC_5121.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+#about-7 {
+  background: url(images/DSC_5121.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+}
+.highlight {
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+// figures
+div.best-case-label{
+  height: 60px;
+  width: 60px;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  background: url(images/best_case_red_60.png) no-repeat 0 0;
+}
+div.worst-case-label {
+  height: 60px;
+  width: 60px;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  background: url(images/stable_red_60.png) no-repeat 0 0;
+}
+div.figure {
+  width: 28vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2%;
+}
+div.global-temp-and-co2 {
+  text-align: center;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/global_temp_and_co2.png) no-repeat 0 0;
+}
+div.average_temp_global {
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/3_CS_average_annual_temp_global_V7_cropped.png) no-repeat 0 0;
+}
+div.temp_projection {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/4_CS_global_temp_projections_V7.png) no-repeat 0 0;
+}
+div.avg_precip {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/5_CS_global_precip_projections_V10.png) no-repeat 0 0;
+}
+div.snow_water {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/7_SW_snow_water.png) no-repeat 0 0;
+}
+div.precip-change {
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/precip-change.jpg) no-repeat 0 0;
+}
+div.precip-change-legend {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/precip-change-legend.jpg) no-repeat 0 0;
+}
+div.forest-vulnerable {
+  content: url(images/8_Forests_climate_envelope_analysis_V3.png) no-repeat 0 0;
+}
+/* Figures for the science summary page*/
+div.forest-cover {
+  content: url(images/combinedForestOnly.jpg) no-repeat 0 0;
+  width: 40vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+div.atmo-current {
+  content: url(images/atmo-current.jpg) no-repeat 0 0;
+}
+div.atmo-rcp26 {
+  content: url(images/atmo-rcp26.jpg) no-repeat 0 0;
+}
+div.atmo-rcp85 {
+  content: url(images/atmo-rcp85.jpg) no-repeat 0 0;
+}
+div.abies_range {
+  width: 25vw;
+  margin-left:auto;
+  margin-right:auto;
+  content: url(images/chart_abies_lasiocarpa.jpg);
+}
+div.eng-range {
+  width: 25vw;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/chart_picea_engelmannii.jpg);
+}
+div.cont-range {
+  width: 25vw;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/chart_pinus_contorta.jpg);
+}
+div.glab-range {
+  width: 25vw;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/chart_acer_glabrum.jpg);
+}
+div.ponderosa-range {
+  width: 25vw;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/chart_pinus_ponderosa.jpg);
+}
+div.jeffrey-range {
+  width: 25vw;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/chart_pinus_jeffreyi.jpg);
+}
+div.pinyon-range {
+  width: 25vw;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/chart_pinus_edulis.jpg);
+}
+div.menziesii-range {
+  width: 25vw;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/chart_pseudotsuga_menziesii.jpg);
+}
+div.hetero-range {
+  width: 25vw;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/chart_tsuga_heterophylla.jpg);
+}
+div.aspen-current {
+  content: url(images/aspen-current.jpg);
+}
+div.aspen26 {
+  content: url(images/aspen26.jpg);
+}
+div.aspen85 {
+  content: url(images/aspen85.jpg);
+}
+div.butte-current {
+  content: url(images/butte-current.jpg);
+}
+div.butte-26 {
+  content: url(images/butte-26.jpg);
+}
+div.butte-85 {
+  content: url(images/butte-85.jpg);
+}
+div.subalpine26 {
+  width: 28vw;
+  content: url(images/subalpine26.jpg);
+  float: left;
+}
+div.subalpine-legend {
+  width: 15vw;
+  content: url(images/subalpine_legend.jpg);
+  margin-left: auto;
+  margin-right: auto;
+}
+div.subalpine85 {
+  width: 28vw;
+  content: url(images/subalpine85.jpg);
+  float: right;
+}
+div.arid26 {
+ width: 28vw;
+  content: url(images/arid26.jpg);
+  float: left;
+}
+div.arid85 {
+  width: 28vw;
+  content: url(images/arid85.jpg);
+  float: right;
+}
+div.arid-legend {
+  width: 15vw;
+  content: url(images/arid_legend.jpg);
+  margin-left: auto;
+  margin-right: auto;
+}
+div.habitat {
+  width: 50vw; 
+  content: url(images/Habitat.jpg);
+}
+div.habitat-legend {
+  width: 15vw;
+  content: url(images/habitat-legend.jpg);
+  margin-left: 50%;
+  margin-right: auto;
+}
+div.lemmon-current {
+  height: auto;
+  width: auto;
+  content: url(images/lemmon-current.jpg);
+}
+div.lemmon-26 {
+  height: auto;
+  width: auto;
+  content: url(images/lemmon-26.jpg);
+}
+div.lemmon-85 {
+  height: auto;
+  width: auto;
+  content: url(images/lemmon-85.jpg);
+}
+div.greggii-range {
+  width: 25vw;
+  height: auto;
+  content: url(images/Acacia_greggii.jpg);
+}
+div.region {
+  width: 45vw;
+  height: auto;
+  content: url(images/Region.jpg);
+  margin-left: auto;
+  margin-right: auto;
+}
+div.region-legend {
+  width: 15vw;
+  height: auto;
+  content: url(images/Region-legend.jpg);
+  margin-left: 50%;
+  margin-right: auto;
+}
+div.tesota-range { 
+  width: 25vw;
+  height: auto;
+  content: url(images/Olneya_tesota.jpg);
+}
+div.gambelii-range {
+  width: 25vw;
+  height: auto; 
+  content: url(images/Quercus_gambelii.jpg);
+}
+div.osteo-range {
+  
+  width: 25vw;
+  height: auto;
+  content: url(images/Juniperus_osteosperma.jpg);
+}
+div.elev26 {
+  height: auto;
+  width: auto;
+  content: url(images/elev26.jpg);
+}
+div.elev85 {
+  content: url(images/elev85.jpg);
+}
+div.aces {
+  width:500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/ACES_grey_whole.jpg);
+}
+div.iplant {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/iplant_logo_300.jpg);
+}
+div.ua {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/UAsci.png);
+}
+div.ltrr {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/ltrr.png);
+}
+div.uagist {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/uagist.png);
+}
+div.bien {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/logo_bien.png);
+}
+div.nceas {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/logo_nceas.png);
+}
+div.sfi {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  content: url(images/logo_santa_fe_institute.png);
+}
+
 // end headline.hbs //
 
+// headlines.detail //
 
+#headline-content{
+}
+#detail-content {
+}
+.detail-content-text {
+}
+.detail-content-figure {
+}
+.detail-content-about {
+}
+.detail-content-methods {
+}
+.detail-content-mountain {
+}
+.detail-content-figure {
+}
+.figure-title {
+}
 // cesium.hbs buttons //
 
 @-webkit-keyframes spin {
@@ -1001,3 +1715,241 @@ div.right-nav-active {
 }
 
 // end cesium.hbs buttons //
+
+
+
+
+
+
+// what is this? //
+
+.fadeOut {
+  opacity: 1;
+  -webkit-transition: 1s ease-out;
+     -moz-transition: 1s ease-out;
+       -o-transition: 1s ease-out;
+          transition: 1s ease-out;
+     }
+//
+
+// maps legend //
+
+div.map-legend > p {
+  color: white;
+  font-family: "Oswald", sans-serif !important;
+//  padding-top: 200px;
+
+.suitability {
+  margin-bottom: 10px;
+}
+
+//maps.hbs - google earth window repsonsiveness
+
+}
+.map-legend2 {
+  color: white;
+  font-family: "Oswald", sans-serif !important;
+}
+
+@media screen and (max-height: 1200px){
+  div.ge { height: 1050px; }
+}
+@media screen and (max-height: 1080px){
+  div.ge { height: 930px; }
+}
+@media screen and (max-height: 1050px){
+  div.ge { height: 900px; }
+}
+@media screen and (max-height: 1024px){
+  div.ge { height: 800px; }
+}
+@media screen and (max-height: 900px) {
+  div.ge { height: 650px; }
+}
+@media screen and (max-height: 768px){
+  div.ge { height: 550px; }
+}
+@media screen and (max-height: 600px){
+  div.ge { height: 450px; }
+}
+
+
+// end maps legend //
+
+// chart/mountain //
+.mountain {
+  max-height: 0;
+  overflow: hidden;
+  background: white;  
+  text-align: center;
+  width: 100%;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+ #gain-names .row div {
+  display: table;
+  margin: 0px auto 10px auto;
+}
+img.img-chart {
+  width: 25vw;
+  height: auto;
+  
+}
+
+img.img-fig {
+  width: 30vw;
+}
+
+.btn-chart {
+  padding: 0;
+  margin-bottom: 2%;
+  height: 100%;
+  background: none;
+  background-image: none;
+  border: #118C4E;
+  color: #118C4E;
+  font-size: .75em;
+  letter-spacing: 1px;
+  //font-weight: 300;
+  text-decoration: none !important;
+  text-shadow: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out 0s;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+}
+
+.btn-chart:hover {
+  background: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color:#bf3604;
+}
+.btn-chart:active {
+  color: red;
+}
+
+.btn-chart-active {
+  color: red;
+}
+
+#chartContainer {
+  max-height: 0;
+  
+  background: white;  
+  text-align: center;
+  width: 100%;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+//#aspen-names .row + div {
+//  display: table;
+//  margin: 0px auto 10px auto;
+//}
+
+#local-container h3 {
+  color: black;
+}
+#global-container h3 {
+  color: black;
+}
+// about.hbs //
+
+.about-padding {
+  padding: 0px 8% 0px 8%;
+}
+
+.about-li {
+  text-decoration: underline;
+  font-style: none;
+}
+
+#about-list {
+  text-align: center;
+  list-style-type: none;
+  margin-left: auto;
+  margin-right: auto;
+  display: table;
+  width: 60%;
+  padding: 1% 1% 3% 1%;
+//  margin: 0 auto;
+}
+
+#about-list li {
+  display: inline;
+  padding: 2% 3% 2% 3%;
+}
+
+a.aces-link:link {
+  font-style: italic !important;
+  text-decoration: underline;
+  color: #000 !important;
+}
+a.aces-link:visited {
+  font-style: italic !important;
+  text-decoration: underline;
+  color: #000 !important;
+}
+a.aces-link:hover {
+  font-style: italic !important;
+  text-decoration: underline;
+  color: red !important;
+}
+#who-links a:link {
+//  font-style: italic !important;
+  text-decoration: underline;
+  color: #000 !important;
+}
+#who-links a:visited {
+//  font-style: italic !important;
+  text-decoration: underline;
+  color: #000 !important;
+}
+#who-links a:hover {
+//  font-style: italic !important;
+  text-decoration: underline;
+  color: red !important;
+}
+
+.btn-about {
+  font-family: 'Oswald', 'sans';
+  font-style: italic;
+  text-decoration: underline;
+  padding: 10px;
+  background: rgba(0,0,0,0.4);
+  background-image: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline;
+  color: #fff;
+  letter-spacing: 1px;
+  //font-weight: 300;
+  font-size: 1.5em;
+  text-align: justify;
+  text-shadow: none;
+  text-transform: none;
+  transition: all 0.1s ease-in-out 0s;
+  -webkit-transition: all 0.1s ease-in-out 0s;
+}
+
+.btn-about:hover {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: red!important;
+  text-decoration: underline;
+}
+
+.btn-about:focus {
+  outline: 0;
+}
+
+.btn-about:active {
+  border: none;
+}
+
+
+// end about.hbs //

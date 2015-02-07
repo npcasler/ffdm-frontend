@@ -1,11 +1,11 @@
-<section class="full-height: {{bind-attr id="headline.classId"}}>
+<section class="full-height" {{bind-attr id="headline.classId"}}>
   <div class="bcg">
     <div class="fill-lite">
       <div class="hsContainer">
         <div class="hsContent">
           <h1>{{headline.title}}</h1>
           {{#if headline.detail}}
-            <button class="btn-text" {{action "toggleDetail" headline.detailId}}>Learn More <i class="glyphicon glyphicon-chevron-down"></i></button>
+            <button class="btn-text" {{action "toggleDetail" headline.detailId}}>Learn More {{fa-icon "chevron-down"}}</i></button>
           {{else}}
           {{/if}}
           <div class="down-arrow">
@@ -22,22 +22,24 @@
 
 <div class="detail" {{bind-attr id="headline.detailId"}}>
   <div class="hsContainer">
-    <div class="hsContent detail-content">
+    <div id="headline-detail" class="hsContent">
   <div class="row">
     <div class="col-md-12">
       <h2></h2>
      </div>
    </div>
+    <div id="detail-content">
    {{{headline.detail}}}
+   </div>
    {{#if headline.chart}}
-    <div class="row detail-text-med"
+    <div class="row">
       Click on a tree species below<br><br>
     </div>
     {{else}}
     {{/if}}
 
     
-    <button class="btn-text" {{action "toggleDetail" headline.detailId}}>Close <i class="glyphicon glyphicon-chevron-up"></i></button>
+    <button class="btn-text" {{action "toggleDetail" headline.detailId}}>Close {{fa-icon "chevron-up"}}</button>
     </div>
   </div>
 </div>
