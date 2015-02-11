@@ -4,7 +4,6 @@
 <!--      <div class="form-horizontal span8">-->
       <div id="select-group">
         <div id="plant-desc" class="map-step">
-          <br>
           Step 1: Choose a species
           <div id="maptips" class="tip1">&nbsp;
             <span class="tips">
@@ -33,9 +32,6 @@
           </div>
         </div>
       </div>
-          
-    <!-- uncomment .rcp-group-toolbar {visibility:hidden;} once functionality has been set for buttons -->
-
       <div id="rcp-group" class="rcp-toolbar btn-group rcp-group-toolbar">
         <div id="rcp-desc" class="map-step">
           Step 2: Choose a Climate Scenario
@@ -62,99 +58,111 @@
             </div>
         </div>
       </div>
-        <br>
-
-<!-- set visibility to hidden once functionality has been set!! -->
-
-        <div id="year-group" class="form-group btn-group full-width">
+        <!-- year on top, controls on bottom -->
+        <div id="year-group" class="form-group btn-group">
           <p id="year-desc" class="map-step" class="year-desc-3">
            Step 3: Pick a year
             <hr class="maps-hr">
           </p>
-            <div id="year-container" class="col-sm-12">
-              <div class="math-container col-sm-3">
-
+          <div id="year-field-container" class="col-sm-12">
+            {{view Ember.TextField valueBinding="controller.year" class="year-field"}}
+          </div>
+          <div id="year-controls-container" class="col-sm-12">
+            <div class="minus-container col-sm-3">
               <button id="minusYear" class="btn-control" {{action 'minusYear'}}>{{fa-icon "minus"}}</button>
             </div>
-               <div class="col-sm-6 year-field-container">
-              {{view Ember.TextField valueBinding="controller.year" class="year-field"}}
+            <div class="play-container col-sm-6">
+              <button id="playPause" class="btn-control fa fa-play" {{action 'playPause'}}></button> 
             </div>
-
-            <div class="math-container col-sm-3">
+            <div class="plus-container col-sm-3">
               <button id="plusYear" class="btn-control" {{action 'plusYear'}}>{{fa-icon "plus"}}</button>
             </div>
           </div>
 
-            {{!--
-            <button class="col-sm-6 btn-control" {{action "switchCurrent"}} value="2011 id="current">
-              <h3 class="map-year">
-                Now
-              </h3>
-            </button>
-            <button class="col-sm-6 btn-control" {{action "switchFeature"}} value="2081" id="feature">
-              <h3 class="map-year">
-                2081
-              <h3>
-            </button>
-            --}}
-        </div><!-- end year-group -->
+        </div><!-- end year-group; year on top, controls on bottom -->
 
-        <div>
-        <button id="playPause" class="btn-control fa fa-play" {{action 'playPause'}}></button> 
-        </div>
-
-<!-- need css below -->
-<!-- set slider-group to display:none once functionaliy has been set !! -->
-
-       <div id="slider-group" class="form-group">
-
-       <!-- no longer needed -->
+      
+       <!-- year and controls on same line -->
        {{!--
-       <p id="slider-desc" class="slider-year">
-          Step 3: Slider through years
-        </p>
-        <hr class="maps-hr">
-        <p></p>
-        <h3 id="period" class="slider-period">
-        </h3>
-        {{!--{{view Forests.SliderView id="time-slider" class="slider-view"}}--}}
+         <div id="year-group" class="form-group btn-group">
+          <p id="year-desc" class="map-step" class="year-desc-3">
+           Step 3: Pick a year
+            <hr class="maps-hr">
+          </p>
+          <div id="year-controls-container" class="col-sm-12">
+            <div id="year-field-container" class="col-sm-5">
+              {{view Ember.TextField valueBinding="controller.year" class="year-field"}}
+            </div>
+            <div class="minus-container col-sm-2">
+              <button id="minusYear" class="btn-control" {{action 'minusYear'}}>{{fa-icon "minus"}}</button>
+            </div>
+            <div class="play-container col-sm-3">
+              <button id="playPause" class="btn-control fa fa-play" {{action 'playPause'}}></button> 
+            </div>
+            <div class="plus-container col-sm-2">
+              <button id="plusYear" class="btn-control" {{action 'plusYear'}}>{{fa-icon "plus"}}</button>
+            </div>
+          </div>
+
+        </div><!-- end year-group; year on top, controls on bottom -->
         --}}
 
-       </div>
-       <!-- add submit-group visibility:hidden once functionality set!! -->
        <div id="submit-group" class="form-group">
-        <div style="margin-bottom:15px;">
-          <p id="submit-desc" style="color:white;margin-top:20px;font-size:1.5em;">
-            Step 4: Get the map
-          </p>
-          <hr class="maps-hr">
-          <p></p>
-          <button type="submit" id="map-submit" class="btn btn-map" {{action 'reloadLayers'}}>
-            Get Map
-            <i class="spinner">
-              <div class="glyphicon glyphicon-refresh">
-              </div>
-            </i>
-            <span class="arrow">
-              <i class="glyphicon glyphicon-arrow-right">
+         <p id="submit-desc">
+           Step 4: Get the map
+         </p>
+         <hr class="maps-hr">
+         <p></p>
+         <div id="get-map-container">
+          <div id="get-map">
+            <button type="submit" id="map-submit" class="btn btn-map" {{action 'reloadLayers'}}>
+              Get Map
+              <i class="spinner">
+                <div class="glyphicon glyphicon-refresh">
+                </div>
               </i>
-            </span>
-          </button>
+              <span class="arrow">
+                <i class="glyphicon glyphicon-arrow-right">
+                </i>
+              </span>
+            </button>
+          </div>
         </div>
        </div>
-
-<!-- set cycle-group to display:none once functionality has been set!! -->
-
-       <div id="cycle-group" class="form-group" style="">
-        {{!--<button id="map-animate" classs="btn btn-map" {{action 'toggleCycle' target="view.earthInstance"}}> 
-
-          <!-- set animate-icon to display:none once functionality has been set!! -->
-          <i id="animate-icon" class="glyphicon glyphicon-stop" style="">
-          </i>
-        </button>--}}
-               </div>
       </div>
       <div id="cesium-mid-col" class="col-md-1 full-height">
+        <div id="map-legend">
+          <h3>Legend</h3>
+          <hr class="maps-hr"> 
+          <div class="map-legend-sub">
+           Suitability
+            <div id="maptips" class="tip3">&nbsp;
+              <span class="tips">
+                <h3>About Suitablility Legend</h3>
+                <p>Different shades of suitability measures how likely the local climate will match the temperature, precipitation, and seasonality requirements for the species of interest.</p>
+                <ul class="suitability">
+                  <li style="margin-bottom:10px;" ><u><b>High</b></u>- High likelihood species will thrive and grow in most locations. Species likely to be most common here.</li>
+                  <li style="margin-bottom:10px;"><u><b>Medium</b></u>- Some likelihood that area will support growth of species but abundance will be more variable.</li>
+                  <li class="suitability"><u><b>Low</b></u>- Low likelihood that species will be present. Species will likely be quite rare and isolated to specific microevironments.</li>
+                </ul>
+              </span>
+            </div>        
+            <div id="suitability-circles">
+              <div class="row">
+                <p class="map-legend2">High</p>
+                <div class="oval-high"></div>
+              </div>
+              <div class="row">
+                <p class="map-legend2">Medium</p>
+                <div class="oval-mid"></div>
+              </div>
+              <div class="row">
+                <p class="map-legend2">Low</p>
+                <i class="oval-low"></i>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div id="cesium-right-col" class="col-md-8 full-height">
         <div id="cesiumViewContainer" class="container full-hw">

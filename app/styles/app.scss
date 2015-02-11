@@ -394,9 +394,12 @@ h3, h4, h5, h6, p, div {
 }
 #cesium-left-col {
   margin-top: 120px;
+  padding-left: 6px !important;
 }
 #cesium-mid-col {
   margin-top: 120px;
+  padding-right: 0px !important;
+  text-align: center;
 }
 #cesium-right-col {
   padding-right: 0px !important;
@@ -802,7 +805,7 @@ div.worst-case-label {
 //map steps
 .map-step {
   color: white;
-  padding-top: 2%;
+//  padding-top: 2%;
   font-size: 1.5em;
 }
 hr.maps-hr {
@@ -825,7 +828,8 @@ hr.maps-hr2 {
 .tips {
   background: rgba(192,192,192,1);
 }
-#maptips:hover {
+.tip1, .tip2, .tip3 {
+  cursor: pointer;
 }
 //tip1
 div.tip1 {
@@ -1539,22 +1543,37 @@ div.sfi {
   50% {transform: scale(1.2); color: red;}
   100%{transform: scale(1);}
 }
-#select-group, #year-group, #submit-group, #rcp-group {
+#select-group, #year-group, #submit-group, #rcp-group, #map-legend {
   background-color: rgba(0,0,0,0.3);
+  border: 3px solid rgba(255,255,255,0.3);
   border-radius: 5px;
-  padding: 2.3%;
-  margin: 4%;
+  padding: 2.4%;
+  margin: 10px;
   width: 100%;
 }
-#minusYear, #plusYear, {
+#submit-group {
+  font-size: 1.5em;
+  color:white;
+}
+#playPause {
+  font-family: FontAwesome;
+}
+#minusYear, #plusYear, #playPause{
   width: 100%;
+  height: 3vw;
+}
+#year-field-container {
+  height: 3vw;
+}
+.plus-container, .minus-container, .play-container {
   height: 100%;
 }
-.math-container, .year-field-container {
-  height: 100%;
+#year-controls-container {
+  margin-top: 10px;
 }
-#year-container {
-  height: 5vw;
+#get-map-container {
+  width: 100%;
+  text-align: center;
 }
 .year-field {
   width: 100%;
@@ -1630,7 +1649,7 @@ div.sfi {
   box-shadow: none;
   /*-webkit-transform: scale(1.1);*/
   /*-moz-transform: scale(1.1);*/
-  border: 2px dashed white; 
+  border: 1px dashed white; 
 }
 .btn-temp:focus {
 }
@@ -1665,7 +1684,7 @@ div.sfi {
     -webkit-background-origin: padding-box;
     -moz-background-origin: padding-box;
     background-attachment: scroll;
-    border: 2px dashed white;
+    border: 3px dashed white;
     color: red !important; 
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -1673,9 +1692,9 @@ div.sfi {
     /*-webkit-transform: scale(1.1);*/
     /*-moz-transform: scale(1,1.1);*/
 }
-.btn-map:focus {
-  outline: 0
-}
+//.btn-map:focus {
+//  outline: 0
+//}
 .btn-map:active {
   background: rgba(0,0,0,0.3);
   //font-weight:900;
@@ -1777,18 +1796,48 @@ div.sfi {
 
 // maps legend //
 
-div.map-legend > p {
+#map-legend {
   color: white;
-  font-family: "Oswald", sans-serif !important;
-//  padding-top: 200px;
-
-.suitability {
-  margin-bottom: 10px;
 }
+.map-legend-sub {
+  padding-top: 10px;
+}
+#suitability-circles {
+  text-align: center;
+}
+.oval-high {
+  width: 30px;
+  height: 15px;
+  background: rgb(0,70,0);
+  -moz-border-radius: 30px/15px;
+  -webkit-border-radius: 30px/15px;
+  border-radius: 30px/15px;
+  display: inline-block;
+}
+.oval-mid {
+  background: rgb(0,110,0);
+  width: 30px;
+  height: 15px;
+  display: inline-block;
+  -moz-border-radius: 30px/15px;
+  -webkit-border-radius: 30px/15px;
+  border-radius: 30px/15px;
+}
+
+.oval-low {
+  background: rgb(0,185,0);
+  width: 30px;
+  height: 15px;
+  display: inline-block;
+  -moz-border-radius: 30px/15px;
+  -webkit-border-radius: 30px/15px;
+  border-radius: 30px/15px;
+}
+
 
 //maps.hbs - google earth window repsonsiveness
 
-}
+
 .map-legend2 {
   color: white;
   font-family: "Oswald", sans-serif !important;
@@ -1992,10 +2041,6 @@ a.aces-link:hover {
 
 .btn-about:active {
   border: none;
-}
-
-#playPause {
-  font-family: FontAwesome;
 }
 
 // end about.hbs //
