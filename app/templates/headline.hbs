@@ -31,9 +31,20 @@
     <div id="detail-content">
    {{{headline.detail}}}
    </div>
-   {{#if headline.chart}}
+   {{#if headline.charts}}
+
     <div class="row">
       Click on a tree species below<br><br>
+    {{#each chart in headline.charts}}
+    <button class="btn-chart" {{action "getChart" chart}} on="click">{{chart.plant.name}}</button>
+    {{/each}}
+    <div class="col-md-6 chartAlign">
+    
+      <img {{bind-attr id=headline.pictureContainer}} class="img-chart"></img>
+    </div>
+    <div class="col-md-6">
+      <img {{bind-attr id=headline.chartContainer}} class="img-fig"></img>
+    </div>
     </div>
     {{else}}
     {{/if}}

@@ -19,12 +19,10 @@ export default Ember.ArrayController.extend({
     var windowBottom = windowTop + windowSize;
     var scrollView = divSize * 0.8;
     console.log("Top: " + windowTop + ", Bottom: " + windowBottom);
-    divId = id+ '-scroll';
+    var divId = id+ '-scroll';
     if (((divTop + scrollView) > windowTop) && ((divBottom - scrollView) < windowBottom)) {
-      console.log(id + ' is at ' + pos  +' and is active');
       $(divId).addClass('right-nav-active'); 
     } else {
-      console.log(id +' is at '+ pos +' and is inactive');
       $(divId).removeClass('right-nav-active'); 
     }
   },
@@ -45,7 +43,6 @@ export default Ember.ArrayController.extend({
   getPositions: function() {
     console.log('getPositions called');
     var arr = this.get('classArray');
-    console.log(arr);
     var classList = [];
     arr.forEach(this.logId, this);
     
@@ -70,7 +67,9 @@ export default Ember.ArrayController.extend({
   },
   modelDidChange: function() {
     console.info(this.get('model').type);
+    console.log('Setting classArray');
     this.set('classArray', this.get('model').mapBy('classId'));
+    console.log(this.get('classArray'));
     this.set('classCounter', 0);
     var _this = this;
     //THIS IS A HACK THAT SHOULD PROBABLY BE DONE MORE ELEGANTLY IN FUTURE
@@ -154,6 +153,18 @@ export default Ember.ArrayController.extend({
 
 
   },
+
+  getChart: function(chart) {
+    console.log('GetChart called');
+    var pictureUrl =chart.get('pictureUrl');
+    var figureUrl = chart.get('figureUrl');
+    var pictureContainer = '#' + chart.get('headline').get('pictureContainer');
+    var chartContainer = '#' + chart.get('headline').get('chartContainer');
+    console.log(pictureContainer + ' will have ' + pictureUrl);
+    console.log(chartContainer + ' will have ' + chartContainer);
+    $(pictureContainer).attr('src', pictureUrl);
+    $(chartContainer).attr('src', figureUrl);
+  }
   
 
 
