@@ -1,7 +1,8 @@
 <div id="cesium-main" data-video="http://player.vimeo.com/external/97766233.sd.mp4?s=5df211c4da525ce8da33fddd981d52df">
   <div id="cesium-submain" class="full-height map-overlap">
     <div id="cesium-left-col" class="col-md-3 full-height">
-      <div class="form-horizontal span8">
+<!--      <div class="form-horizontal span8">-->
+      <div id="select-group">
         <div id="plant-desc" class="map-step">
           <br>
           Step 1: Choose a species
@@ -18,21 +19,21 @@
             </span>
           </div>
         </div> 
-      </div>
-      <p><hr class="maps-hr"></p>
-      <div class="form-group form-group-1">
-        <div class="controls">
-          {{view Ember.Select
-            id="plantSelect"
-            contentBinding="controllers.plants.arrangedContent"
-            optionValuePath="content.sci_name"
-            optionLabelPath="content.name"
-            valueBinding="selectedPlant"
-            prompt="Select a Species..."
-          }}
+        <p><hr class="maps-hr"></p>
+        <div class="form-group form-group-1">
+          <div class="controls">
+            {{view Ember.Select
+              id="plantSelect"
+              contentBinding="controllers.plants.arrangedContent"
+              optionValuePath="content.sci_name"
+              optionLabelPath="content.name"
+              valueBinding="selectedPlant"
+              prompt="Select a Species..."
+            }}
+          </div>
         </div>
       </div>
-    
+          
     <!-- uncomment .rcp-group-toolbar {visibility:hidden;} once functionality has been set for buttons -->
 
       <div id="rcp-group" class="rcp-toolbar btn-group rcp-group-toolbar">
@@ -70,6 +71,21 @@
            Step 3: Pick a year
             <hr class="maps-hr">
           </p>
+            <div id="year-container" class="col-sm-12">
+              <div class="math-container col-sm-3">
+
+              <button id="minusYear" class="btn-control" {{action 'minusYear'}}>{{fa-icon "minus"}}</button>
+            </div>
+               <div class="col-sm-6 year-field-container">
+              {{view Ember.TextField valueBinding="controller.year" class="year-field"}}
+            </div>
+
+            <div class="math-container col-sm-3">
+              <button id="plusYear" class="btn-control" {{action 'plusYear'}}>{{fa-icon "plus"}}</button>
+            </div>
+          </div>
+
+            {{!--
             <button class="col-sm-6 btn-control" {{action "switchCurrent"}} value="2011 id="current">
               <h3 class="map-year">
                 Now
@@ -80,13 +96,21 @@
                 2081
               <h3>
             </button>
-       </div><!-- end year-group -->
+            --}}
+        </div><!-- end year-group -->
+
+        <div>
+        <button id="playPause" class="btn-control fa fa-play" {{action 'playPause'}}></button> 
+        </div>
 
 <!-- need css below -->
 <!-- set slider-group to display:none once functionaliy has been set !! -->
 
        <div id="slider-group" class="form-group">
-        <p id="slider-desc" class="slider-year">
+
+       <!-- no longer needed -->
+       {{!--
+       <p id="slider-desc" class="slider-year">
           Step 3: Slider through years
         </p>
         <hr class="maps-hr">
@@ -94,6 +118,7 @@
         <h3 id="period" class="slider-period">
         </h3>
         {{!--{{view Forests.SliderView id="time-slider" class="slider-view"}}--}}
+        --}}
 
        </div>
        <!-- add submit-group visibility:hidden once functionality set!! -->
@@ -127,12 +152,7 @@
           <i id="animate-icon" class="glyphicon glyphicon-stop" style="">
           </i>
         </button>--}}
-        <button id="minusYear" class="btn-control" {{action 'minusYear'}}>{{fa-icon "minus"}}</button>
-        <button id="playPause" class="btn-control fa fa-play" {{action 'playPause'}}></button> 
-       
-       {{view Ember.TextField valueBinding="controller.year" }}
-        <button id="plusYear" class="btn-control" {{action 'plusYear'}}>{{fa-icon "plus"}}</button>
-       </div>
+               </div>
       </div>
       <div id="cesium-mid-col" class="col-md-1 full-height">
       </div>
