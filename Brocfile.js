@@ -14,7 +14,7 @@ var bootstrapFonts= pickFiles('bower_components/bootstrap-sass-official/assets/f
   files: [
   'glyphicons-halflings-regular.*',
     ],
-  destDir: '/ffdm/fonts/bootstrap'
+  destDir: '/assets/fonts/bootstrap'
 });
 
 // Cesium
@@ -28,9 +28,16 @@ var cesiumFiles = pickFiles('vendor/cesium/Build/Cesium', {
 var bootstrap = pickFiles('bower_components/bootstrap-sass-official/assets/stylesheets/', {
   srcDir: '/',
   files: ['*'],
-  destDir: '/ffdm/fonts/bootstrap'
+  destDir: '/assets/styles/bootstrap'
 });
 
+//Include FontAwesome
+app.import('bower_components/fontawesome/css/font-awesome.css')
+var fontAwesomeFonts = pickFiles('bower_components/fontawesome/fonts', {
+  srcDir: '/',
+  files: ['*'],
+  destDir: '/assets/fonts/fontawesome'
+});
 
 
 
@@ -47,4 +54,4 @@ var bootstrap = pickFiles('bower_components/bootstrap-sass-official/assets/style
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-module.exports = mergeTrees([app.toTree(), cesiumFiles, bootstrapFonts, bootstrap]);
+module.exports = mergeTrees([app.toTree(), cesiumFiles, bootstrapFonts, bootstrap, fontAwesomeFonts]);

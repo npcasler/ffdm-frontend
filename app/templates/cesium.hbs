@@ -128,8 +128,9 @@
           </i>
         </button>--}}
         <button id="minusYear" class="btn-control" {{action 'minusYear'}}>{{fa-icon "minus"}}</button>
-        {{!--x-toggle toggle='isAnimated'--}}
-        {{view Ember.TextField valueBinding="controller.year" }}
+        <button id="playPause" class="btn-control fa fa-play" {{action 'playPause'}}></button> 
+       
+       {{view Ember.TextField valueBinding="controller.year" }}
         <button id="plusYear" class="btn-control" {{action 'plusYear'}}>{{fa-icon "plus"}}</button>
        </div>
       </div>

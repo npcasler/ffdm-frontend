@@ -47,12 +47,17 @@ export default Ember.Controller.extend({
 
   animateChanged: function() {
     var animate = this.get('isAnimated');
+    console.log('Animate Changed called');
     if (animate) {
-      animateMaps(1);
+      this.animateMaps(1);
+      $('#playPause').removeClass('fa-play');
+      $('#playPause').addClass('fa-pause');
     } else {
-      animateMaps(0);
+      $('#playPause').removeClass('fa-pause');
+      $('#playPause').addClass('fa-play');
+      this.animateMaps(0);
     }
-  },
+  }.observes('isAnimated'),
 
   yearSelected: function() {
     console.log('year selection changed! ' + this.get('selectedYear'));
@@ -203,6 +208,16 @@ export default Ember.Controller.extend({
     },
     minusYear: function() {
       this.changeYear(0);
+    },
+
+    playPause: function() {
+      if (this.get('isAnimated')) {
+        console.log("Stopping animation");
+        this.set('isAnimated', 0);
+      } else {
+        console.log("Starting animation");
+        this.set('isAnimated', 1);
+      }
     },
 
     pulseObject: function(varname) {
