@@ -6,6 +6,8 @@ var app = new EmberApp();
 var pickFiles = require('broccoli-static-compiler');
 var mergeTrees = require('broccoli-merge-trees');
 
+app.import('bower_components/jquery.scrollTo/jquery.scrollTo.min.js');
+
 app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js');
 
 // Glyphicons -- 404 cannot GET

@@ -5,6 +5,6 @@ export default DS.Model.extend({
   sci_name  : DS.attr('string'),
   createdAt : DS.attr(),  
   updatedAt : DS.attr(),
-  charts    : DS.hasMany('chart')
+  charts    : DS.hasMany('chart', {async:true})
 
 });
