@@ -6,10 +6,11 @@ export default DS.Model.extend({
   orderId: DS.attr('string'),
   pageId: DS.attr('string'),
   detail: DS.attr('string'),
-  chart: DS.attr('string'),
+  charts: DS.hasMany('chart'),
   down: DS.attr('boolean'),
   createdAt: DS.attr(),
   updatedAt: DS.attr(),
+
 
   detailId: function() {
     return this.get('classId') + '-detail';
