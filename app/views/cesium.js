@@ -10,33 +10,35 @@ export default Ember.View.extend({
     
     console.log("Cesium_base_url is: "+ CESIUM_BASE_URL);
     console.log('Cesium view DidInsertElement Called.');
-    var clock = this.get('controller').get('clock');
-    clock = new Cesium.Clock({
-      startTime : Cesium.JulianDate.fromIso8601('2011-01-01'),
-      currentTime: Cesium.JulianDate.fromIso8601('2011-01-01'),
-      stopTime: Cesium.JulianDate.fromIso8601('2081-01-01'),
-      clockRange: Cesium.ClockRange.LOOP_STOP,
-      clockStep: Cesium.ClockStep.TICK_DEPENDENT,
-      multiplier: 52560000,
-      shouldAnimate: 0
-    });
-    this.get('controller').set('clock', clock);
-    
     var viewer = this.get('controller').get('viewer');
     viewer = new Cesium.Viewer('cesiumContainer', {
+      //Add starting base map
       imageryProvider: new Cesium.ArcGisMapServerImageryProvider({
         url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer'
       }),
+      animation: false, 
       baseLayerPicker: true,
-      clock: clock
+      timeline: false
     });
     console.log(viewer);
+    var camera = viewer.camera;
+    var scene = viewer.scene;
+    var west = -125.021;
+    var south = 24.060;
+    var east = -97.179;
+    var north = 49.935;
 
+    var extent = new Cesium.Rectangle.fromDegrees(west, south, east, north);
+    
+//    camera.flyTo({
+  //      destination: extent
+  //  });
+    
     var imageryLayers = this.get('controller').get('imageryLayers');
     imageryLayers = viewer.scene.imageryLayers;
     this.get('controller').set('imageryLayers', imageryLayers);
     //var wms = new Cesium.TileMapServiceImageryProvider({
-    this.get('controller').stepClock();
+   // this.get('controller').stepClock();
 
     this.initCB();
   },

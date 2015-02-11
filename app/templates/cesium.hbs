@@ -22,12 +22,12 @@
         <p><hr class="maps-hr"></p>
         <div class="form-group form-group-1">
           <div class="controls">
-            {{view Ember.Select
+            {{view "select"
               id="plantSelect"
               contentBinding="controllers.plants.arrangedContent"
               optionValuePath="content.sci_name"
               optionLabelPath="content.name"
-              valueBinding="selectedPlant"
+              selectionBinding="controller.species"
               prompt="Select a Species..."
             }}
           </div>

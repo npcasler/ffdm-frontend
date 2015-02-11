@@ -3,7 +3,8 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   needs: ['plants'],
   proxy: '/cgi-bin/proxy.cgi?url=http://scooby.iplantcollaborative.org/maxent/',
-  species: 'Abies_lasiocarpa',
+  species: '',
+  speciesName: 'Abies_lasiocarpa',
   year: '',
   rcp: 'rcp26',
  // selectedYear: null,
@@ -18,9 +19,10 @@ export default Ember.Controller.extend({
 
 
   plantsSelected: function() {
-    console.log('plant selection changed ' + this.get('species'));
+    console.log('plant selection changed ' + this.get('species').get('sci_name'));
     $('#rcp-group').css('visibility', 'visible');
-    this.remindSubmit();
+    this.set('speciesName', this.get('species').get('sci_name'));
+    //this.remindSubmit();
   }.observes('species'),
 
     
@@ -34,7 +36,7 @@ export default Ember.Controller.extend({
       $('#rcp26-label').css('border', '2px solid #bf3604');
       $('#rcp85-label').css('border', '1px solid white');
     }
-    this.remindSubmit();
+   // this.remindSubmit();
     
   }.observes('selectedRcp'),
 
@@ -120,14 +122,17 @@ export default Ember.Controller.extend({
     var rcp = this.get('selectedRcp');
     var years = this.get('years');
     var species = this.get('species');
+    console.log(typeof species);
+    console.log(species);
+    var speciesName = this.get('speciesName');
+    console.log(speciesName);
     //Iterate through the years for each layer
     for (var i = 0; i < years.length; i++) {
-      //var newUrl = 'http://scooby.iplantcollaborative.org/'+ rcp + '/20'+ years[i] + '1/'+ species;
-      var newUrl = proxy + rcp + '/20' + years[i] + '1/' + species; //Use once on the server
+      var newUrl = proxy + rcp + '/20' + years[i] + '1/' + speciesName; //Use once on the server
       console.log("NewURL is "+ newUrl);
       var imageryProvider = this.createImageryProvider(newUrl);
       var alpha = this.setLayerAlpha(years[i]);
-      var name = species + '-20' + years[i] + '1';
+      var name = speciesName + '-20' + years[i] + '1';
       console.log('Layer name is :'+ name); 
       this.addLayerOption(name, imageryProvider, alpha, 1);
      
@@ -136,7 +141,7 @@ export default Ember.Controller.extend({
  
   removeLayers: function() {
     //Clear old layers before adding new ones
-    animateMaps(0);
+    this.animateMaps(0);
     console.log('Remove layers called');
     for (var i = this.get('years').length; i > 0; i--){
       console.log('Removing layer ' + i+ ' out of '+this.get('years').length+ " layers");
@@ -184,7 +189,7 @@ export default Ember.Controller.extend({
       this.set('myTimer', setInterval(function() {
         self.changeYear(1);
         console.log("Animated");
-      }, 1000));
+      }, 800));
     } else {
       console.log('Stopping animation');
       clearInterval(this.get('myTimer'));
@@ -193,13 +198,13 @@ export default Ember.Controller.extend({
 
 
   changeSpecies: function() {
-    this.set('species', this.get('species'));
-    console.log('The new species is '+ this.get('species'));
+    this.set('species', this.get('species').get('sci_name'));
+    console.log('The new species is '+ this.get('species').get('sci_name'));
   },
   actions: {
     reloadLayers: function() {
       this.removeLayers();
-      this.changeSpecies();
+      //this.changeSpecies();
       this.setupLayers();
   },
 
