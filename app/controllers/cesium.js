@@ -6,9 +6,9 @@ export default Ember.Controller.extend({
   species: '',
   speciesName: 'Abies_lasiocarpa',
   year: '2011',
-  rcp: 'rcp26',
+//  rcp: 'rcp26',
  // selectedYear: null,
-  selectedRcp: 'rcp26',
+  rcp: 'rcp26',
   imageryLayers: '',
   myTimer: '',
   viewer: '',
@@ -27,9 +27,9 @@ export default Ember.Controller.extend({
 
     
   rcpSelected: function() {
-    console.log('rcp selection has changed! ' + this.get('selectedRcp'));
+    console.log('rcp selection has changed! ' + this.get('rcp'));
     $('#year-group').css('visibility', 'visible');
-    if (this.get('selectedRcp') === 'rcp85') {
+    if (this.get('rcp') === 'rcp85') {
       $('#rcp85-label').css('border', '2px solid #bf3604');
       $('#rcp26-label').css('border', '1px solid white');
     } else {
@@ -38,7 +38,7 @@ export default Ember.Controller.extend({
     }
     this.remindSubmit();
     
-  }.observes('selectedRcp'),
+  }.observes('rcp'),
 
   yearChanged: function() {
     var active = this.get('activeDate');
@@ -119,7 +119,7 @@ export default Ember.Controller.extend({
     //Add all the decade layers for the given species and rcp
     //This will need to be refactored to allow it to be species specific
     var proxy = this.get('proxy');
-    var rcp = this.get('selectedRcp');
+    var rcp = this.get('rcp');
     var years = this.get('years');
     var species = this.get('species');
     console.log(typeof species);
@@ -228,6 +228,13 @@ export default Ember.Controller.extend({
       this.changeYear(0);
     },
 
+    setWorstRcp: function() {
+        this.set('rcp', 'rcp85');
+      },
+    setBestRcp: function() {
+        this.set('rcp', 'rcp26');
+      
+    },
     playPause: function() {
       if (this.get('isAnimated')) {
         console.log("Stopping animation");

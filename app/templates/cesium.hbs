@@ -41,14 +41,14 @@
             </div>
             <p><hr class="maps-hr"></p>
             <div class="btn-row">
-              <div id="rcp26-label" class="col-sm-6 btn-temp">
+              <div id="rcp26-label" {{action 'setBestRcp' '0' }} class="col-sm-6 btn-temp">
                 {{!--{{view Forest.RadioButton id="best-case" name="rcp-radio" selectionBinding="selectedRcp" value="rcp26"}}--}}
                 <label class="rcp-label" for="best-case">
                   <div class="best-case-label"></div>
                   Best Case
                 </label>
               </div>
-              <div id="rcp85-label" class="col-sm-6 btn-temp">
+              <div id="rcp85-label" {{action setWorstRcp}} class="col-sm-6 btn-temp">
                 {{!--{view Forest.RadioButton id="worst-case" class="rcp-radio" selectedBinding="selectedRcp" value="rcp85"}}--}}
                 <label class="rcp-label" for="worst-case">
                   <div class="worst-case-label"></div>
