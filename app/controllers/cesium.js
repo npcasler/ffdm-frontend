@@ -5,24 +5,24 @@ export default Ember.Controller.extend({
   proxy: '/cgi-bin/proxy.cgi?url=http://scooby.iplantcollaborative.org/maxent/',
   species: '',
   speciesName: 'Abies_lasiocarpa',
-  year: '',
+  year: '2011',
   rcp: 'rcp26',
  // selectedYear: null,
   selectedRcp: 'rcp26',
   imageryLayers: '',
   myTimer: '',
   viewer: '',
-  clock: '',
   isAnimated: 0,
   years: [1,2,3,4,5,6,7,8],
-  activeDate: 0,
+  activeDate: 1,
 
 
   plantsSelected: function() {
     console.log('plant selection changed ' + this.get('species').get('sci_name'));
+    this.animateMaps(0);
     $('#rcp-group').css('visibility', 'visible');
     this.set('speciesName', this.get('species').get('sci_name'));
-    //this.remindSubmit();
+    this.remindSubmit();
   }.observes('species'),
 
     
@@ -36,7 +36,7 @@ export default Ember.Controller.extend({
       $('#rcp26-label').css('border', '2px solid #bf3604');
       $('#rcp85-label').css('border', '1px solid white');
     }
-   // this.remindSubmit();
+    this.remindSubmit();
     
   }.observes('selectedRcp'),
 
@@ -189,7 +189,7 @@ export default Ember.Controller.extend({
       this.set('myTimer', setInterval(function() {
         self.changeYear(1);
         console.log("Animated");
-      }, 800));
+      }, 500));
     } else {
       console.log('Stopping animation');
       clearInterval(this.get('myTimer'));
@@ -201,6 +201,19 @@ export default Ember.Controller.extend({
     this.set('species', this.get('species').get('sci_name'));
     console.log('The new species is '+ this.get('species').get('sci_name'));
   },
+    pulseObject: function(varname) {
+      $(String(varname)).removeClass('pulse');
+      setTimeout(
+          function() {
+            console.log('Pulsing ' + varname);
+            $(String(varname)).addClass('pulse');}, 1);
+    },
+  
+    remindSubmit: function() {
+      if (this.get('selectedYear') !== null) {
+        this.pulseObject('#submit-desc');
+      }
+    },
   actions: {
     reloadLayers: function() {
       this.removeLayers();
@@ -225,18 +238,5 @@ export default Ember.Controller.extend({
       }
     },
 
-    pulseObject: function(varname) {
-      $(String(varname)).removeClass('pulse');
-      setTimeout(
-          function() {
-            console.log('Pulsing ' + varname);
-            $(String(varname)).addClass('pulse');}, 1);
-    },
-  
-    remindSubmit: function() {
-      if (this.get('selectedYear') !== null) {
-        this.pulseObject('#submit-desc');
-      }
-    },
   } 
 });

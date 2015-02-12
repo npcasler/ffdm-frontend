@@ -10,8 +10,7 @@ export default Ember.View.extend({
     
     console.log("Cesium_base_url is: "+ CESIUM_BASE_URL);
     console.log('Cesium view DidInsertElement Called.');
-    var viewer = this.get('controller').get('viewer');
-    viewer = new Cesium.Viewer('cesiumContainer', {
+    var viewer = new Cesium.Viewer('cesiumContainer', {
       //Add starting base map
       imageryProvider: new Cesium.ArcGisMapServerImageryProvider({
         url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer'
@@ -20,19 +19,15 @@ export default Ember.View.extend({
       baseLayerPicker: true,
       timeline: false
     });
+    viewer.clock.onTick.addEventListener(function(clock) {
+      var camera = viewer.camera;
+    });
+    this.get('controller').set('viewer', viewer);
     console.log(viewer);
     var camera = viewer.camera;
     var scene = viewer.scene;
-    var west = -125.021;
-    var south = 24.060;
-    var east = -97.179;
-    var north = 49.935;
 
-    var extent = new Cesium.Rectangle.fromDegrees(west, south, east, north);
-    
-//    camera.flyTo({
-  //      destination: extent
-  //  });
+
     
     var imageryLayers = this.get('controller').get('imageryLayers');
     imageryLayers = viewer.scene.imageryLayers;
@@ -46,6 +41,38 @@ export default Ember.View.extend({
   initCB: function() {
     console.log('initCB has been called by CesiumView');
     this.get('controller').setupLayers();
+   /*
+    var west = -125.021;
+    var south = 24.060;
+    var east = -97.179;
+    var north = 49.935;
+*/
+    var west = -90.0;
+    var south = 38.0;
+    var east = -87.0;
+    var north = 40.0;
+    var rectangle = Cesium.Rectangle.fromDegrees(west, south, east, north);
+    console.log(rectangle);
+    var viewer = this.get('controller').get('viewer');
+    var scene = viewer.scene;
+    console.log(viewer);
+    console.log(scene);
+    var camera = viewer.camera;
+    /*camera.setView({
+      position: Cesium.Cartesian3.fromDegrees(-117.16, 32.71, 15000.0),
+      heading: 0.0,
+      pitch: -Cesium.Math.PI_OVER_TWO,
+      roll:0.0
+    });*/
+
+/*
+   camera.flyTo({ 
+        destination: Cesium.Cartesian3.fromDegrees(-117.16, 32.71, 15000.0)
+    });*/
+
+    viewer.camera.flyTo({
+        destination: rectangle
+    });
   }
 
 });
