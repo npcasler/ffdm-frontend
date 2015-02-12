@@ -924,28 +924,28 @@ div.tip3 {
   position: absolute;
 }
 //navigation
-div#rightNavContainer {
+#rightNavContainer {
   z-index: 1 !important;
   position: fixed;
   right: 40px;
   padding-top: 120px;
   @extend %vertical-align;
 }
-div.right-nav-icon {
+.right-nav-icon {
   margin: 25px 0px 25px 0px;
-  background-image: url(images/right-nav-circle.png) no-repeat 0 0;
+  content: url(images/right-nav-circle.png) no-repeat 0 0;
   cursor: pointer;
 }
-div.right-nav-icon:hover {
-  background-image: url(images/right-nav-circle-active.png) no-repeat 0 0;
+.right-nav-icon:hover {
+  content: url(images/right-nav-circle-active.png) no-repeat 0 0;
 }
-div.right-nav-icon:active {
-  background-image: url(images/right-nav-circle-active.png) no-repeat 0 0;
+.right-nav-icon:active {
+  content: url(images/right-nav-circle-active.png) no-repeat 0 0;
 }
-div.right-nav-active {
-  background-image: url(images/right-nav-circle-active.png) no-repeat 0 0;
-  cursor: pointer;
+.right-nav-active {
+  content: url(images/right-nav-circle-active.png) no-repeat 0 0;
 }
+
 // end headlines.hbs //
 
 // headline.hbs //
