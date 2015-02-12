@@ -115,9 +115,9 @@ h3, h4, h5, h6, p, div {
   float: left;
   background: $primary-green;
   text-align: center;
-  padding: 0px 40px 0 40px;
+  padding: 0px 30px 0 60px;
   position: relative;
-  margin: 0 10px 0 0; 
+  margin: 0 6px 0 0; 
   text-decoration: none;
   color: #fff;
   cursor: pointer;
@@ -132,14 +132,14 @@ h3, h4, h5, h6, p, div {
   right: -37px;
   top: -10px;
   z-index: 1;
-//  border-style: dotted solid dotted solid !important;
+  //border-style: dotted solid dotted solid !important;
 }
 #breadcrumbs ul li:before {
   content: "";  
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
   border-left: 40px solid white;
-//  border-style: dotted solid dotted solid !important;
+ // border-style: dotted solid dotted solid !important;
   position: absolute;
   left: 0;
   top: -10px;
@@ -157,10 +157,6 @@ h3, h4, h5, h6, p, div {
 #breadcrumbs ul li:hover:after {
   border-left-color: $primary-red;
 }
-//#breadcrumbs ul li:nth-child(2) p, #breadcrumbs ul li:nth-child(3) p {
-//  margin-left: 10px;
-//}
-
 
 .navbar {
   background-color: white;
