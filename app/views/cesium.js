@@ -23,9 +23,6 @@ export default Ember.View.extend({
       var camera = viewer.camera;
     });
     this.get('controller').set('viewer', viewer);
-    console.log(viewer);
-    var camera = viewer.camera;
-    var scene = viewer.scene;
 
 
     
@@ -41,38 +38,12 @@ export default Ember.View.extend({
   initCB: function() {
     console.log('initCB has been called by CesiumView');
     this.get('controller').setupLayers();
-   /*
-    var west = -125.021;
-    var south = 24.060;
-    var east = -97.179;
-    var north = 49.935;
-*/
-    var west = -90.0;
-    var south = 38.0;
-    var east = -87.0;
-    var north = 40.0;
-    var rectangle = Cesium.Rectangle.fromDegrees(west, south, east, north);
-    console.log(rectangle);
     var viewer = this.get('controller').get('viewer');
-    var scene = viewer.scene;
-    console.log(viewer);
-    console.log(scene);
     var camera = viewer.camera;
-    /*camera.setView({
-      position: Cesium.Cartesian3.fromDegrees(-117.16, 32.71, 15000.0),
-      heading: 0.0,
-      pitch: -Cesium.Math.PI_OVER_TWO,
-      roll:0.0
-    });*/
-
-/*
-   camera.flyTo({ 
-        destination: Cesium.Cartesian3.fromDegrees(-117.16, 32.71, 15000.0)
-    });*/
-
-    viewer.camera.flyTo({
-        destination: rectangle
+    camera.flyTo({ 
+        destination: Cesium.Cartesian3.fromDegrees(-111.100, 36.998, 5000000.0)
     });
+    console.log(camera.positionCartographic);
   }
 
 });
