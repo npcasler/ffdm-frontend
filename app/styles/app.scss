@@ -144,7 +144,7 @@ h3, h4, h5, h6, p, div {
   left: 0;
   top: -10px;
 }
-#breaddcrumbs ul li:first-child {
+#breadcrumbs ul li:first-child {
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
@@ -931,19 +931,21 @@ div.tip3 {
   padding-top: 120px;
   @extend %vertical-align;
 }
-.right-nav-icon {
+// To use content: url() with Firefox, use pseudo element :before and do not use no-repeat 0 0
+//
+.right-nav-icon, .right-nav-icon:before {
   margin: 25px 0px 25px 0px;
-  content: url(images/right-nav-circle.png) no-repeat 0 0;
+  content: url(images/right-nav-circle.png);
   cursor: pointer;
 }
-.right-nav-icon:hover {
-  content: url(images/right-nav-circle-active.png) no-repeat 0 0;
+.right-nav-icon:hover, .right-nav-icon:before:hover {
+  content: url(images/right-nav-circle-active.png);
 }
-.right-nav-icon:active {
-  content: url(images/right-nav-circle-active.png) no-repeat 0 0;
+.right-nav-icon:active, .right-nav-icon:before:active {
+  content: url(images/right-nav-circle-active.png);
 }
-.right-nav-active {
-  content: url(images/right-nav-circle-active.png) no-repeat 0 0;
+.right-nav-active, .right-nav-active:before {
+  content: url(images/right-nav-circle-active.png);
 }
 
 // end headlines.hbs //
@@ -1209,7 +1211,7 @@ div.figure {
   margin-right: auto;
   margin-bottom: 2%;
 }
-div.global-temp-and-co2 {
+.global-temp-and-co2 {
   text-align: center;
   width: 500px;
   margin-left: auto;
