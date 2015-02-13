@@ -51,3 +51,14 @@
     display: none !important;
   }
 }
+
+// cesium controls
+
+@media screen and (max-height: 800px) {
+  .map-step {
+    font-size: 1.2em !important;
+  }
+  #select-group, #year-group, #submit-group, #rcp-group, #map-legend {
+    margin: 4px !important;
+  }
+}

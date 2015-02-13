@@ -986,6 +986,60 @@ hr.headline {
 .svg-down-arrow:hover {
   background-image: url(images/down-arrow-red.svg);
 }
+.breadcrumbs-bottom {
+  margin: 35px;
+  height: 70px;
+  overflow: hidden;
+}
+.breadcrumbs-bottom ul li:after {
+  right: -32px !important;
+  border-top: 40px solid transparent !important;
+  border-bottom: 40px solid transparent !important;
+  border-left: 40px solid $primary-green !important;
+}
+.breadcrumbs-bottom ul li:last-child:hover:after {
+  border-left-color: $primary-red !important;
+}
+.breadcrumbs-bottom ul li:after, .breadcrumbs-bottom ul li:before {
+  top:-6px !important;
+  }
+.b-1, .b-2, .b-1:hover, .b-2:hover, .b-4, .b-5, .b-4:hover, .b-5:hover {
+  cursor: default !important;
+  background-color: $primary-green !important;
+}
+.b-1:hover:after, .b-2:hover:after, .b-4:hover:after, .b-5:hover:after {
+  border-left-color: $primary-green !important;
+}
+.leftAlign {
+  text-align: left;
+}
+.centerAlign {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.center {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.textSm {
+  font-size: 1.2em;
+}
+.textMd {
+  font-size: 1.5em;
+  text-align: center !important;
+}
+.figure .textSm {
+  text-align: center;
+}
+.centerAlign {
+  text-align: center !important;
+}
+.textLg {
+  font-size: 2.5em;
+}
 #headline-detail {
   color: black;
   font-size: 1.3em;
