@@ -27,7 +27,7 @@ export default DS.Model.extend({
   
   pictureContainer: function() {
     return this.get('classId') + '-picture';
-  }.property('classId')
+  }.property('classId'),
   
   mountainContainer: function() {
     return this.get('classId') + '-mountain';
