@@ -2,7 +2,12 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-var app = new EmberApp();
+var app = new EmberApp({
+  fingerprint: {
+    enabled: true,
+    exclude: ['assets/images']
+  }
+  });
 var pickFiles = require('broccoli-static-compiler');
 var mergeTrees = require('broccoli-merge-trees');
 
@@ -56,4 +61,4 @@ var fontAwesomeFonts = pickFiles('bower_components/fontawesome/fonts', {
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-module.exports = mergeTrees([app.toTree(), cesiumFiles, bootstrapFonts, bootstrap, fontAwesomeFonts]);
+module.exports = mergeTrees([app.toTree(), cesiumFiles, bootstrapFonts, bootstrap,  fontAwesomeFonts]);
