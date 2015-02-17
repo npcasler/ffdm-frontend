@@ -1040,6 +1040,73 @@ hr.headline {
 .textLg {
   font-size: 2.5em;
 }
+// condense the code
+// btn-chart + chart-btn + mtn-btn
+.chart-click {
+  padding: 15px 0px;
+  font-size: 1.3em !important;
+  font-weight: 400;
+}
+.chart-btn-container {
+  font-size: 1.3em !important;
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+}
+.chart-btn-container ul, .mtn-btn-container ul {
+  padding: 0px !important;
+}
+.chart-btn-container ul li {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+.chart-btn-container u li:last-child, .mtn-btn-container ul li:last-child {
+  margin-bottom: 40px;
+}
+.img-mtn {
+  width: 100%;
+  height: auto;
+}
+.mtn-btn-container {
+  font-size: 1.3em;
+}
+.mtn-btn-container ul li {
+  text-decoration: none;
+  text-align: center;
+  list-style-type: none;
+}
+
+.btn-chart {
+  padding: 0;
+  height: 100%;
+  border: none;
+  color: $primary-green;
+  background: none;
+  letter-spacing: 1px;
+  text-decoration: none !important;
+  text-shadow: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out 0s;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+}
+.btn-chart:hover {
+  background: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: $primary-red;
+}
+.btn-chart:active {
+  color: $primary-red;
+}
+
+.btn-chart-active {
+  color: $primary-red;
+}
+
+
+
 #headline-detail {
   color: black;
   font-size: 1.3em;

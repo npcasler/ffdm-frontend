@@ -164,9 +164,15 @@ export default Ember.ArrayController.extend({
     console.log(chartContainer + ' will have ' + chartContainer);
     $(pictureContainer).attr('src', pictureUrl);
     $(chartContainer).attr('src', figureUrl);
+  },
+
+    getMountain: function(mountain) {
+    console.log('GetMountain called');
+    var mountainUrl = mountain.get('mountainUrl');
+    var mountainContainer = '#' + mountain.get('headline').get('mountainContainer');
+    console.log(mountainContainer + ' will have ' + mountainUrl);
+    $(mountainContainer).attr('src',mountainUrl);
   }
   
-
-
   }
 });
