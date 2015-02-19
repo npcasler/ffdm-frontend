@@ -4,13 +4,13 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ffdm-frontend',
     environment: environment,
-    baseURL: '/ffdm/',
+    baseURL: '',
     locationType: 'auto',
     contentSecurityPolicy: {
       'default-src': "'none'",
       'script-src': "'self'",
       'font-src': "'self' http://fonts.googleapis.com http://fonts.gstatic.com",
-      'connect-src': "'self' http://localhost:1337 http://192.81.135.213:1337",
+      'connect-src': "'self' http://localhost:1337 http://192.81.135.213:1337 http://scooby.iplantcollaborative.org:1337",
       'img-src': "'self'",
       'style-src': "'self' http://fonts.googleapis.com",
       'frame-src': "'self'"

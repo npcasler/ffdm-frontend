@@ -68,7 +68,8 @@ export default Ember.ArrayController.extend({
   modelDidChange: function() {
     console.info(this.get('model').type);
     console.log('Setting classArray');
-    this.set('classArray', this.get('model').mapBy('classId'));
+    console.log(this.get('model').sortBy('orderId'));
+    this.set('classArray', this.get('model').sortBy('orderId').mapBy('classId'));
     console.log(this.get('classArray'));
     this.set('classCounter', 0);
     var _this = this;
