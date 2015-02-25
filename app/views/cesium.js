@@ -4,41 +4,94 @@ export default Ember.View.extend({
 
   didInsertElement: function() {
     var CESIUM_BASE_URL = '.';
-    var proxy = this.get('controller').get('proxy');
-    var rcp = this.get('controller').get('rcp');
-    var species = this.get('controller').get('species');
-    
+    var cesiumController = this.get('controller'); 
+    var proxy = cesiumController.get('proxy');
+    var rcp = cesiumController.get('rcp');
+    var species = cesiumController.get('species');
+       
+    var imageryViewModels = cesiumController.get('imageryViewModels');
+   /* imageryViewModels.push(new Cesium.ProviderViewModel({
+      name: 'Open\u00adStreet\u00adMap',
+      iconUrl: Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/openStreetMap.png'),
+      tooltip: 'OpenStreetMap (OSM) is a collaborative project to create a free editable \
+      map of the worl.\nhttp://www.openstreetmap.org',
+      creationFunction: function() {
+        return new Cesium.OpenStreetMapImageryProvider({
+          url: '//a.tile.openstreetmap.org/'
+        });
+      }
+    }));*/
+    imageryViewModels.push(new Cesium.ProviderViewModel({
+            name: 'ArcGIS World Street Map',
+            iconUrl : Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/esriWorldImagery.png'),
+            tooltip: 'World Imagery provided by ESRI',
+            creationFunction: function() {
+              return new Cesium.ArcGisMapServerImageryProvider({
+                url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/Mapserver',
+                errorEvent: function(e) {
+                  console.log("There was an error loading the tile: "+ e);
+                },
+
+              });
+            }
+    }));
+
+    imageryViewModels.push(new Cesium.ProviderViewModel({
+           name : 'Open\u00adStreet\u00adMap',
+           iconUrl : Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/openStreetMap.png'),
+           tooltip : 'OpenStreetMap (OSM) is a collaborative project to create a free editable \
+      map of the world.\nhttp://www.openstreetmap.org',
+           creationFunction : function() {
+                      return new Cesium.OpenStreetMapImageryProvider({
+                                     url : '//a.tile.openstreetmap.org/'
+                                 });
+                           }
+     }));
+
+     var terrainProvider = new Cesium.CesiumTerrainProvider({
+        url: '//cesiumjs.org/stk-terrain/tilesets/world/tiles',
+        credit: 'Terrain data courtesy of Analytical Graphics, Inc'
+      });
+    console.log("imageryViewModels created as: "+imageryViewModels);
+    cesiumController.set('imageryViewModels', imageryViewModels);
+
     console.log("Cesium_base_url is: "+ CESIUM_BASE_URL);
     console.log('Cesium view DidInsertElement Called.');
     var viewer = new Cesium.Viewer('cesiumContainer', {
       //Add starting base map
-      imageryProvider: new Cesium.ArcGisMapServerImageryProvider({
-        url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer'
-      }),
+      //imageryProvider: new Cesium.ArcGisMapServerImageryProvider({
+      //  url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer'
+      //}),
+      imageryProvider: false,
+      terrainProvider: terrainProvider,      
       animation: false, 
-      baseLayerPicker: true,
+      baseLayerPicker: false,
       timeline: false
     });
     viewer.clock.onTick.addEventListener(function(clock) {
       var camera = viewer.camera;
     });
-    this.get('controller').set('viewer', viewer);
+    var scene = viewer.scene;
+    var baseLayerPicker = new Cesium.BaseLayerPicker('baseLayerPickerContainer', {globe:scene.globe, imageryProviderViewModels:imageryViewModels});
+    viewer.baseLayerPicker.viewModel.selectedItem = imageryViewModels[0];
+    cesiumController.set('viewer', viewer);
 
-
+    viewer.baseLayerPicker = baseLayerPicker;
     
-    var imageryLayers = this.get('controller').get('imageryLayers');
+    var imageryLayers = cesiumController.get('imageryLayers');
     imageryLayers = viewer.scene.imageryLayers;
-    this.get('controller').set('imageryLayers', imageryLayers);
+    cesiumController.set('imageryLayers', imageryLayers);
     //var wms = new Cesium.TileMapServiceImageryProvider({
-   // this.get('controller').stepClock();
+   // cesiumController.stepClock();
 
     this.initCB();
   },
 
   initCB: function() {
     console.log('initCB has been called by CesiumView');
-    this.get('controller').setupLayers();
-    var viewer = this.get('controller').get('viewer');
+    
+    cesiumController.setupLayers();
+    var viewer = cesiumController.get('viewer');
     var camera = viewer.camera;
     camera.flyTo({ 
         destination: Cesium.Cartesian3.fromDegrees(-111.100, 36.998, 5000000.0)

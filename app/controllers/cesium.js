@@ -2,19 +2,18 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   needs: ['plants'],
-  proxy: '/cgi-bin/proxy.cgi?url=http://scooby.iplantcollaborative.org/maxent/',
-  species: '',
+  proxy: '/cgi-bin/proxy.cgi?url=http://scooby.iplantcollaborative.org/maxent/', //allows access to records without opening cors
+  species: '', // object holding the record from the plant table
   speciesName: 'Abies_lasiocarpa',
   year: '2011',
-//  rcp: 'rcp26',
- // selectedYear: null,
   rcp: 'rcp26',
-  imageryLayers: '',
-  myTimer: '',
+  imageryLayers: '', // will hold the prediction layers
+  imageryViewModels: [], // this will house the base layers
+  myTimer: '', // timer for animations
   viewer: '',
-  isAnimated: 0,
-  years: [1,2,3,4,5,6,7,8],
-  activeDate: 1,
+  isAnimated: 0, // boolean to signal animations
+  years: [1,2,3,4,5,6,7,8], 
+  activeDate: 1, // counter to track the current year/layer
 
 
   plantsSelected: function() {
@@ -131,9 +130,11 @@ export default Ember.Controller.extend({
       var newUrl = proxy + rcp + '/20' + years[i] + '1/' + speciesName; //Use once on the server
       console.log("NewURL is "+ newUrl);
       var imageryProvider = this.createImageryProvider(newUrl);
+      console.log(imageryProvider.ready);
       var alpha = this.setLayerAlpha(years[i]);
       var name = speciesName + '-20' + years[i] + '1';
       console.log('Layer name is :'+ name); 
+      
       this.addLayerOption(name, imageryProvider, alpha, 1);
      
     }
