@@ -1,6 +1,95 @@
 Change Log
 ==========
 
+### 1.7 - 2015-03-02
+
+* Breaking changes
+  * Removed `viewerEntityMixin`, which was deprecated in Cesium 1.5. Its functionality is now directly part of the `Viewer` widget.
+  * Removed `Camera.tilt`, which was deprecated in Cesium 1.6. Use `Camera.pitch`.
+  * Removed `Camera.heading` and `Camera.tilt`. They were deprecated in Cesium 1.6. Use `Camera.setView`.
+  * Removed `Camera.setPositionCartographic`, which was was deprecated in Cesium 1.6. Use `Camera.setView`.
+* Deprecated
+  * Deprecated `InfoBoxViewModel.defaultSanitizer`, `InfoBoxViewModel.sanitizer`, and `Cesium.sanitize`. They will be removed in 1.10.
+  * Deprecated `InfoBoxViewModel.descriptionRawHtml`, it will be removed in 1.10.  Use `InfoBoxViewModel.description` instead.
+  * Deprecated `GeoJsonDataSource.fromUrl`, it will be removed in 1.10. Use `GeoJsonDataSource.load` instead. Unlike fromUrl, load can take either a url or parsed JSON object and returns a promise to a new instance, rather than a new instance.
+  * Deprecated `GeoJsonDataSource.prototype.loadUrl`, it will be removed in 1.10.  Instead, pass a url as the first parameter to `GeoJsonDataSource.prototype.load`.
+  * Deprecated `CzmlDataSource.prototype.loadUrl`, it will be removed in 1.10.  Instead, pass a url as the first parameter to `CzmlDataSource.prototype.load`.
+  * Deprecated `CzmlDataSource.prototype.processUrl`, it will be removed in 1.10.  Instead, pass a url as the first parameter to `CzmlDataSource.prototype.process`.
+  * Deprecated the `sourceUri` parameter to all `CzmlDataSource` load and process functions. Support will be removed in 1.10.  Instead pass an `options` object with `sourceUri` property.
+* `InfoBox` sanitization now relies on [iframe sandboxing](http://www.html5rocks.com/en/tutorials/security/sandboxed-iframes/). This allows for much more content to be displayed in the InfoBox (and still be secure).
+* Added `InfoBox.frame` which is the instance of the iframe that is used to host description content. Sanitization can be controlled via the frame's `sandbox` attribute.  See the above link for additional information. 
+* Fixed incorrect ellipse texture coordinates. [#2363](https://github.com/AnalyticalGraphicsInc/cesium/issues/2363) and [#2465](https://github.com/AnalyticalGraphicsInc/cesium/issues/2465)
+* Fixed a bug in imagery loading that could cause some or all of the globe to be missing when using an imagery layer that does not cover the entire globe.
+* Fixed some styling issues with `InfoBox` and `BaseLayerPicker` caused by using Bootstrap with Cesium. [#2487](https://github.com/AnalyticalGraphicsInc/cesium/issues/2479)
+* Added support for rendering a water effect on Quantized-Mesh terrain tiles.
+* Added `pack` and `unpack` functions to `Matrix2` and `Matrix3`.
+* Added camera-terrain collision detection/response when the camera reference frame is set.
+* Added `ScreenSpaceCameraController.enableCollisionDetection` to enable/disable camera collision detection with terrain.
+* Added `CzmlDataSource.load` and `GeoJsonDataSource.load` to make it easy to create and load data in a single line.
+* Added the ability to pass a `Promise` to a `DataSource` to `DataSourceCollection.add`.  The `DataSource` will not actually be added until the promise resolves.
+* Added the ability to pass a `Promise` to a target to `viewer.zoomTo` and `viewer.flyTo`.
+* All `CzmlDataSource` and `GeoJsonDataSource` loading functions now return `Promise` instances that resolve to the instances after data is loaded.
+* Error handling in all `CzmlDataSource` and `GeoJsonDataSource` loading functions is now more consistent.  Rather than a mix of exceptions and `Promise` rejections, all errors are raised via `Promise` rejections.
+
+### 1.6 - 2015-02-02
+
+* Breaking changes
+  * `Rectangle.intersectWith` was deprecated in Cesium 1.5. Use `Rectangle.intersection`, which is the same but returns `undefined` when two rectangles do not intersect.
+  * `Rectangle.isEmpty` was deprecated in Cesium 1.5.
+  * The `sourceUri` parameter to `GeoJsonDatasource.load` was deprecated in Cesium 1.4 and has been removed. Use options.sourceUri instead.
+  * `PolygonGraphics.positions` created by `GeoJSONDataSource` now evaluate to a `PolygonHierarchy` object instead of an array of positions.
+* Deprecated
+  * `Camera.tilt` was deprecated in Cesium 1.6. It will be removed in Cesium 1.7. Use `Camera.pitch`.
+  * `Camera.heading` and `Camera.tilt` were deprecated in Cesium 1.6. They will become read-only in Cesium 1.7. Use `Camera.setView`.
+  * `Camera.setPositionCartographic` was deprecated in Cesium 1.6. It will be removed in Cesium 1.7. Use `Camera.setView`.
+  * The `direction` and `up` options to `Camera.flyTo` have been deprecated in Cesium 1.6. They will be removed in Cesium 1.8. Use the `orientation` option.
+  * `Camera.flyToRectangle` has been deprecated in Cesium 1.6. They will be removed in Cesium 1.8. Use `Camera.flyTo`.
+  * `Camera.setTransform` was deprecated in Cesium 1.6. It will be removed in Cesium 1.8. Use `Camera.lookAtTransform`.
+  * `Camera.transform` was deprecated in Cesium 1.6. It will be removed in Cesium 1.8. Use `Camera.lookAtTransform`.
+   * The `eye`, `target`, and `up` parameters to `Camera.lookAt` were deprecated in Cesium 1.6. It will be removed in Cesium 1.8. Use the `target` and `offset`.
+  * `PolygonGraphics.positions` was deprecated and replaced with `PolygonGraphics.hierarchy`, whose value is a `PolygonHierarchy` instead of an array of positions.  `PolygonGraphics.positions` will be removed in Cesium 1.8.
+  * The `Model.readyToRender` event was deprecated and will be removed in Cesium 1.9.  Use the new `Model.readyPromise` instead.
+  * `ColorMaterialProperty.fromColor(color)` has been deprecated and will be removed in Cesium 1.9. The constructor can now take a Color directly, for example `new ColorMaterialProperty(color)`.
+  * `DataSourceDisplay` methods `getScene` and `getDataSources` have been deprecated and replaced with `scene` and `dataSources` properties. They will be removed in Cesium 1.9.
+  * The `Entity` constructor taking a single string value for the id has been deprecated. The constructor now takes an options object which allows you to provide any and all `Entity` related properties at construction time. Support for the deprecated behavior will be removed in Cesium 1.9.
+  * The `EntityCollection.entities` and `CompositeEntityCollect.entities` properties have both been renamed to `values`.  Support for the deprecated behavior will be removed in Cesium 1.9.
+* Fixed an issue which caused order independent translucency to be broken on many video cards. Disabling order independent translucency should no longer be necessary. 
+* `GeoJsonDataSource` now supports polygons with holes.
+* Many Sandcastle examples have been rewritten to make use of the newly improved Entity API.
+* Instead of throwing an exception when there are not enough unique positions to define a geometry, creating a `Primitive` will succeed, but not render. [#2375](https://github.com/AnalyticalGraphicsInc/cesium/issues/2375)
+* Improved performance of asynchronous geometry creation (as much as 20% faster in some use cases). [#2342](https://github.com/AnalyticalGraphicsInc/cesium/issues/2342)
+* Fixed picking in 2D. [#2447](https://github.com/AnalyticalGraphicsInc/cesium/issues/2447)
+* Added `viewer.entities` which allows you to easily create and manage `Entity` instances without a corresponding `DataSource`. This is just a shortcut to `viewer.dataSourceDisplay.defaultDataSource.entities`
+* Added `viewer.zoomTo` and `viewer.flyTo` which takes an entity, array of entities, `EntityCollection`, or `DataSource` as a parameter and zooms or flies to the corresponding visualization.
+* Setting `viewer.trackedEntity` to `undefined` will now restore the camera controls to their default states.
+* When you track an entity by clicking on the track button in the `InfoBox`, you can now stop tracking by clicking the button a second time.
+* Added `Quaternion.fromHeadingPitchRoll` to create a rotation from heading, pitch, and roll angles.
+* Added `Transforms.headingPitchRollToFixedFrame` to create a local frame from a position and heading/pitch/roll angles.
+* Added `Transforms.headingPitchRollQuaternion` which is the quaternion rotation from `Transforms.headingPitchRollToFixedFrame`.
+* Added `Color.fromAlpha` and `Color.withAlpha` to make it easy to create translucent colors from constants, i.e. `var translucentRed = Color.RED.withAlpha(0.95)`.
+* Added `PolylineVolumeGraphics` and `Entity.polylineVolume`
+* Added `Camera.lookAtTransform` which sets the camera position and orientation given a transformation matrix defining a reference frame and either a cartesian offset or heading/pitch/range from the center of that frame.
+* Added `Camera.setView` (which use heading, pitch, and roll) and `Camera.roll`.
+* Added an orientation option to `Camera.flyTo` that can be either direction and up unit vectors or heading, pitch and roll angles.
+* Added `BillboardGraphics.imageSubRegion`, to enable custom texture atlas use for `Entity` instances.
+* Added `CheckerboardMaterialProperty` to enable use of the checkerboard material with the entity API.
+* Added `PolygonHierarchy` to make defining polygons with holes clearer.
+* Added `PolygonGraphics.hierarchy` for supporting polygons with holes via data sources.
+* Added `BoundingSphere.fromBoundingSpheres`, which creates a `BoundingSphere` that encloses the specified array of BoundingSpheres.
+* Added `Model.readyPromise` and `Primitive.readyPromise` which are promises that resolve when the primitives are ready.
+* `ConstantProperty` can now hold any value; previously it was limited to values that implemented `equals` and `clones` functions, as well as a few special cases.
+* Fixed a bug in `EllipsoidGeodesic` that caused it to modify the `height` of the positions passed to the constructor or to to `setEndPoints`.
+* `WebMapTileServiceImageryProvider` now supports RESTful requests (by accepting a tile-URL template).
+* Fixed a bug that caused `Camera.roll` to be around 180 degrees, indicating the camera was upside-down, when in the Southern hemisphere.
+* The object returned by `Primitive.getGeometryInstanceAttributes` now contains the instance's bounding sphere and repeated calls will always now return the same object instance.
+* Fixed a bug that caused dynamic geometry outlines widths to not work on implementations that support them.
+* The `SelectionIndicator` widget now works for all entity visualization and uses the center of visualization instead of entity.position. This produces more accurate results, especially for shapes, volumes, and models.
+* Added `CustomDataSource` which makes it easy to create and manage a group of entities without having to manually implement the DataSource interface in a new class.
+* Added `DataSourceDisplay.defaultDataSource` which is an instance of `CustomDataSource` and allows you to easily add custom entities to the display.
+* Added `Camera.viewBoundingSphere` and `Camera.flyToBoundingSphere`, which as the names imply, sets or flies to a view that encloses the provided `BoundingSphere`
+* For constant `Property` values, there is no longer a need to create an instance of `ConstantProperty` or `ConstantPositionProperty`, you can now assign a value directly to the corresponding property. The same is true for material images and colors.
+* All Entity and related classes can now be assigned using anonymous objects as well as be passed template objects. The correct underlying instance is created for you automatically. For a more detailed overview of changes to the Entity API, see [this forum thread](https://groups.google.com/d/msg/cesium-dev/ol7edT6EtZw/a2-gvI4H0IwJ) for details.
+
 ### 1.5 - 2015-01-05
 
 * Breaking changes

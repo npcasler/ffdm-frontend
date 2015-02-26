@@ -39,13 +39,6 @@ export default Ember.Controller.extend({
     
   }.observes('rcp'),
 
-  yearChanged: function() {
-    var active = this.get('activeDate');
-    var newYear = "20" + active + "1";
-    this.set('year', newYear);
-    console.log('Year has changed to '+ this.get('year'));
-  }.observes('activeDate'),
-
   animateChanged: function() {
     var animate = this.get('isAnimated');
     console.log('Animate Changed called');
@@ -59,6 +52,14 @@ export default Ember.Controller.extend({
       this.animateMaps(0);
     }
   }.observes('isAnimated'),
+  
+  yearChanged: function() {
+    var active = this.get('activeDate');
+    var newYear = "20" + active + "1";
+    this.set('year', newYear);
+    console.log('Year has changed to '+ this.get('year'));
+  }.observes('activeDate'),
+
 
   yearSelected: function() {
     console.log('year selection changed! ' + this.get('selectedYear'));
@@ -66,23 +67,6 @@ export default Ember.Controller.extend({
     $('#slider-control').css('visibility', 'visible');
     
   }.observes('selectedYear'), 
-
-  stepClock: function() {
-    var currentDate = this.get('activeDate');
-    console.log('StepClock called on cesiumController');
-    if (currentDate >= 8) {
-      this.set('activeDate', 1);
-    } else {
-      this.set('activeDate', currentDate + 1);
-      console.log('Active date is ' + this.get('activeDate'));
-    }
-    var dateFormatted = '20'+ this.get('activeDate') + '1-01-01';
-    console.log(dateFormatted);
-    var dateEncoded = new Cesium.JulianDate.fromIso8601(dateFormatted);
-    console.log(dateEncoded);
-    console.log(this.get('clock').currentTime);
-    this.get('clock').currentTime = dateEncoded;
-  },
 
   createImageryProvider: function(url) {
     var wms = new Cesium.TileMapServiceImageryProvider({
@@ -123,20 +107,16 @@ export default Ember.Controller.extend({
     var proxy = this.get('proxy');
     var rcp = this.get('rcp');
     var years = this.get('years');
-    var species = this.get('species');
-    console.log(typeof species);
-    console.log(species);
+    
     var speciesName = this.get('speciesName');
     console.log(speciesName);
     //Iterate through the years for each layer
     var readyCounter = 0;
     for (var i = 0; i < years.length; i++) {
       var newUrl = proxy + rcp + '/20' + years[i] + '1/' + speciesName; //Use once on the server
-      console.log("NewURL is "+ newUrl);
       var imageryProvider = this.createImageryProvider(newUrl);
       var alpha = this.setLayerAlpha(years[i]);
       var name = speciesName + '-20' + years[i] + '1';
-      console.log('Layer name is :'+ name); 
       
       
       this.addLayerOption(name, imageryProvider, alpha, 1);
@@ -144,6 +124,7 @@ export default Ember.Controller.extend({
     }
   },
  
+  
   removeLayers: function() {
     //Clear old layers before adding new ones
     this.animateMaps(0);
@@ -163,7 +144,6 @@ export default Ember.Controller.extend({
   changeYear: function(direction) {
    
     var active = this.get('activeDate');
-    console.log('Active layer is: '+active);
     var oldLayer = this.get('imageryLayers').get(active);
     if (direction === 1){ 
       if (active < this.get('years').length) {
@@ -188,6 +168,25 @@ export default Ember.Controller.extend({
     newLayer.alpha = 1;
   },
     
+  addBillboard: function() {
+    console.log("Adding Billboard...");
+    var viewer = this.get('viewer');
+    console.log(viewer);
+
+
+
+    var aspen = viewer.entities.add({
+      name: 'Aspen',
+      position: Cesium.Cartesian3.fromDegrees(-107.0423156724622, 39.27751848305237),
+      billboard: {
+        image: 'assets/images/treeIcon.png'
+      },
+      description: '<iframe src="//player.vimeo.com/video/107734991" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>',
+        
+    });
+  },
+ 
+
   animateMaps: function(start) {
     if (start) {
       var self = this;
@@ -205,7 +204,7 @@ export default Ember.Controller.extend({
 
 
   changeSpecies: function() {
-    this.set('species', this.get('species').get('sci_name'));
+    this.set('speciesName', this.get('species').get('sci_name'));
     console.log('The new species is '+ this.get('species').get('sci_name'));
   },
     pulseObject: function(varname) {
@@ -241,6 +240,8 @@ export default Ember.Controller.extend({
     setBestRcp: function() {
         this.set('rcp', 'rcp26');
       
+    },
+    getEntity: function() {
     },
     playPause: function() {
       if (this.get('isAnimated')) {

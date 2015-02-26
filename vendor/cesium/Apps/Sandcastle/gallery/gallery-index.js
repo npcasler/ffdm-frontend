@@ -1,214 +1,270 @@
 // This file is automatically rebuilt by the Cesium build process.
 var gallery_demos = [{
   "name": "3D Models",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "3D Models.jpg"
 }, {
   "name": "Billboards",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Billboards.jpg"
 }, {
-  "name": "Box Outline",
-  "date": 1420461330000,
-  "img": "Box Outline.jpg"
-}, {
   "name": "Box",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Box.jpg"
 }, {
   "name": "CZML",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "CZML.jpg"
 }, {
   "name": "Camera Tutorial",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Camera Tutorial.jpg"
 }, {
   "name": "Camera",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Camera.jpg"
 }, {
   "name": "Cesium Inspector",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Cesium Inspector.jpg"
 }, {
   "name": "Cesium Widget",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Cesium Widget.jpg"
 }, {
-  "name": "Circle Outline",
-  "date": 1420461330000,
-  "img": "Circle Outline.jpg"
-}, {
-  "name": "Circle",
-  "date": 1420461330000,
-  "img": "Circle.jpg"
-}, {
-  "name": "Corridor Outline",
-  "date": 1420461330000,
-  "img": "Corridor Outline.jpg"
+  "name": "Circles and Ellipses",
+  "date": 1424973219000,
+  "img": "Circles and Ellipses.jpg"
 }, {
   "name": "Corridor",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Corridor.jpg"
 }, {
   "name": "Custom DataSource",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Custom DataSource.jpg"
 }, {
-  "name": "Cylinder Outline",
-  "date": 1420461330000,
-  "img": "Cylinder Outline.jpg"
-}, {
-  "name": "Cylinder",
-  "date": 1420461330000,
-  "img": "Cylinder.jpg"
-}, {
-  "name": "Ellipse Outline",
-  "date": 1420461330000,
-  "img": "Ellipse Outline.jpg"
-}, {
-  "name": "Ellipse",
-  "date": 1420461330000,
-  "img": "Ellipse.jpg"
-}, {
-  "name": "Ellipsoid Outline",
-  "date": 1420461330000,
-  "img": "Ellipsoid Outline.jpg"
-}, {
-  "name": "Ellipsoid Surface",
-  "date": 1420461330000,
-  "img": "Ellipsoid Surface.jpg"
-}, {
-  "name": "Ellipsoid",
-  "date": 1420461330000,
-  "img": "Ellipsoid.jpg"
+  "name": "Cylinders and Cones",
+  "date": 1424973219000,
+  "img": "Cylinders and Cones.jpg"
 }, {
   "name": "GeoJSON and TopoJSON",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "GeoJSON and TopoJSON.jpg"
 }, {
   "name": "GeoJSON simplestyle",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "GeoJSON simplestyle.jpg"
 }, {
   "name": "Geometry and Appearances",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Geometry and Appearances.jpg"
 }, {
   "name": "Hello World",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Hello World.jpg"
 }, {
   "name": "Imagery Adjustment",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Imagery Adjustment.jpg"
 }, {
   "name": "Imagery Layers Manipulation",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Imagery Layers Manipulation.jpg"
 }, {
   "name": "Imagery Layers",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Imagery Layers.jpg"
 }, {
   "name": "Labels",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Labels.jpg"
 }, {
-  "name": "Material",
-  "date": 1420461330000,
-  "img": "Material.jpg"
+  "name": "Map Pins",
+  "date": 1424973219000,
+  "img": "Map Pins.jpg"
 }, {
   "name": "Materials",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Materials.jpg"
 }, {
-  "name": "Per Instance Color",
-  "date": 1420461330000,
-  "img": "Per Instance Color.jpg"
-}, {
   "name": "Picking",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Picking.jpg"
 }, {
-  "name": "PinBuilder",
-  "date": 1420461330000,
-  "img": "PinBuilder.jpg"
-}, {
-  "name": "Polygon Outline",
-  "date": 1420461330000,
-  "img": "Polygon Outline.jpg"
-}, {
   "name": "Polygon",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Polygon.jpg"
 }, {
-  "name": "Polygons",
-  "date": 1420461330000,
-  "img": "Polygons.jpg"
-}, {
-  "name": "Polyline Color",
-  "date": 1420461330000,
-  "img": "Polyline Color.jpg"
-}, {
-  "name": "Polyline Material",
-  "date": 1420461330000,
-  "img": "Polyline Material.jpg"
-}, {
-  "name": "Polyline Volume Outline",
-  "date": 1420461330000,
-  "img": "Polyline Volume Outline.jpg"
-}, {
   "name": "Polyline Volume",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Polyline Volume.jpg"
 }, {
   "name": "Polyline",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Polyline.jpg"
 }, {
-  "name": "Polylines",
-  "date": 1420461330000,
-  "img": "Polylines.jpg"
-}, {
-  "name": "Rectangle Outline",
-  "date": 1420461330000,
-  "img": "Rectangle Outline.jpg"
-}, {
   "name": "Rectangle",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Rectangle.jpg"
 }, {
-  "name": "Simple Polyline",
-  "date": 1420461330000,
-  "img": "Simple Polyline.jpg"
-}, {
-  "name": "Sphere Outline",
-  "date": 1420461330000,
-  "img": "Sphere Outline.jpg"
-}, {
-  "name": "Sphere",
-  "date": 1420461330000,
-  "img": "Sphere.jpg"
+  "name": "Spheres and Ellipsoids",
+  "date": 1424973219000,
+  "img": "Spheres and Ellipsoids.jpg"
 }, {
   "name": "Terrain",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Terrain.jpg"
 }, {
-  "name": "Volumes",
-  "date": 1420461330000,
-  "img": "Volumes.jpg"
-}, {
-  "name": "Wall Outline",
-  "date": 1420461330000,
-  "img": "Wall Outline.jpg"
-}, {
   "name": "Wall",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Wall.jpg"
 }, {
   "name": "Web Map Service (WMS)",
-  "date": 1420461330000,
+  "date": 1424973219000,
   "img": "Web Map Service (WMS).jpg"
+}, {
+  "name": "development/3D Models",
+  "date": 1424973219000,
+  "img": "development/3D Models.jpg"
+}, {
+  "name": "development/Billboards",
+  "date": 1424973219000,
+  "img": "development/Billboards.jpg"
+}, {
+  "name": "development/Box Outline",
+  "date": 1424973219000,
+  "img": "development/Box Outline.jpg"
+}, {
+  "name": "development/Box",
+  "date": 1424973219000,
+  "img": "development/Box.jpg"
+}, {
+  "name": "development/Circle Outline",
+  "date": 1424973219000,
+  "img": "development/Circle Outline.jpg"
+}, {
+  "name": "development/Circle",
+  "date": 1424973219000,
+  "img": "development/Circle.jpg"
+}, {
+  "name": "development/Corridor Outline",
+  "date": 1424973219000,
+  "img": "development/Corridor Outline.jpg"
+}, {
+  "name": "development/Corridor",
+  "date": 1424973219000,
+  "img": "development/Corridor.jpg"
+}, {
+  "name": "development/Cylinder Outline",
+  "date": 1424973219000,
+  "img": "development/Cylinder Outline.jpg"
+}, {
+  "name": "development/Cylinder",
+  "date": 1424973219000,
+  "img": "development/Cylinder.jpg"
+}, {
+  "name": "development/Ellipse Outline",
+  "date": 1424973219000,
+  "img": "development/Ellipse Outline.jpg"
+}, {
+  "name": "development/Ellipse",
+  "date": 1424973219000,
+  "img": "development/Ellipse.jpg"
+}, {
+  "name": "development/Ellipsoid Outline",
+  "date": 1424973219000,
+  "img": "development/Ellipsoid Outline.jpg"
+}, {
+  "name": "development/Ellipsoid Surface",
+  "date": 1424973219000,
+  "img": "development/Ellipsoid Surface.jpg"
+}, {
+  "name": "development/Ellipsoid",
+  "date": 1424973219000,
+  "img": "development/Ellipsoid.jpg"
+}, {
+  "name": "development/Geometry and Appearances",
+  "date": 1424973219000,
+  "img": "development/Geometry and Appearances.jpg"
+}, {
+  "name": "development/Labels",
+  "date": 1424973219000,
+  "img": "development/Labels.jpg"
+}, {
+  "name": "development/Material",
+  "date": 1424973219000,
+  "img": "development/Material.jpg"
+}, {
+  "name": "development/Per Instance Color",
+  "date": 1424973219000,
+  "img": "development/Per Instance Color.jpg"
+}, {
+  "name": "development/Polygon Outline",
+  "date": 1424973219000,
+  "img": "development/Polygon Outline.jpg"
+}, {
+  "name": "development/Polygon",
+  "date": 1424973219000,
+  "img": "development/Polygon.jpg"
+}, {
+  "name": "development/Polygons",
+  "date": 1424973219000,
+  "img": "development/Polygons.jpg"
+}, {
+  "name": "development/Polyline Color",
+  "date": 1424973219000,
+  "img": "development/Polyline Color.jpg"
+}, {
+  "name": "development/Polyline Material",
+  "date": 1424973219000,
+  "img": "development/Polyline Material.jpg"
+}, {
+  "name": "development/Polyline Volume Outline",
+  "date": 1424973219000,
+  "img": "development/Polyline Volume Outline.jpg"
+}, {
+  "name": "development/Polyline Volume",
+  "date": 1424973219000,
+  "img": "development/Polyline Volume.jpg"
+}, {
+  "name": "development/Polyline",
+  "date": 1424973219000,
+  "img": "development/Polyline.jpg"
+}, {
+  "name": "development/Polylines",
+  "date": 1424973219000,
+  "img": "development/Polylines.jpg"
+}, {
+  "name": "development/Rectangle Outline",
+  "date": 1424973219000,
+  "img": "development/Rectangle Outline.jpg"
+}, {
+  "name": "development/Rectangle",
+  "date": 1424973219000,
+  "img": "development/Rectangle.jpg"
+}, {
+  "name": "development/Simple Polyline",
+  "date": 1424973219000,
+  "img": "development/Simple Polyline.jpg"
+}, {
+  "name": "development/Sphere Outline",
+  "date": 1424973219000,
+  "img": "development/Sphere Outline.jpg"
+}, {
+  "name": "development/Sphere",
+  "date": 1424973219000,
+  "img": "development/Sphere.jpg"
+}, {
+  "name": "development/Volumes",
+  "date": 1424973219000,
+  "img": "development/Volumes.jpg"
+}, {
+  "name": "development/Wall Outline",
+  "date": 1424973219000,
+  "img": "development/Wall Outline.jpg"
+}, {
+  "name": "development/Wall",
+  "date": 1424973219000,
+  "img": "development/Wall.jpg"
 }];

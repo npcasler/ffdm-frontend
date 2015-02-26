@@ -167,8 +167,7 @@ define([
      * var widget = new Cesium.CesiumWidget('cesiumContainer', {
      *     imageryProvider : new Cesium.OpenStreetMapImageryProvider(),
      *     terrainProvider : new Cesium.CesiumTerrainProvider({
-     *         url : '//cesiumjs.org/smallterrain',
-     *         credit : 'Terrain data courtesy Analytical Graphics, Inc.'
+     *         url : '//cesiumjs.org/stk-terrain/world'
      *     }),
      *     // Use high-res stars downloaded from https://github.com/AnalyticalGraphicsInc/cesium-assets
      *     skyBox : new Cesium.SkyBox({
@@ -293,7 +292,7 @@ define([
                 scene.terrainProvider = options.terrainProvider;
             }
 
-            this._screenSpaceEventHandler = new ScreenSpaceEventHandler(canvas);
+            this._screenSpaceEventHandler = new ScreenSpaceEventHandler(canvas, false);
 
             if (defined(options.sceneMode)) {
                 if (options.sceneMode === SceneMode.SCENE2D) {
