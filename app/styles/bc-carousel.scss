@@ -1,0 +1,100 @@
+// bootstrap carousel example
+
+.bc-icon {
+  height: 150px !important;
+  width: 150px !important;
+  border: solid 3px rgba(0,0,0,0.4) !important;
+  overflow: hidden;
+}
+.bc-icon:hover {
+  border: solid 5px rgba(0,0,0,0.5) !important;
+}
+.bc-1, .bc-2, .bc-3 {
+//  margin: -100px 0px !important;
+}
+#bc-1 {
+  background: url(images/bc-1.jpg) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+#bc-2 {
+  background: url(images/bc-2.jpg) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+#bc-3 {
+  background: url(images/bc-3.jpg) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.bc-1-icon {
+  background: url(images/bc-1-icon.jpg);
+}
+.bc-2-icon {
+  background: url(images/bc-2-icon.jpg);
+}
+.bc-3-icon {
+  background: url(images/bc-3-icon.jpg);
+}
+.bc-gif-example {
+  background: url(images/aspen_only.gif) no-repeat center;
+  background-size: contain;
+  height: 200px;
+}
+.bc-img-example {
+  background: url(images/aces-logo.png) no-repeat center;
+  background-size: contain;
+  height: 143px;
+}
+.carousel-caption {
+  font-size: 1.5em !important;
+  background: rgba(0,0,0,0.5) !important;
+  top: 55% !important;
+}
+.bc-top-spacer {
+//  padding-top: 90px;
+}
+.bc-slider-height {
+  height: 100%;
+}
+#bc-carousel-control {
+  margin-top: 200%;
+}
+#carousel-example-generic, .carousel-inner, .item {
+  height: 100% !important;
+}
+#carousel-example-generic {
+//  margin-top: 90px !important;
+}
+.bc-caption {
+  font-size: 1.5em;
+  top: 15%;
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  text-align: center;
+  text-shadow: black;
+  & .btn {
+    text-shadow: none; // No shadow for button elements in carousel-caption
+  }
+}
+.bc-play-pause {
+  bottom: 35px;
+  left: 40px;
+  position: absolute;
+  z-index: 1 !important;
+  .btn {
+    background-color: rgba(0,0,0,0.3);
+    color: white
+  }
+  .btn:hover {
+    background-color: rgba(0,0,0,0.6);
+  }
+}
+
+

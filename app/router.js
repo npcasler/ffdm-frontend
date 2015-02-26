@@ -10,6 +10,7 @@ Router.map(function() {
   this.route("cesium");
   this.route("plants");
   this.resource("headlines", {path: '/headlines/:pageId'});
+  this.route("carousel");
 });
 
 export default Router;

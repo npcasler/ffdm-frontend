@@ -1,6 +1,7 @@
 @import 'bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap';
 @import 'bower_components/fontawesome/scss/font-awesome';
 @import 'responsive.scss';
+@import 'bc-carousel.scss';
 
 // sass variables //
 //colors
@@ -849,7 +850,7 @@ div.tip1 {
 .tip1:hover span {
   position: absolute !important;
   left: 50px !important;
-  top: 180px !important;
+  top: 22px !important;
   z-index: 1 !important;
   margin-left: 10px !important;
   width: 350px !important;
@@ -907,7 +908,7 @@ div.tip3 {
 .tip3:hover span {
   position: absolute !important;
   right: 10px !important;
-  top: 220px !important;
+  top: 2px !important;
   z-index: 1 !important;
   margin-left: 10px !important;
   width: 350px !important;
@@ -2162,3 +2163,5 @@ a.aces-link:hover {
 }
 
 // end about.hbs //
+
+
