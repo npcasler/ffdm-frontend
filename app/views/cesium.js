@@ -9,18 +9,9 @@ export default Ember.View.extend({
     var rcp = cesiumController.get('rcp');
     var species = cesiumController.get('species');
        
+    var imageryLayers = cesiumController.get('imageryLayers');
     var imageryViewModels = cesiumController.get('imageryViewModels');
-   /* imageryViewModels.push(new Cesium.ProviderViewModel({
-      name: 'Open\u00adStreet\u00adMap',
-      iconUrl: Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/openStreetMap.png'),
-      tooltip: 'OpenStreetMap (OSM) is a collaborative project to create a free editable \
-      map of the worl.\nhttp://www.openstreetmap.org',
-      creationFunction: function() {
-        return new Cesium.OpenStreetMapImageryProvider({
-          url: '//a.tile.openstreetmap.org/'
-        });
-      }
-    }));*/
+    
     imageryViewModels.push(new Cesium.ProviderViewModel({
             name: 'ArcGIS World Street Map',
             iconUrl : Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/esriWorldImagery.png'),
@@ -55,13 +46,7 @@ export default Ember.View.extend({
     console.log("imageryViewModels created as: "+imageryViewModels);
     cesiumController.set('imageryViewModels', imageryViewModels);
 
-    console.log("Cesium_base_url is: "+ CESIUM_BASE_URL);
-    console.log('Cesium view DidInsertElement Called.');
     var viewer = new Cesium.Viewer('cesiumContainer', {
-      //Add starting base map
-      //imageryProvider: new Cesium.ArcGisMapServerImageryProvider({
-      //  url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer'
-      //}),
       imageryProvider: false,
       terrainProvider: terrainProvider,      
       animation: false, 
@@ -72,17 +57,22 @@ export default Ember.View.extend({
       var camera = viewer.camera;
     });
     var scene = viewer.scene;
+    var globe = scene.globe;
     var baseLayerPicker = new Cesium.BaseLayerPicker('baseLayerPickerContainer', {globe:scene.globe, imageryProviderViewModels:imageryViewModels});
-    viewer.baseLayerPicker.viewModel.selectedItem = imageryViewModels[0];
+    
+    
+    imageryLayers = new Cesium.ImageryLayerCollection();
+    cesiumController.set('imageryLayers', imageryLayers);
+    globe.imageryLayers = imageryLayers;
     cesiumController.set('viewer', viewer);
 
-    viewer.baseLayerPicker = baseLayerPicker;
     
-    var imageryLayers = cesiumController.get('imageryLayers');
-    imageryLayers = viewer.scene.imageryLayers;
-    cesiumController.set('imageryLayers', imageryLayers);
-    //var wms = new Cesium.TileMapServiceImageryProvider({
-   // cesiumController.stepClock();
+    //Uncomment to debug tiling
+    layer = new Cesium.TileCoordinatesImageryProvider({
+      tilingScheme: new GeographicTilingScheme(),
+      color: yellow,
+     });
+    //imageryLayers.addImageryProvider(layer);
 
     this.initCB();
   },

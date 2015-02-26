@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
   speciesName: 'Abies_lasiocarpa',
   year: '2011',
   rcp: 'rcp26',
-  imageryLayers: '', // will hold the prediction layers
+  imageryLayers: '',
   imageryViewModels: [], // this will house the base layers
   myTimer: '', // timer for animations
   viewer: '',
@@ -107,7 +107,10 @@ export default Ember.Controller.extend({
 
   addLayerOption: function(name, imageryProvider, alpha, show) {
     var layers = this.get('imageryLayers');
-    console.log(layers);
+    var globe = this.get('viewer').scene.globe;
+    console.log(globe.imageryLayers);
+    console.log(name + ' is ready: '+ imageryProvider.ready);
+    console.log(typeof layers);
     var layer = layers.addImageryProvider(imageryProvider);
     layer.name = name;
     layer.alpha = alpha;
@@ -126,14 +129,15 @@ export default Ember.Controller.extend({
     var speciesName = this.get('speciesName');
     console.log(speciesName);
     //Iterate through the years for each layer
+    var readyCounter = 0;
     for (var i = 0; i < years.length; i++) {
       var newUrl = proxy + rcp + '/20' + years[i] + '1/' + speciesName; //Use once on the server
       console.log("NewURL is "+ newUrl);
       var imageryProvider = this.createImageryProvider(newUrl);
-      console.log(imageryProvider.ready);
       var alpha = this.setLayerAlpha(years[i]);
       var name = speciesName + '-20' + years[i] + '1';
       console.log('Layer name is :'+ name); 
+      
       
       this.addLayerOption(name, imageryProvider, alpha, 1);
      
@@ -144,7 +148,9 @@ export default Ember.Controller.extend({
     //Clear old layers before adding new ones
     this.animateMaps(0);
     console.log('Remove layers called');
-    for (var i = this.get('years').length; i > 0; i--){
+    var layerLength = this.get('imageryLayers').length;
+    console.log(layerLength);
+    for (var i = layerLength; i > 0; i--){
       console.log('Removing layer ' + i+ ' out of '+this.get('years').length+ " layers");
       var layer = this.get('imageryLayers').get(i)
       //console.log("Layer is "+ layer);
