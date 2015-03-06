@@ -91,6 +91,7 @@ h3, h4, h5, h6, p, div {
   margin-bottom: 0px !important;
   border: none !important;
   width: 100%;
+  background-color: rgba(0,50,0,0.8) !important;
 }
 #header-right {
   overflow: hidden;
@@ -139,7 +140,7 @@ h3, h4, h5, h6, p, div {
   content: "";  
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
-  border-left: 40px solid white;
+  border-left: 40px solid rgba(0,0,0,0.3);
  // border-style: dotted solid dotted solid !important;
   position: absolute;
   left: 0;
