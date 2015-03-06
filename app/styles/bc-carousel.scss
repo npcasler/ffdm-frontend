@@ -46,11 +46,7 @@
   background-size: contain;
   height: 143px;
 }
-.carousel-caption {
-  font-size: 1.5em !important;
-  background: rgba(0,0,0,0.5) !important;
-  top: 55% !important;
-}
+
 .bc-top-spacer {
 //  padding-top: 90px;
 }
@@ -66,7 +62,70 @@
 #carousel-example-generic {
 //  margin-top: 90px !important;
 }
-.bc-caption {
+.bc-play-pause {
+  bottom: 35px;
+  left: 40px;
+  position: absolute;
+  z-index: 1 !important;
+  .btn {
+    background-color: rgba(0,0,0,0.3);
+    color: white
+  }
+  .btn:hover {
+    background-color: rgba(0,0,0,0.6);
+  }
+}
+
+// from bootstrap-sass-official
+// Optional indicator pips
+//
+// Add an unordered list with the following class and add a list item for each
+// slide your carousel holds.
+
+.bc-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  z-index: 15;
+  width: 60%;
+  margin-left: -30%;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+
+  
+  li {
+    display: inline-block;
+    width:  10px;
+    height: 10px;
+    margin: 1px;
+    text-indent: -999px;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 10px;
+    cursor: pointer;
+
+    // IE8-9 hack for event handling
+    //
+    // Internet Explorer 8-9 does not support clicks on elements without a set
+    // `background-color`. We cannot use `filter` since that's not viewed as a
+    // background color by the browser. Thus, a hack is needed.
+    // See https://developer.mozilla.org/en-US/docs/Web/Events/click#Internet_Explorer
+    //
+    // For IE8, we set solid black as it doesn't support `rgba()`. For IE9, we
+    // set alpha transparency for the best results possible.
+    
+    background-color: none !important; // IE8
+    background-color: none !important; // IE9
+  }
+  .active {
+    margin: 0;
+    width:  12px;
+    height: 12px;
+    background-color: none !important;
+    border: red solid 2px !important;
+  }
+}
+.bc-caption-top {
   font-size: 1.5em;
   top: 15%;
   position: absolute;
@@ -83,18 +142,64 @@
     text-shadow: none; // No shadow for button elements in carousel-caption
   }
 }
-.bc-play-pause {
-  bottom: 35px;
-  left: 40px;
+
+// make new carousel-caption class, combine with custom carousel-caption class
+// Optional captions
+// -----------------------------
+// Hidden by default for smaller viewports
+.bc-caption-bottom {
+  font-size: 1.5em;
+  background: rgba(0,0,0,0.5);
+  top: 55%;
   position: absolute;
-  z-index: 1 !important;
-  .btn {
-    background-color: rgba(0,0,0,0.3);
-    color: white
-  }
-  .btn:hover {
-    background-color: rgba(0,0,0,0.6);
+  left: 15%;
+  right: 15%;
+  z-index: 10;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
+  text-align: center;
+  text-shadow: black;
+  & .btn {
+    text-shadow: none; // No shadow for button elements in carousel-caption
   }
 }
 
 
+// Scale up controls for tablets and up
+/*@media screen and (min-width: $screen-sm-min) {
+
+  // Scale up the controls a smidge
+  .carousel-control {
+    .glyphicon-chevron-left,
+    .glyphicon-chevron-right,
+    .icon-prev,
+    .icon-next {
+      width: 30px;
+      height: 30px;
+      margin-top: -15px;
+      font-size: 30px;
+    }
+    .glyphicon-chevron-left,
+    .icon-prev {
+      margin-left: -15px;
+    }
+    .glyphicon-chevron-right,
+    .icon-next {
+      margin-right: -15px;
+    }
+  }
+
+  // Show and left align the captions
+  .carousel-caption {
+    left: 20%;
+    right: 20%;
+    padding-bottom: 30px;
+  }
+
+  // Move up the indicators
+  .carousel-indicators {
+    bottom: 20px;
+  }
+}
+*/
