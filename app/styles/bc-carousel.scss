@@ -18,15 +18,15 @@ $bc-icon-border: 3px solid rgba(0,0,0,0.4);
   .bc-caption-bottom {
     bottom: 21% !important;
   }
-  .bc-caption-bottom p {
-    padding: 0px 10px;
-  }
 }
 @media screen and (min-height: 701px) {
   .bc-icon {
     height: 150px !important;
     width: 150px !important;
   }
+}
+.bc-caption-bottom p {
+    padding: 0px 10px;
 }
 
 .bc-icon {
