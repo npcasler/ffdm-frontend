@@ -84,7 +84,39 @@ h3, h4, h5, h6, p, div {
 }
 // end global //
 
+//modal
+.modal-open {
+  padding-right: 0px !important;
+}
+.cesium-modal-button {
+  background-color: rgba(0,0,255,0.4);
+  border-radius: 50%;
+  font-size: 0.6em;
+}
+.cesium-modal-button:hover {
+  background-color: rgba(0,0,255,0.7);
+}
+
 // application.hbs navigation //
+
+
+.navbar-brand-sub {
+  padding-left:50px;
+  padding-top: 52px;
+  button {
+    border: 1px solid rgba(255,255,255,0.3);
+    background-color: rgba(0,0,0,0.5);
+    font-size: 1.4em;
+    color: rgba(255,255,255,0.5);
+  }
+  button:hover {
+    background-color: rgba(255,0,0,0.5);
+    border: 1px solid rgba(255,0,0,0.3);
+  }
+}
+.navbar-brand-sub span:first-child {
+  padding-right: 10px;
+}
 
 //remove space between body and navbar
 .navbar {
@@ -167,6 +199,9 @@ h3, h4, h5, h6, p, div {
   display: table;
 }
 .navbar-brand {
+//for new frontend testing - bootstrap default = padding-top=15px
+  padding-top: 4px !important;
+  
   padding-bottom: 15px;
   font-size: 4em;
   outline: 0;

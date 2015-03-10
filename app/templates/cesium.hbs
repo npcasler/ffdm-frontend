@@ -5,6 +5,8 @@
       <div id="select-group">
         <div id="plant-desc" class="map-step">
           Step 1: Choose a species
+          <button class="cesium-modal-button" {{action 'showModal' 'maptip1-modal'}}>?</button>
+          {{!--
           <div id="maptips" class="tip1">&nbsp;
             <span class="tips">
               <h3>How do I get a map?</h3><br>
@@ -17,6 +19,7 @@
               </ol>
             </span>
           </div>
+          --}}
         </div> 
         <p><hr class="maps-hr"></p>
         <div class="form-group form-group-1">
@@ -35,10 +38,13 @@
       <div id="rcp-group" class="rcp-toolbar btn-group rcp-group-toolbar">
         <div id="rcp-desc" class="map-step">
           Step 2: Choose a Climate Scenario
+          <button class="cesium-modal-button" {{action 'showModal' 'maptip2-modal'}}>?</button>
+            {{!--
             <div id="maptips" class="tip2">&nbsp;
               <span class="tips">The best-case climate change scenario (rcp 2.6) is where C)<sub>2</sub> emissions rise from current-day rates of ~9 billion tons per year, peak around mid-21<sup>st</sup> century, then decline to zero by the end of the 21<sup>st</sup> century. Under the worst-case scenario (rcp 8.5) - "business as usual" - emissions continue to rise at a relatively high rate throughout most of the 21<sup>st</sup> century, then stabilize at ~30 billion tons per year by the end of the century. See <a href="#/headlines/climate">Forest Change</a> for more information.
               </span>
             </div>
+            --}}
             <p><hr class="maps-hr"></p>
             <div class="btn-row">
               <div id="rcp26-label" {{action 'setBestRcp' '0' }} class="col-sm-6 btn-temp">
@@ -136,6 +142,8 @@
           <hr class="maps-hr"> 
           <div class="map-legend-sub">
            Suitability
+            <button class="cesium-modal-button" {{action 'showModal' 'maptip3-modal'}}>?</button>
+            {{!--
             <div id="maptips" class="tip3">&nbsp;
               <span class="tips">
                 <h3>About Suitablility Legend</h3>
@@ -146,7 +154,8 @@
                   <li class="suitability"><u><b>Low</b></u>- Low likelihood that species will be present. Species will likely be quite rare and isolated to specific microevironments.</li>
                 </ul>
               </span>
-            </div>        
+            </div>
+            --}}
             <div id="suitability-circles">
               <div class="row">
                 <div class="oval-high">High</div>
