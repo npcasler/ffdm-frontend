@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  needs: ['plants'],
+  needs: ['plants', 'outerras'],
   proxy: '/cgi-bin/proxy.cgi?url=http://scooby.iplantcollaborative.org/maxent/', //allows access to records without opening cors
   species: '', // object holding the record from the plant table
   speciesName: 'Abies_lasiocarpa',
@@ -14,8 +14,8 @@ export default Ember.Controller.extend({
   isAnimated: 0, // boolean to signal animations
   years: [1,2,3,4,5,6,7,8], 
   activeDate: 1, // counter to track the current year/layer
-
-
+  outerrasController: Ember.computed.alias("controllers.outerras"),
+  
   plantsSelected: function() {
     console.log('plant selection changed ' + this.get('species').get('sci_name'));
     this.animateMaps(0);
@@ -123,6 +123,60 @@ export default Ember.Controller.extend({
      
     }
   },
+
+  addBillboard: function(x,y, title, description) {
+    console.log("Adding Billboard...");
+    var viewer = this.get('viewer');
+    //Create the marker for the map
+    var marker = viewer.entities.add({
+      name: title,
+      //marker position, need to account for elevation
+      position: Cesium.Cartesian3.fromDegrees(x, y, 3000),
+      billboard: {
+        image: 'assets/images/outerra-pin.png',
+        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+        pixelOffsetScaleByDistance: new Cesium.NearFarScalar(1.0e3, 1.0, 1.5e6, 0.0),
+      },
+      description: '<img href='+description +'></img>',
+      //currently not being recognized
+      viewFrom: Cesium.Cartesian3.fromDegrees(x,y,10000)
+        
+    });
+  },
+  loadPoints: function() {
+
+  /* This function will load the data for outerra points.
+  */
+    // Get the Model from the Outerra controller
+    var outerraModel = this.get('outerrasController').get('model');
+    //Capture scope for timeout function
+    var self = this;
+    setTimeout(function() {
+     
+      console.log('Second try');
+      //this gathers a reference to promise array that pulls the outerra records
+      var content = outerraModel.get('content');
+      console.log(content);
+
+      if (content.isLoaded) {
+      //For some reason there are three levels of 'content' to get to actual data
+      var points = content.get('content');
+      //Iterate through the returned records
+      for (var x =0, len = points.length; x < len; x++) {
+        var lat = points[x].get('y');
+        var lon = points[x].get('x');
+        console.log('lat: '+lat+', lon: '+lon);
+        var title = points[x].get('title');
+        var description = points[x].get('url');
+        //Add the marker to the map
+        self.addBillboard(lon, lat, title, description);
+      }
+      }
+
+    }, 1000);
+
+
+  },
  
   
   removeLayers: function() {
@@ -168,23 +222,6 @@ export default Ember.Controller.extend({
     newLayer.alpha = 1;
   },
     
-  addBillboard: function() {
-    console.log("Adding Billboard...");
-    var viewer = this.get('viewer');
-    console.log(viewer);
-
-
-
-    var aspen = viewer.entities.add({
-      name: 'Aspen',
-      position: Cesium.Cartesian3.fromDegrees(-107.0423156724622, 39.27751848305237),
-      billboard: {
-        image: 'assets/images/treeIcon.png'
-      },
-      description: '<iframe src="//player.vimeo.com/video/107734991" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>',
-        
-    });
-  },
  
 
   animateMaps: function(start) {

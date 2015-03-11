@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   //closeText: 'Close',
+  contentText: '',
   //okText: 'Ok',
   actions: {
     ok: function() {

@@ -65,10 +65,10 @@ export default Ember.View.extend({
     imageryLayers = globe.imageryLayers; 
     cesiumController.set('imageryLayers', imageryLayers);
     console.log(cesiumController.get('viewer')); 
-    cesiumController.addBillboard();
+//cesiumController.addBillboard();
 
-    
-    /*Create an event handler for onclick events*/
+/*
+    Create an event handler for onclick events
     var handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
     handler.setInputAction(function(cursor) {
       console.log(cursor.position);
@@ -78,14 +78,12 @@ export default Ember.View.extend({
         var id = Cesium.defaultValue(pickedObject.id, pickedObject.primitive.id);
         if (id instanceof Cesium.Entity) {
           console.log(id.name);
-          
-          
         }
       } else {
         console.log("No entity here");
       }
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
- 
+ */
 
      
     this.initCB();
@@ -93,10 +91,11 @@ export default Ember.View.extend({
 
   initCB: function() {
     console.log('initCB has been called by CesiumView');
-    
+    var cesiumController = this.get('controller');
     cesiumController.setupLayers();
     var viewer = cesiumController.get('viewer');
     var camera = viewer.camera;
+    cesiumController.loadPoints();
     camera.flyTo({ 
         destination: Cesium.Cartesian3.fromDegrees(-111.100, 36.998, 5000000.0)
     });
