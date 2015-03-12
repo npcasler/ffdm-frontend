@@ -123,7 +123,9 @@ h3, h4, h5, h6, p, div {
   margin-bottom: 0px !important;
   border: none !important;
   width: 100%;
-  background-color: rgba(0,50,0,0.8) !important;
+  background-color: white !important;
+  //holding for updates
+  //background-color: rgba(0,50,0,0.8) !important;
 }
 #header-right {
   overflow: hidden;
@@ -172,7 +174,9 @@ h3, h4, h5, h6, p, div {
   content: "";  
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;
-  border-left: 40px solid rgba(0,0,0,0.3);
+  border-left: 40px solid white;
+  //holding for updates
+  //border-left: 40px solid rgba(0,0,0,0.3);
  // border-style: dotted solid dotted solid !important;
   position: absolute;
   left: 0;
@@ -223,7 +227,10 @@ h3, h4, h5, h6, p, div {
 .logo-globe {
   height: 84px;
   width: 84px;
-  background: url(images/logo-globe.png) no-repeat 0 0, url(images/logo-globe-hover.png);
+  background: url(images/logo-globe-light.png) no-repeat 0 0, url(images/logo-globe-hover.png);
+  
+  //holding for updates
+  //background: url(images/logo-globe.png) no-repeat 0 0, url(images/logo-globe-hover.png);
   margin-top: -25px;
   padding: 20px 10px 0px 0px;
 }

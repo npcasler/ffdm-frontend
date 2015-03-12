@@ -138,11 +138,10 @@
       </div>
       <div id="cesium-mid-col" class="col-md-1 full-height">
         <div id="map-legend">
-          <h3>Legend</h3>
+          <h3>Legend <button class="cesium-modal-button" {{action 'showModal' 'maptip3-modal'}}>?</button></h3>
           <hr class="maps-hr"> 
           <div class="map-legend-sub">
-           Suitability
-            <button class="cesium-modal-button" {{action 'showModal' 'maptip3-modal'}}>?</button>
+           <span>Suitability</span>
             {{!--
             <div id="maptips" class="tip3">&nbsp;
               <span class="tips">
