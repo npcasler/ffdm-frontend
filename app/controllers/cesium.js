@@ -145,8 +145,8 @@ export default Ember.Controller.extend({
   },
   loadPoints: function() {
 
-  /* This function will load the data for outerra points.
-  */
+   //This function will load the data for outerra points.
+  
     // Get the Model from the Outerra controller
     var outerraModel = this.get('outerrasController').get('model');
     //Capture scope for timeout function

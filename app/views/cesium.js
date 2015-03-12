@@ -60,12 +60,10 @@ export default Ember.View.extend({
     var globe = scene.globe;
     var baseLayerPicker = new Cesium.BaseLayerPicker('baseLayerPickerContainer', {globe:scene.globe, imageryProviderViewModels:imageryViewModels});
     cesiumController.set('viewer', viewer);
-    //Try to add billboard icon 
     //set the imagery layers for controller
     imageryLayers = globe.imageryLayers; 
     cesiumController.set('imageryLayers', imageryLayers);
     console.log(cesiumController.get('viewer')); 
-//cesiumController.addBillboard();
 
 /*
     Create an event handler for onclick events
@@ -95,7 +93,8 @@ export default Ember.View.extend({
     cesiumController.setupLayers();
     var viewer = cesiumController.get('viewer');
     var camera = viewer.camera;
-    cesiumController.loadPoints();
+    
+    //cesiumController.loadPoints();
     camera.flyTo({ 
         destination: Cesium.Cartesian3.fromDegrees(-111.100, 36.998, 5000000.0)
     });
