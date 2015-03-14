@@ -45,12 +45,14 @@ export default Ember.View.extend({
       });
     console.log("imageryViewModels created as: "+imageryViewModels);
     cesiumController.set('imageryViewModels', imageryViewModels);
+    //var baseLayerPicker = new Cesium.BaseLayerPicker('baseLayerPickerContainer', {imageryProviderViewModels:imageryViewModels});
 
     var viewer = new Cesium.Viewer('cesiumContainer', {
-      imageryProvider: false,
-      terrainProvider: terrainProvider,      
+      
+         
       animation: false, 
-      baseLayerPicker: false,
+      baseLayerPicker: true,
+      imageryProviderViewModels: imageryViewModels,
       timeline: false
     });
     viewer.clock.onTick.addEventListener(function(clock) {
@@ -58,7 +60,6 @@ export default Ember.View.extend({
     });
     var scene = viewer.scene;
     var globe = scene.globe;
-    var baseLayerPicker = new Cesium.BaseLayerPicker('baseLayerPickerContainer', {globe:scene.globe, imageryProviderViewModels:imageryViewModels});
     cesiumController.set('viewer', viewer);
     //set the imagery layers for controller
     imageryLayers = globe.imageryLayers; 

@@ -29,11 +29,15 @@ export default Ember.Controller.extend({
     console.log('rcp selection has changed! ' + this.get('rcp'));
     $('#year-group').css('visibility', 'visible');
     if (this.get('rcp') === 'rcp85') {
-      $('#rcp85-label').css('border', '2px solid #bf3604');
-      $('#rcp26-label').css('border', '1px solid white');
+      $('#rcp85-label').addClass('active-label');
+      $('#rcp26-label').removeClass('active-label');
+      //$('#rcp85-label').css('border', '2px solid #bf3604');
+      //$('#rcp26-label').css('border', '1px solid white');
     } else {
-      $('#rcp26-label').css('border', '2px solid #bf3604');
-      $('#rcp85-label').css('border', '1px solid white');
+      $('#rcp85-label').removeClass('active-label');
+      $('#rcp26-label').addClass('active-label');
+      //$('#rcp26-label').css('border', '2px solid #bf3604');
+      //$('#rcp85-label').css('border', '1px solid white');
     }
     this.remindSubmit();
     
@@ -181,7 +185,7 @@ export default Ember.Controller.extend({
   
   removeLayers: function() {
     //Clear old layers before adding new ones
-    this.animateMaps(0);
+    this.set('isAnimated', 0);
     console.log('Remove layers called');
     var layerLength = this.get('imageryLayers').length;
     console.log(layerLength);
