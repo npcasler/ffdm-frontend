@@ -33,7 +33,8 @@
     padding-left: 0 !important;
   }
   .navbar-toggle {
-    visibility: visible !important;
+    //visibility: visible !important;
+    display: none !important;
   }
   .navbar-right {
     overflow: hidden !important;
@@ -60,5 +61,22 @@
   }
   #select-group, #year-group, #submit-group, #rcp-group, #map-legend {
     margin: 4px !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  .navbar-brand {
+    padding-bottom: 0px;
+  }
+  .logo-globe {
+    display: none;
+  }
+  .container-fluid {
+    padding-top: 0px;
+  }
+  #cesium-submain {
+    overflow: scroll !important;
+  }
+  .navbar-brand {
+    font-size: 1.6em;
   }
 }

@@ -32,6 +32,12 @@ $font-high: 700;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+%bg-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: auto;
+}
 // end sass variables //
 
 // global //
@@ -99,7 +105,13 @@ h3, h4, h5, h6, p, div {
 
 // application.hbs navigation //
 
-
+.app-button {
+  background-color: #118c4e !important;
+  color: rgba(255,255,255,0.6) !important;
+}
+.app-button:hover {
+  background-color: red !important;
+}
 .navbar-brand-sub {
   padding-left:50px;
   padding-top: 52px;
@@ -408,19 +420,25 @@ h3, h4, h5, h6, p, div {
 // end welcome.hbs //
 
 // cesium.hbs //
+.cesium-top-margin {
+  height: 120px;
+}
+
 .map-overlap {
   background-color: rgba(0,0,0,0.4);
 }
 #cesiumContainer {
   width: 100%;
   height: 90%;
-  margin: 120px 0 0 0;
+  // holding
+  //margin: 120px 0 0 0;
   overflow: hidden;
   padding: 0;
   font-family: sans-serif;
 }
 #cesiumViewContainer {
   padding-right: 0px !important;
+  height: 98% !important;
 }
 #cesium-main {
   background: url(images/cesium-main.jpg) 50% 0 no-repeat;
@@ -433,11 +451,13 @@ h3, h4, h5, h6, p, div {
   overflow: hidden;
 }
 #cesium-left-col {
-  margin-top: 120px;
+  // holding
+  //margin-top: 120px;
   padding-left: 6px !important;
 }
 #cesium-mid-col {
-  margin-top: 120px;
+  // holding
+  //margin-top: 120px;
   padding-right: 0px !important;
   text-align: center;
 }
@@ -1155,9 +1175,9 @@ hr.headline {
   color: black;
   font-size: 1.3em;
 }
-#detail-content div > p {
-  text-align: left;
-}
+//#detail-content div > p {
+//  text-align: left;
+//}
 #summary  {
   background: url(images/DSC-tahoe-forests.jpg); 
   background-size: cover;
@@ -1361,6 +1381,53 @@ hr.headline {
   background-repeat: no-repeat;
 }
 // figures
+// lost services
+.forest-production {
+  background-image: url(images/forest-production.jpg);
+  height: 33em;
+  @extend %bg-image;
+}
+.kelly-creek {
+  background-image: url(images/kelly-creek.jpg);
+  height: 21em;
+  @extend %bg-image;
+}
+.lost-fire {
+  background-image: url(images/california-wildfire.jpg);
+  height: 21em;
+  @extend %bg-image;
+}
+.lost-water {
+  background-image: url(images/san-juan.jpg);
+  height: 21em;
+  @extend %bg-image;
+}
+.lost-carbon {
+  background-image: url(images/calaveras-trees.jpg);
+  height: 21em;
+  @extend %bg-image;
+}
+.tree-ring-study {
+  background-image: url(images/tree-ring-study.png);
+  height: 26em;
+  @extend %bg-image;
+}
+.waldo-canyon-fire {
+  background-image: url(images/waldo-canyon-fire.jpg);
+  height: 21em;
+  @extend %bg-image;
+}
+.wildland-urban-interface-fires {
+  background-image: url(images/wildland-urban-interface-fires.png);
+  height: 28em;
+  @extend %bg-image;
+}
+.watercharts {
+  background-image: url(images/watercharts.jpg);
+  height: 21em;
+  @extend %bg-image;
+}
+// end lost services
 div.best-case-label{
   height: 60px;
   width: 60px;
