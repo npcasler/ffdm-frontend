@@ -1408,7 +1408,7 @@ hr.headline {
   @extend %bg-image;
 }
 .tree-ring-study {
-  background-image: url(images/tree-ring-study.png);
+  /**background-image: url(images/tree-ring-study.png);**/
   height: 26em;
   @extend %bg-image;
 }
@@ -2275,6 +2275,11 @@ a.aces-link:hover {
 .active-label {
   border: 2px solid #bf3604
 }
+
+.figure-legend-hide {
+  display: none;
+}
+
 // end about.hbs //
 
 
