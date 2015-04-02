@@ -116,7 +116,9 @@ define([
          *
          * @type {String}
          */
-        this.tooltip = 'View Home';
+        // default
+        //this.tooltip = 'View Home';
+        this.tooltip = 'Reset Zoom';
 
         knockout.track(this, ['tooltip']);
     };

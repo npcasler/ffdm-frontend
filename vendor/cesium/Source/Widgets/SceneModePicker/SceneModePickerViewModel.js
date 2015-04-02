@@ -69,13 +69,14 @@ define([
          * @default '2D'
         */
         this.tooltip2D = '2D';
-
         /**
          * Gets or sets the 3D tooltip.  This property is observable.
          * @type {String}
          * @default '3D'
         */
-        this.tooltip3D = '3D';
+        // default
+        //this.tooltip3D = '3D';
+        this.tooltip3d = 'Select globe or flat map view';
 
         /**
          * Gets or sets the Columbus View tooltip.  This property is observable.
