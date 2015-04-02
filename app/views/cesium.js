@@ -3,6 +3,12 @@ import Ember from 'ember';
 export default Ember.View.extend({
 
   didInsertElement: function() {
+
+    // modal on page load
+    $(function() {
+      $("#instructions").modal();
+    });
+
     var CESIUM_BASE_URL = '.';
     var cesiumController = this.get('controller'); 
     var proxy = cesiumController.get('proxy');

@@ -40,6 +40,7 @@ $font-high: 700;
 }
 // end sass variables //
 
+
 // global //
 html {
   height: 100%;
@@ -90,7 +91,14 @@ h3, h4, h5, h6, p, div {
 }
 // end global //
 
-//modal
+// bootstrap modal //
+// modal adds padding and scroll bar, this prevents that from happening
+html {
+  overflow: hidden;
+}
+.modal-open {
+  overflow: hidden;
+}
 .modal-open {
   padding-right: 0px !important;
 }
@@ -102,6 +110,86 @@ h3, h4, h5, h6, p, div {
 .cesium-modal-button:hover {
   background-color: rgba(0,0,255,0.7);
 }
+.modal-instructions {
+  color: white;
+  border: 1px solid #444;
+  background-color: rgba(38,38,38,0.75);
+  padding-bottom: 5px;
+  border-radius: 10px;
+}
+.modal-header {
+  border-bottom: 1px solid #444 !important;
+}
+.modal-footer {
+  border-top: 1px solid #444 !important;
+}
+.instr-container {
+  display: block;
+}
+.modal-instr-mouse {
+  height: 100%;
+}
+.modal-instr-touch {
+//  border-left: 1px solid #444;
+}
+// this overwrites default bootstrap modal styles
+.instr-nav-tabs > li.active a, .instr-nav-tabs > li.active > a:hover, .instr-nav-tabs > li.active > a:focus, {
+  background-color: rgba(0,0,0,0.5) !important;
+  border-color: #444 #444 transparent !important;
+  color: white;
+}
+.instr-nav-tabs > li > a:hover {
+  background-color: rgba(0,0,0,0.2);
+  border-color: #444 #444 transparent !important;
+}
+// this overwrites defualt bootstrap modal styles
+.nav-tabs > li > a {
+  color: #777;
+//  border-bottom: 1px solid #444 !important;
+}
+#tab1, #tab2 {
+  background-color: rgba(0,0,0,0.5);
+}
+.modal-body {
+  padding-bottom: 0px !important;
+}
+.tab-content > .tab-pane {
+  padding: 15px 0px;
+}
+.modal-instr-dialog {
+  top: 15%;
+  right: 0%;
+}
+.nav-tabs > li {
+}
+.instr-nav-tabs {
+  padding-left: 15px !important;
+  border-bottom: 1px solid #444 !important;
+}
+.instr-content td {
+  padding: 6px !important;
+}
+.instr-nav-tabs a {
+  font-size: 24px;
+}
+.instr-modal-title {
+  text-shadow: 2px 2px 4px #000;
+  font-size: 36px;
+  font-weight: 500;
+}
+.instr-help {
+  padding-left: 15px;
+  display: table-cell !important;
+  vertical-align: middle;
+}
+.instr-modal-header {
+  display: table;
+  width: 100%;
+}
+.instr-close {
+  padding-bottom: 20px !important;
+}
+// end boostrap modal //
 
 // application.hbs navigation //
 
@@ -2165,29 +2253,25 @@ img.img-fig {
   -moz-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
-
 //#aspen-names .row + div {
 //  display: table;
 //  margin: 0px auto 10px auto;
 //}
-
 #local-container h3 {
   color: black;
 }
 #global-container h3 {
   color: black;
 }
-// about.hbs //
 
+// about.hbs //
 .about-padding {
   padding: 0px 8% 0px 8%;
 }
-
 .about-li {
   text-decoration: underline;
   font-style: none;
 }
-
 #about-list {
   text-align: center;
   list-style-type: none;
@@ -2198,7 +2282,6 @@ img.img-fig {
   padding: 1% 1% 3% 1%;
 //  margin: 0 auto;
 }
-
 #about-list li {
   display: inline;
   padding: 2% 3% 2% 3%;
@@ -2234,7 +2317,6 @@ a.aces-link:hover {
   text-decoration: underline;
   color: red !important;
 }
-
 .btn-about {
   font-family: 'Oswald', 'sans';
   font-style: italic;
@@ -2255,7 +2337,6 @@ a.aces-link:hover {
   transition: all 0.1s ease-in-out 0s;
   -webkit-transition: all 0.1s ease-in-out 0s;
 }
-
 .btn-about:hover {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -2263,23 +2344,18 @@ a.aces-link:hover {
   color: red!important;
   text-decoration: underline;
 }
-
 .btn-about:focus {
   outline: 0;
 }
-
 .btn-about:active {
   border: none;
 }
-
 .active-label {
   border: 2px solid #bf3604
 }
-
 .figure-legend-hide {
   display: none;
 }
-
 .hidden {
   display: none;
 }
