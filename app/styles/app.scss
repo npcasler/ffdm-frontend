@@ -508,7 +508,6 @@ h3, h4, h5, h6, p, div {
 .cesium-top-margin {
   height: 120px;
 }
-
 .map-overlap {
   background-color: rgba(0,0,0,0.4);
 }
@@ -1064,6 +1063,12 @@ div.tip3 {
 }
 //end tip3
 
+#map-legend {
+  h3 {
+  font-size: 15px !important;
+  line-height: 17px !important;
+}
+}
 // end cesium.hbs //
 
 
