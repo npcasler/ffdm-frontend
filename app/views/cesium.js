@@ -4,10 +4,10 @@ export default Ember.View.extend({
 
   didInsertElement: function() {
 
-    // modal on page load
+    /* modal on page load
     $(function() {
       $("#instructions").modal();
-    });
+    });*/
 
     var CESIUM_BASE_URL = '.';
     var cesiumController = this.get('controller'); 
@@ -16,42 +16,17 @@ export default Ember.View.extend({
     var species = cesiumController.get('species');
        
     var imageryLayers = cesiumController.get('imageryLayers');
-    var imageryViewModels = cesiumController.get('imageryViewModels');
+    //var imageryViewModels = cesiumController.get('imageryViewModels');
+    Cesium.BingMapsApi.defaultKey = 'AslSxct_WT1tBMfBnXE7Haqq3rosfoymosE84z64f5FO7RMjEez3fFWw5HU0WLJ-'; 
+
+    //Define the default imagery and terrain models
+    var imageryViewModels = cesiumController.createDefaultImageryViewModels(); 
+    var terrainViewModels = cesiumController.createDefaultTerrainViewModels();
     
-    imageryViewModels.push(new Cesium.ProviderViewModel({
-            name: 'ArcGIS World Street Map',
-            iconUrl : Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/esriWorldImagery.png'),
-            tooltip: 'World Imagery provided by ESRI',
-            creationFunction: function() {
-              return new Cesium.ArcGisMapServerImageryProvider({
-                url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/Mapserver',
-                errorEvent: function(e) {
-                  console.log("There was an error loading the tile: "+ e);
-                },
-
-              });
-            }
-    }));
-
-    imageryViewModels.push(new Cesium.ProviderViewModel({
-           name : 'Open\u00adStreet\u00adMap',
-           iconUrl : Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/openStreetMap.png'),
-           tooltip : 'OpenStreetMap (OSM) is a collaborative project to create a free editable \
-      map of the world.\nhttp://www.openstreetmap.org',
-           creationFunction : function() {
-                      return new Cesium.OpenStreetMapImageryProvider({
-                                     url : '//a.tile.openstreetmap.org/'
-                                 });
-                           }
-     }));
-
-     var terrainProvider = new Cesium.CesiumTerrainProvider({
-        url: '//cesiumjs.org/stk-terrain/tilesets/world/tiles',
-        credit: 'Terrain data courtesy of Analytical Graphics, Inc'
-      });
-    console.log("imageryViewModels created as: "+imageryViewModels);
-    cesiumController.set('imageryViewModels', imageryViewModels);
-    //var baseLayerPicker = new Cesium.BaseLayerPicker('baseLayerPickerContainer', {imageryProviderViewModels:imageryViewModels});
+    
+    var extent =  new Cesium.Rectangle.fromDegrees(-125.0, 20.0, -80.0, 55); 
+    Cesium.Camera.DEFAULT_VIEW_RECTANGLE = extent;
+    Cesium.Camera.DEFAULT_VIEW_FACTOR = 0;
 
     var viewer = new Cesium.Viewer('cesiumContainer', {
       
@@ -59,6 +34,8 @@ export default Ember.View.extend({
       animation: false, 
       baseLayerPicker: true,
       imageryProviderViewModels: imageryViewModels,
+      terrainProviderViewModels: terrainViewModels,
+      navigationInstructionsInitiallyVisible: true,
       timeline: false
     });
     viewer.clock.onTick.addEventListener(function(clock) {
@@ -67,10 +44,12 @@ export default Ember.View.extend({
     var scene = viewer.scene;
     var globe = scene.globe;
     cesiumController.set('viewer', viewer);
+    
+    viewer.homeButton.viewModel.tooltip = 'Reset zoom';
+    console.log(viewer.homeButton.viewModel.command);
     //set the imagery layers for controller
     imageryLayers = globe.imageryLayers; 
     cesiumController.set('imageryLayers', imageryLayers);
-    console.log(cesiumController.get('viewer')); 
 
 /*
     Create an event handler for onclick events
@@ -100,11 +79,10 @@ export default Ember.View.extend({
     cesiumController.setupLayers();
     var viewer = cesiumController.get('viewer');
     var camera = viewer.camera;
-    
     //cesiumController.loadPoints();
-    camera.flyTo({ 
+    /*camera.flyTo({ 
         destination: Cesium.Cartesian3.fromDegrees(-111.100, 36.998, 5000000.0)
-    });
+    });*/
     console.log(camera.positionCartographic);
   }
 

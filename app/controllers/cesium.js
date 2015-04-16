@@ -31,13 +31,9 @@ export default Ember.Controller.extend({
     if (this.get('rcp') === 'rcp85') {
       $('#rcp85-label').addClass('active-label');
       $('#rcp26-label').removeClass('active-label');
-      //$('#rcp85-label').css('border', '2px solid #bf3604');
-      //$('#rcp26-label').css('border', '1px solid white');
     } else {
       $('#rcp85-label').removeClass('active-label');
       $('#rcp26-label').addClass('active-label');
-      //$('#rcp26-label').css('border', '2px solid #bf3604');
-      //$('#rcp85-label').css('border', '1px solid white');
     }
     this.remindSubmit();
     
@@ -261,6 +257,147 @@ export default Ember.Controller.extend({
         this.pulseObject('#submit-desc');
       }
     },
+
+  createDefaultImageryViewModels() {
+    var imageryViewModels = [];
+
+
+    imageryViewModels.push(new Cesium.ProviderViewModel({
+            name: 'Bing Maps Aerial with Labels',
+            iconUrl : Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/bingAerialLabels.png'),
+            tooltip: 'Bing Maps aerial imagery with label overlays \nhttp://www.bing.com/maps',
+            creationFunction: function() {
+              return new Cesium.BingMapsImageryProvider({
+                url: '//dev.virtualearth.net/',
+                mapStyle: Cesium.BingMapsStyle.AERIAL_WITH_LABELS,
+                errorEvent: function(e) {
+                  console.log("There was an error loading the tile: "+ e);
+                },
+
+              });
+            }
+    }));
+    
+    imageryViewModels.push(new Cesium.ProviderViewModel({
+            name: 'Bing Maps Aerial',
+            iconUrl : Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/bingAerial.png'),
+            tooltip: 'Bing Maps aerial imagery \nhttp://www.bing.com/maps',
+            creationFunction: function() {
+              return new Cesium.BingMapsImageryProvider({
+                url: '//dev.virtualearth.net/',
+                mapStyle: Cesium.BingMapsStyle.AERIAL,
+                errorEvent: function(e) {
+                  console.log("There was an error loading the tile: "+ e);
+                },
+
+              });
+            }
+    }));
+    
+    imageryViewModels.push(new Cesium.ProviderViewModel({
+            name: 'Bing Maps Roads',
+            iconUrl : Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/bingRoads.png'),
+            tooltip: 'Bing Maps standard road maps\nhttp://www.bing.com/maps',
+            creationFunction: function() {
+              return new Cesium.BingMapsImageryProvider({
+                url: '//dev.virtualearth.net/',
+                mapStyle: Cesium.BingMapsStyle.ROAD,
+                errorEvent: function(e) {
+                  console.log("There was an error loading the tile: "+ e);
+                },
+
+              });
+            }
+    }));
+    imageryViewModels.push(new Cesium.ProviderViewModel({
+                name : 'ESRI National Geographic',
+                iconUrl : Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/esriNationalGeographic.png'),
+                tooltip : '\
+    This web map contains the National Geographic World Map service. This map service is designed to be used as a general reference map \
+    for informational and educational purposes as well as a basemap by GIS professionals and other users for creating web maps and web \
+   mapping applications.\nhttp://www.esri.com',
+                creationFunction : function() {
+                return new Cesium.ArcGisMapServerImageryProvider({
+                  url : '//services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/'
+                  });
+                }
+          }));
+    imageryViewModels.push(new Cesium.ProviderViewModel({
+            name: 'ESRI World Imagery',
+            iconUrl : Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/esriWorldImagery.png'),
+            tooltip: '\
+      World Imagery provides one meter or better satellite and aerial imagery in many parts of the world and lower resolution \
+      satellite imagery worldwide.  The map includes NASA Blue Marble: Next Generation 500m resolution imagery at small scales \
+      (above 1:1,000,000), i-cubed 15m eSAT imagery at medium-to-large scales (down to 1:70,000) for the world, and USGS 15m Landsat \
+      imagery for Antarctica. The map features 0.3m resolution imagery in the continental United States and 0.6m resolution imagery in \
+      parts of Western Europe from DigitalGlobe. In other parts of the world, 1 meter resolution imagery is available from GeoEye IKONOS, \
+      i-cubed Nationwide Prime, Getmapping, AeroGRID, IGN Spain, and IGP Portugal.  Additionally, imagery at different resolutions has been \
+      contributed by the GIS User Community.\nhttp://www.esri.com',
+            creationFunction: function() {
+              return new Cesium.ArcGisMapServerImageryProvider({
+                url: '//services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/Mapserver',
+                errorEvent: function(e) {
+                  console.log("There was an error loading the tile: "+ e);
+                },
+
+              });
+            }
+    }));
+
+    imageryViewModels.push(new Cesium.ProviderViewModel({
+            name: 'ESRI World Street Map',
+            iconUrl : Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/esriWorldStreetMap.png'),
+            tooltip: '\
+      This worldwide street map presents highway-level data for the world. Street-level data includes the United States; much of \
+      Canada; Japan; most countries in Europe; Australia and New Zealand; India; parts of South America including Argentina, Brazil, \
+      Chile, Colombia, and Venezuela; Ghana; and parts of southern Africa including Botswana, Lesotho, Namibia, South Africa, and Swaziland.\n\
+      http://www.esri.com',
+            creationFunction: function() {
+              return new Cesium.ArcGisMapServerImageryProvider({
+                url: '//services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/Mapserver',
+                errorEvent: function(e) {
+                  console.log("There was an error loading the tile: "+ e);
+                },
+
+              });
+            }
+    }));
+    
+    imageryViewModels.push(new Cesium.ProviderViewModel({
+           name : 'Open\u00adStreet\u00adMap',
+           iconUrl : Cesium.buildModuleUrl('Widgets/Images/ImageryProviders/openStreetMap.png'),
+           tooltip : 'OpenStreetMap (OSM) is a collaborative project to create a free editable \
+      map of the world.\nhttp://www.openstreetmap.org',
+           creationFunction : function() {
+             return new Cesium.OpenStreetMapImageryProvider({
+               url : '//a.tile.openstreetmap.org/'
+             });
+           }
+     }));
+
+    return imageryViewModels;
+  },
+
+  createDefaultTerrainViewModels: function() {
+    var terrainViewModels = [];
+
+
+    terrainViewModels.push(new Cesium.ProviderViewModel({
+      name: 'STK World Terrain meshes',
+      iconUrl: Cesium.buildModuleUrl('Widgets/Images/TerrainProviders/STK.png'),
+      tooltip: 'High-resolution, mesh-based terrain for the entire globe.',
+      creationFunction: function() {
+        return new Cesium.CesiumTerrainProvider({
+          url: '//assets.agi.com/stk-terrain/world',
+          requestWaterMask : true,
+          requestVertexNormals: true
+        });
+      }
+    }));
+    return terrainViewModels;
+  },
+
+
   actions: {
     reloadLayers: function() {
       this.removeLayers();

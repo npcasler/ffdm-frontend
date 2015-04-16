@@ -96,7 +96,7 @@ cesiumSvgPath: { path: _svgPath, width: 32, height: 32 }');
         touchIcon.style.width = '25px';
         touchIcon.style.height = '25px';
         touchButton.appendChild(touchIcon);
-        touchButton.appendChild(document.createTextNode('Touch'));
+        touchButton.appendChild(document.createTextNode('Trackpad'));
 
         instructionContainer.appendChild(mouseButton);
         instructionContainer.appendChild(touchButton);
@@ -149,17 +149,19 @@ cesiumSvgPath: { path: _svgPath, width: 32, height: 32 }');
                 <tr>\
                     <td><img src="' + buildModuleUrl('Widgets/Images/NavigationHelp/TouchZoom.svg') + '" width="70" height="48" /></td>\
                     <td>\
-                        <div class="cesium-navigation-help-zoom">Zoom view</div>\
-                        <div class="cesium-navigation-help-details">Two finger pinch</div>\
+                        <div class="cesium-navigation-help-zoom">Rotate View</div>\
+                        <div class="cesium-navigation-help-details">CTRL + One finger drag</div>\
                     </td>\
                 </tr>\
                 <tr>\
                     <td><img src="' + buildModuleUrl('Widgets/Images/NavigationHelp/TouchTilt.svg') + '" width="70" height="48" /></td>\
                     <td>\
-                        <div class="cesium-navigation-help-rotate">Tilt view</div>\
+                        <div class="cesium-navigation-help-rotate">Zoom view</div>\
                         <div class="cesium-navigation-help-details">Two finger drag, same direction</div>\
                     </td>\
                 </tr>\
+            </table>';
+            /*
                 <tr>\
                     <td><img src="' + buildModuleUrl('Widgets/Images/NavigationHelp/TouchRotate.svg') + '" width="70" height="48" /></td>\
                     <td>\
@@ -167,7 +169,7 @@ cesiumSvgPath: { path: _svgPath, width: 32, height: 32 }');
                         <div class="cesium-navigation-help-details">Two finger drag, opposite direction</div>\
                     </td>\
                 </tr>\
-            </table>';
+            </table>';*/
 
         instructionContainer.appendChild(touchInstructions);
 

@@ -35,7 +35,7 @@
               optionValuePath="content.sci_name"
               optionLabelPath="content.name"
               selectionBinding="controller.species"
-              prompt="Abies lasiocarpa"
+              prompt="Aspen, Quaking"
             }}
           </div>
         </div>
@@ -144,10 +144,10 @@
 
       <div id="cesium-mid-col" class="col-md-1 full-height">
         <div id="map-legend">
-          <h3>Legend <button class="cesium-modal-button" {{action 'showModal' 'maptip3-modal'}}>?</button></h3>
+          <h3>Likelihood of Species Presence <button class="cesium-modal-button" {{action 'showModal' 'maptip3-modal'}}>?</button></h3>
           <hr class="maps-hr"> 
           <div class="map-legend-sub">
-           <span>Suitability</span>
+           
             {{!--
             <div id="maptips" class="tip3">&nbsp;
               <span class="tips">
@@ -206,7 +206,7 @@
             <li class="instr-tabs active">
               <a href="#tab1" data-toggle="tab">
               <img style="width: 45px; height: 45px;" class="cesium-navigation-button-icon" src="assets/cesium/Widgets/Images/NavigationHelp/Mouse.svg">
-                Mouse
+                Mouse/Trackpad
               </a>
             </li>
             <li class="instr-tabs">
@@ -224,7 +224,7 @@
                    <tbody>
                      <tr>
                        <td>
-                         <img src="http://localhost:4200/ffdm/assets/cesium/Widgets/Images/NavigationHelp/MouseLeft.svg" height="48" width="48">
+                         <img src="/assets/cesium/Widgets/Images/NavigationHelp/MouseLeft.svg" height="48" width="48">
                        </td>
                        <td>
                          <div class="cesium-navigation-help-pan">
@@ -237,7 +237,7 @@
                      </tr>
                      <tr>
                        <td>
-                         <img src="http://localhost:4200/ffdm/assets/cesium/Widgets/Images/NavigationHelp/MouseRight.svg" height="48" width="48">
+                         <img src="/assets/cesium/Widgets/Images/NavigationHelp/MouseRight.svg" height="48" width="48">
                        </td>
                        <td>
                          <div class="cesium-navigation-help-zoom">
@@ -253,7 +253,7 @@
                      </tr>
                      <tr>
                        <td>
-                         <img src="http://localhost:4200/ffdm/assets/cesium/Widgets/Images/NavigationHelp/MouseMiddle.svg" height="48" width="48">
+                         <img src="/assets/cesium/Widgets/Images/NavigationHelp/MouseMiddle.svg" height="48" width="48">
                        </td>
                        <td>
                          <div class="cesium-navigation-help-rotate">
@@ -279,7 +279,7 @@
                   <tbody>
                     <tr>
                       <td>
-                        <img src="http://localhost:4200/ffdm/assets/cesium/Widgets/Images/NavigationHelp/TouchDrag.svg" height="48" width="70">
+                        <img src="/assets/cesium/Widgets/Images/NavigationHelp/TouchDrag.svg" height="48" width="70">
                       </td>
                       <td>
                         <div class="cesium-navigation-help-pan">
@@ -292,7 +292,7 @@
                     </tr>
                     <tr>
                     <td>
-                      <img src="http://localhost:4200/ffdm/assets/cesium/Widgets/Images/NavigationHelp/TouchZoom.svg" height="48" width="70">
+                      <img src="/assets/cesium/Widgets/Images/NavigationHelp/TouchZoom.svg" height="48" width="70">
                     </td>
                     <td>
                       <div class="cesium-navigation-help-zoom">
@@ -305,7 +305,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <img src="http://localhost:4200/ffdm/assets/cesium/Widgets/Images/NavigationHelp/TouchTilt.svg" height="48" width="70">
+                      <img src="/assets/cesium/Widgets/Images/NavigationHelp/TouchTilt.svg" height="48" width="70">
                     </td>
                     <td>
                       <div class="cesium-navigation-help-rotate">
@@ -318,7 +318,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <img src="http://localhost:4200/ffdm/assets/cesium/Widgets/Images/NavigationHelp/TouchRotate.svg" height="48" width="70">
+                      <img src="/assets/cesium/Widgets/Images/NavigationHelp/TouchRotate.svg" height="48" width="70">
                     </td>
                     <td>
                       <div class="cesium-navigation-help-tilt">
