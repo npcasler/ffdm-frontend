@@ -69,10 +69,35 @@
             </div>
         </div>
       </div>
+
+        <div id="submit-group" class="form-group map-step">
+         <p id="submit-desc">
+           Step 3: Get the map
+         </p>
+         <hr class="maps-hr">
+         <p></p>
+         <div id="get-map-container">
+          <div id="get-map">
+            <button type="submit" id="map-submit" class="btn btn-map" {{action 'reloadLayers'}}>
+              Get Map
+              <i class="spinner">
+                <div class="glyphicon glyphicon-refresh">
+                </div>
+              </i>
+              <span class="arrow">
+                <i class="glyphicon glyphicon-arrow-right">
+                </i>
+              </span>
+            </button>
+          </div> <!-- get-map-container -->
+        </div> <!--submit-group -->
+       </div>
+
+
         <!-- year on top, controls on bottom -->
         <div id="year-group" class="form-group btn-group">
           <p id="year-desc" class="map-step" class="year-desc-3">
-           Step 3: View and Animate the future forest
+           Step 4: Animate the future forest
             <hr class="maps-hr">
           </p>
           <div id="year-field-container" class="col-sm-12">
@@ -93,53 +118,7 @@
         </div><!-- end year-group; year on top, controls on bottom -->
 
       
-       <!-- year and controls on same line -->
-       {{!--
-         <div id="year-group" class="form-group btn-group">
-          <p id="year-desc" class="map-step" class="year-desc-3">
-           Step 3: Pick a year
-            <hr class="maps-hr">
-          </p>
-          <div id="year-controls-container" class="col-sm-12">
-            <div id="year-field-container" class="col-sm-5">
-              {{view Ember.TextField valueBinding="controller.year" class="year-field"}}
-            </div>
-            <div class="minus-container col-sm-2">
-              <button id="minusYear" class="btn-control" {{action 'minusYear'}}>{{fa-icon "minus"}}</button>
-            </div>
-            <div class="play-container col-sm-3">
-              <button id="playPause" class="btn-control fa fa-play" {{action 'playPause'}}></button> 
-            </div>
-            <div class="plus-container col-sm-2">
-              <button id="plusYear" class="btn-control" {{action 'plusYear'}}>{{fa-icon "plus"}}</button>
-            </div>
-          </div>
 
-        </div><!-- end year-group; year on top, controls on bottom -->
-        --}}
-
-        <div id="submit-group" class="form-group map-step">
-         <p id="submit-desc">
-           Step 4: Get the map
-         </p>
-         <hr class="maps-hr">
-         <p></p>
-         <div id="get-map-container">
-          <div id="get-map">
-            <button type="submit" id="map-submit" class="btn btn-map" {{action 'reloadLayers'}}>
-              Get Map
-              <i class="spinner">
-                <div class="glyphicon glyphicon-refresh">
-                </div>
-              </i>
-              <span class="arrow">
-                <i class="glyphicon glyphicon-arrow-right">
-                </i>
-              </span>
-            </button>
-          </div> <!-- get-map-container -->
-        </div> <!--submit-group -->
-       </div>
       </div> <!-- cesium-left-col-->
 
       <div id="cesium-mid-col" class="col-md-1 full-height">
@@ -148,19 +127,6 @@
           <hr class="maps-hr"> 
           <div class="map-legend-sub">
            
-            {{!--
-            <div id="maptips" class="tip3">&nbsp;
-              <span class="tips">
-                <h3>About Suitablility Legend</h3>
-                <p>Different shades of suitability measures how likely the local climate will match the temperature, precipitation, and seasonality requirements for the species of interest.</p>
-                <ul class="suitability">
-                  <li style="margin-bottom:10px;" ><u><b>High</b></u>- High likelihood species will thrive and grow in most locations. Species likely to be most common here.</li>
-                  <li style="margin-bottom:10px;"><u><b>Medium</b></u>- Some likelihood that area will support growth of species but abundance will be more variable.</li>
-                  <li class="suitability"><u><b>Low</b></u>- Low likelihood that species will be present. Species will likely be quite rare and isolated to specific microevironments.</li>
-                </ul>
-              </span>
-            </div>
-            --}}
             <div id="suitability-circles">
               <div class="row">
                 <div class="oval-high">High</div>
