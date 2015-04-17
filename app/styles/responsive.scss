@@ -80,3 +80,19 @@
     font-size: 1.6em;
   }
 }
+
+// application.hbs
+@media screen and (max-width: 1214px) {
+	.heading-slim {
+		display: inherit !important;
+	}
+	.heading-wide {
+		display: none;
+	}
+	#header-right {
+		width: 40% !important;
+	}
+	#header-mid {
+		width: 30% !important;
+	}
+}

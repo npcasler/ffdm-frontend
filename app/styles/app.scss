@@ -229,12 +229,16 @@ h3, h4, h5, h6, p, div {
 	float: left;
 }
 #header-mid {
+	text-align: center;
 	float: left;
 	color: rgba(0,0,0,0.4);
 	width: 36%;
 	font-style: italic;
 	span {
 		font-size: 2vw;
+	}
+	.heading-slim {
+		display: none;
 	}
 }
 #header-right {
@@ -319,7 +323,7 @@ h3, h4, h5, h6, p, div {
   padding-top: 4px !important;
   
   padding-bottom: 15px;
-  font-size: 3vw;
+  font-size: 3vw !important;
   outline: 0;
   color: $primary-green;
   cursor: pointer;
