@@ -9,6 +9,15 @@ export default Ember.View.extend({
       $("#instructions").modal();
     });*/
 
+    var webgl = this.webglDetect();
+    if (webgl) {
+      console.log("WebGL supported");
+    } else {
+      console.log("WebGL disabled or not supported");
+      $("#instructions").modal();
+    }
+
+
     var CESIUM_BASE_URL = '.';
     var cesiumController = this.get('controller'); 
     var proxy = cesiumController.get('proxy');
@@ -84,6 +93,36 @@ export default Ember.View.extend({
         destination: Cesium.Cartesian3.fromDegrees(-111.100, 36.998, 5000000.0)
     });*/
     console.log(camera.positionCartographic);
-  }
+  },
+
+  webglDetect: function(return_context) {
+      
+    if (!!window.WebGLRenderingContext) {
+      var canvas = document.createElement("canvas"),
+          names = ["webgl", "experimental-webgl", "moz-webgl", "webkit-3d"],
+          context = false;
+
+      for (var i=0;i<4;i++) {
+        try {
+          context = canvas.getContext(names[i]);
+          if (context && typeof context.getParameter == "function") {
+            // WebGL is enabled
+            if (return_context) {
+              // return WebGL object if the the function's argument is present
+              return {name:names[i], gl:context};
+            }
+            // else return just true
+            return true;
+          }
+        } catch(e) {}
+      }
+
+      // WebGL is supported, but disabled
+      return false;
+    }
+
+    return false;
+
+   } 
 
 });

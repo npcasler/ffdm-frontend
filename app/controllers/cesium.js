@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
   needs: ['plants', 'outerras'],
   proxy: '/cgi-bin/proxy.cgi?url=http://scooby.iplantcollaborative.org/maxent/', //allows access to records without opening cors
   species: '', // object holding the record from the plant table
-  speciesName: 'Abies_lasiocarpa',
+  speciesName: 'Populus_tremuloides',
   year: '2011',
   rcp: 'rcp26',
   imageryLayers: '',
