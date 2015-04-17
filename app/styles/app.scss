@@ -198,7 +198,7 @@ h3, h4, h5, h6, p, div {
   background-color: red !important;
 }
 .navbar-brand-sub {
-  padding-left:50px;
+  padding-left:1vw;
   padding-top: 52px;
   button {
     border: 1px solid rgba(255,255,255,0.3);
@@ -224,9 +224,24 @@ h3, h4, h5, h6, p, div {
   //holding for updates
   //background-color: rgba(0,50,0,0.8) !important;
 }
+#header-left {
+	width: 30%;
+	float: left;
+}
+#header-mid {
+	float: left;
+	color: rgba(0,0,0,0.4);
+	width: 36%;
+	font-style: italic;
+	span {
+		font-size: 2vw;
+	}
+}
 #header-right {
   overflow: hidden;
   padding-right: 10px;
+	float: left;
+	width: 34%;
 }
 //breadcrumbs navigation
 //
@@ -248,7 +263,7 @@ h3, h4, h5, h6, p, div {
   float: left;
   background: $primary-green;
   text-align: center;
-  padding: 0px 30px 0 60px;
+  padding: 0px 1vw 0 4vw;
   position: relative;
   margin: 0 6px 0 0; 
   text-decoration: none;
@@ -304,7 +319,7 @@ h3, h4, h5, h6, p, div {
   padding-top: 4px !important;
   
   padding-bottom: 15px;
-  font-size: 4em;
+  font-size: 3vw;
   outline: 0;
   color: $primary-green;
   cursor: pointer;
