@@ -567,6 +567,26 @@ h3, h4, h5, h6, p, div {
 #cesium-right-col {
   padding-right: 0px !important;
 }
+  // providers logos
+.cesium-aces {
+  background: url(images/aces-logo-gray.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  width: auto;
+  height: 5vw;
+}
+.cesium-ua {
+  background: url(images/ua-logo-gray.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  width: auto;
+  height: 5vw;
+}
+.credits-container {
+  color: #b9b9b9;
+}
 input[type=checkbox] {
   padding: 0;
 }
