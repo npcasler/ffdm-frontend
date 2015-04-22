@@ -45,6 +45,40 @@
   .breadcrumbs li:after {
     top: -3px !important;
   }
+  #header-left {
+    width: 50% !important;
+  }
+  .navbar-ffdm-header {
+    width: 25% !important;
+    float: left;
+  }
+  #navContainer {
+    float: left;
+  }
+}
+
+// application.hbs
+@media (max-width: 1233px) and (min-width: 1001px) {
+  #header-mid {
+    width: 26% !important;
+  }
+  .navbar-brand {
+    padding: 0px !important;
+    margin: 0px !important;
+  }
+  #header-left {
+    width: 34% !important;
+  }
+}
+
+// application.hbs small screen
+@media screen and (max-width: 800px) {
+  .navbar-brand {
+    padding-left: 0px !important;
+  }
+  #navContainer {
+    padding-left: 10px;
+  }
 }
 
 @media screen and (min-width: 1000px) {
@@ -62,7 +96,7 @@
   #select-group, #year-group, #submit-group, #rcp-group, #map-legend {
     margin: 4px !important;
   }
-}
+  }
 @media screen and (max-width: 400px) {
   .navbar-brand {
     padding-bottom: 0px;
@@ -76,13 +110,10 @@
   #cesium-submain {
     overflow: scroll !important;
   }
-  .navbar-brand {
-    font-size: 1.6em;
-  }
 }
 
 // application.hbs
-@media screen and (max-width: 1214px) {
+@media screen and (max-width: 1233px) {
 	.heading-slim {
 		display: inherit !important;
 	}
@@ -92,7 +123,35 @@
 	#header-right {
 		width: 40% !important;
 	}
-	#header-mid {
-		width: 30% !important;
-	}
+}
+
+// cesium for tablet
+@media screen and (max-width: 999px) {
+  #cesium-submain {
+    overflow-y: scroll !important;
+  }  
+  #cesium-left-col {
+    width: 35%;
+    font-size:11px;
+  }
+  #cesium-mid-col {
+    display: none;
+  }
+  #cesium-right-col {
+    width: 65%;
+  }
+  #map-legend, .credits-container {
+    display: none;
+  }
+  .map-legend-tablet, .credits-container-tablet {
+    display: inherit !important;
+  }
+  .credits-container-tablet {
+    width: 40%;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .credits-container-tablet {
+    display: none;
+  }
 }
