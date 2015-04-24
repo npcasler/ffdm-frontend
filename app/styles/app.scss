@@ -107,10 +107,17 @@ h3, h4, h5, h6, p, div {
 .cesium-modal-button:hover {
   background-color: rgba(0,0,255,0.7);
 }
-.modal-instructions {
+.modal-instructions, {
   color: white;
   border: 1px solid #444;
   background-color: rgba(38,38,38,0.75);
+  padding-bottom: 5px;
+  border-radius: 10px;
+}
+.modal-contents {
+  color: white;
+  border: 1px solid #444;
+  background-color: rgba(38,38,38,0.85);
   padding-bottom: 5px;
   border-radius: 10px;
 }
@@ -526,23 +533,21 @@ h3, h4, h5, h6, p, div {
 
 // cesium.hbs //
 .cesium-top-margin {
-  height: 120px;
+//  height: 120px;
 }
 .map-overlap {
   background-color: rgba(0,0,0,0.4);
 }
 #cesiumContainer {
   width: 100%;
-  height: 90%;
-  // holding
-  //margin: 120px 0 0 0;
+  height: 100%;
   overflow: hidden;
   padding: 0;
   font-family: sans-serif;
 }
 #cesiumViewContainer {
   padding-right: 0px !important;
-  height: 98% !important;
+  height: 100% !important;
 }
 #cesium-main {
   background: url(images/cesium-main.jpg) 50% 0 no-repeat;
@@ -550,9 +555,11 @@ h3, h4, h5, h6, p, div {
   background-attachment: fixed;
   height: 100%;
   width: 100%;
+  padding-top: 120px;
 }
 #cesium-submain {
   overflow: hidden;
+//  height: calc(100% - 120px);
 }
 #cesium-left-col {
   // holding
@@ -564,12 +571,14 @@ h3, h4, h5, h6, p, div {
   // holding
   //margin-top: 120px;
   padding-right: 0px !important;
+  padding-left: 0px !important;
   text-align: center;
   float: left;
 }
 #cesium-right-col {
   padding-right: 0px !important;
   float: left;
+  width: 66% !important;
 }
   // providers logos
 .cesium-aces {
@@ -582,6 +591,14 @@ h3, h4, h5, h6, p, div {
 }
 .cesium-ua {
   background: url(images/ua-logo-gray.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  width: auto;
+  height: 5vw;
+}
+.cesium-bien {
+  background: url(images/bien-logo-gray.png);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
@@ -998,7 +1015,7 @@ div.worst-case-label {
 .map-step {
   color: white;
 //  padding-top: 2%;
-  font-size: 1.5em;
+  font-size: 1.3vw;
 }
 hr.maps-hr {
   background: white;
@@ -1129,6 +1146,29 @@ div.tip3 {
   padding: 6px;
   margin: 10px;
   width: 100%;
+}
+  // year-group-tablet
+.year-group-tablet {
+  min-height: 91px;
+  .year-tablet-right {
+    margin-left: 10px;
+  }
+  .year-tablet-left, .year-tablet-right {
+    width: 48%;
+    float: left;
+  }
+  #year-field-container {
+    width: 40%;
+  }
+  .minus-container, .play-container, .plus-container, .year-field-container {
+    float: left;
+  }
+  .minus-container, .plus-container {
+    width: 24%;
+  }
+  .play-container {
+    width: 49%;
+  }
 }
 // end cesium.hbs //
 
@@ -1938,6 +1978,7 @@ div.sfi {
   padding: 6px;
   margin: 10px;
   width: 100%;
+  max-width: 300px;
 }
 #submit-group {
   font-size: 1.5em;

@@ -80,7 +80,11 @@
     padding-left: 10px;
   }
 }
-
+@media screen and (max-width: 1200px) {
+  .map-step {
+    font-size: 14px !important;
+  }
+}
 @media screen and (min-width: 1000px) {
   #navbar-brand-collapsed {
     display: none !important;
@@ -91,7 +95,6 @@
 
 @media screen and (max-height: 800px) {
   .map-step {
-    font-size: 1.2em !important;
   }
   #select-group, #year-group, #submit-group, #rcp-group, #map-legend {
     margin: 4px !important;
@@ -131,27 +134,58 @@
     overflow-y: scroll !important;
   }  
   #cesium-left-col {
-    width: 35%;
+    width: 32%;
     font-size:11px;
   }
   #cesium-mid-col {
     display: none;
   }
   #cesium-right-col {
-    width: 65%;
+    width: 64%;
   }
   #map-legend, .credits-container {
     display: none;
   }
-  .map-legend-tablet, .credits-container-tablet {
+  .map-legend-tablet, .credits-container-tablet, .year-group-tablet {
     display: inherit !important;
   }
   .credits-container-tablet {
     width: 40%;
   }
+  .year-group-large {
+    display: none;
+  }
 }
 @media screen and (min-width: 1000px) {
   .credits-container-tablet {
     display: none;
+  } 
+  .year-group-tablet {
+  display: none;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .map-step {
+    font-size: 20px !important;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #cesium-left-col {
+    width: 300px !important;
+    float: left !important;
+  }
+  #cesium-right-col {
+    float: right !important;
+  }
+  #cesium-mid-col {
+    width: 130px !important;
+    margin-left: 0.4%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  #map-legend {
+    h3 {
+      font-size: 13px;
+    }
   }
 }
