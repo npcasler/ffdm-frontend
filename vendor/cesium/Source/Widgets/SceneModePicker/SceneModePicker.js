@@ -74,6 +74,7 @@ define([
         container.appendChild(wrapper);
 
         var button = document.createElement('button');
+        button.id = 'scene-changer';
         button.type = 'button';
         button.className = 'cesium-button cesium-toolbar-button';
         button.setAttribute('data-bind', '\

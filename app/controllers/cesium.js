@@ -15,7 +15,28 @@ export default Ember.Controller.extend({
   years: [1,2,3,4,5,6,7,8], 
   activeDate: 1, // counter to track the current year/layer
   outerrasController: Ember.computed.alias("controllers.outerras"),
-  
+  // --- testing scene2d change     
+  // sceneMode: null,
+
+
+/* --- testing scene2d change 
+  sceneModeChanged: function() {
+
+    console.log("Scene2dFlyTo called.");
+    console.log("SceneMode = ");
+    console.dir(this.get('sceneMode'));
+    if (this.get('sceneMode') === 2) {
+      console.log("Switched to SCENE2D");
+            var position = new Cartesian3.fromDegrees(-110, 40, 3500000.0);
+            scene.camera.flyTo({
+                destination : position,
+                duration : duration,
+                endTransform : Matrix4.IDENTITY
+            });
+    };
+  }.observes('sceneMode'),
+*/
+
   plantsSelected: function() {
     console.log('plant selection changed ' + this.get('species').get('sci_name'));
     this.animateMaps(0);
@@ -108,6 +129,11 @@ export default Ember.Controller.extend({
     var rcp = this.get('rcp');
     var years = this.get('years');
     
+    // --- testing scene2d change
+    //$("#scene-changer").click(function() {
+    //  console.log("SCENE CHANGER CLICKED!!!!");
+    //});
+   
     var speciesName = this.get('speciesName');
     console.log(speciesName);
     //Iterate through the years for each layer

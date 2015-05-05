@@ -17,7 +17,6 @@ export default Ember.View.extend({
       $("#instructions").modal();
     }
 
-
     var CESIUM_BASE_URL = '.';
     var cesiumController = this.get('controller'); 
     var proxy = cesiumController.get('proxy');
@@ -38,9 +37,9 @@ export default Ember.View.extend({
     //Cesium.Camera.DEFAULT_VIEW_RECTANGLE = extent;
     //Cesium.Camera.DEFAULT_VIEW_FACTOR = 0;
 
+
     var viewer = new Cesium.Viewer('cesiumContainer', {
       
-         
       animation: false, 
       baseLayerPicker: true,
       imageryProviderViewModels: imageryViewModels,
@@ -58,21 +57,12 @@ export default Ember.View.extend({
     //-- Set center of cesium view, with height
     //-- Replaced DEFAULT_VEW_RECTANGLE with below- allows for elevation zoom
     viewer.camera.setView( {
-      position: Cesium.Cartesian3.fromDegrees(-110, 40, 2500000.0)
+      position: Cesium.Cartesian3.fromDegrees(-110, 40, 2800000.0)
     });
-   
 
-    // if SCENE2D then flyTo Western United States.. not working
 
-    if (Cesium.SceneMode === SCENE2D) {
-      console.log("Switched to SCENE2D");
-            var position = new Cartesian3.fromDegrees(-110, 40, 3500000.0);
-            scene.camera.flyTo({
-                destination : position,
-                duration : duration,
-                endTransform : Matrix4.IDENTITY
-            });
-    };
+    // --- testing scene2d change
+    //cesiumController.set('sceneMode', scene.mode);
 
     viewer.homeButton.viewModel.tooltip = 'Reset zoom';
     console.log(viewer.homeButton.viewModel.command);
@@ -97,7 +87,6 @@ export default Ember.View.extend({
       }
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
  */
-
      
     this.initCB();
   },
@@ -143,6 +132,7 @@ export default Ember.View.extend({
 
     return false;
 
-   } 
+   }
+
 
 });

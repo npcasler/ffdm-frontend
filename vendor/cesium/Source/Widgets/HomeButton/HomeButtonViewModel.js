@@ -48,7 +48,7 @@ define([
             });
         } else if (mode === SceneMode.SCENE3D) {
             // Added for Western United States view
-            var position = new Cartesian3.fromDegrees(-110, 40, 2500000.0);
+            var position = new Cartesian3.fromDegrees(-110, 40, 2800000.0);
             var destination = scene.camera.getRectangleCameraCoordinates(Camera.DEFAULT_VIEW_RECTANGLE);
 
             var mag = Cartesian3.magnitude(destination);
@@ -65,10 +65,10 @@ define([
                 destination : position,
                 // Removed for Western United States view
                 //destination : destination,
-                orientation : {
-                    direction: direction,
-                    up : up
-                },
+                //orientation : {
+                //    direction: direction,
+                //    up : up
+                //},
                 duration : duration,
                 endTransform : Matrix4.IDENTITY
             });
