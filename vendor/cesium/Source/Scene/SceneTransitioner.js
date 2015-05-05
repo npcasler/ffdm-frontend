@@ -48,7 +48,7 @@ define([
 
         // Position camera and size frustum so the entire 2D map is visible
         var maxRadii = ellipsoid.maximumRadius;
-        var position = new Cartesian3(0.0, 0.0, 2.0 * maxRadii);
+        var position = new Cartesian3(0.0, 0.0, 1.0 * maxRadii);
         var direction = new Cartesian3();
         direction = Cartesian3.normalize(Cartesian3.negate(position, direction), direction);
         var up = Cartesian3.clone(Cartesian3.UNIT_Y);
@@ -64,6 +64,7 @@ define([
         frustum.bottom = -frustum.top;
 
         this._camera2D = {
+
             position : position,
             direction : direction,
             up : up,
@@ -72,6 +73,7 @@ define([
             up2D : up2D,
             frustum : frustum
         };
+
 
         position = new Cartesian3(0.0, -1.0, 1.0);
         position = Cartesian3.multiplyByScalar(Cartesian3.normalize(position, position), 5.0 * maxRadii, position);
@@ -102,8 +104,9 @@ define([
             frustum : frustum
         };
 
-        position = new Cartesian3();
-        position = Cartesian3.multiplyByScalar(Cartesian3.normalize(new Cartesian3(0.0, -2.0, 1.0), position), 2.0 * maxRadii, position);
+        //position = new Cartesian3();
+        //position = Cartesian3.multiplyByScalar(Cartesian3.normalize(new Cartesian3(0.0, -2.0, 1.0), position), 2.0 * maxRadii, position);
+        position = new Cartesian3.fromDegrees(-110,40,2500000);
         direction = new Cartesian3();
         direction = Cartesian3.normalize(Cartesian3.subtract(Cartesian3.ZERO, position, direction), direction);
         right = new Cartesian3();

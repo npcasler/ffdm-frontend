@@ -33,7 +33,6 @@
     padding-left: 0 !important;
   }
   .navbar-toggle {
-    //visibility: visible !important;
     display: none !important;
   }
   .navbar-right {
@@ -71,13 +70,39 @@
   }
 }
 
+// application.hbs small screen --remove globe
+@media screen and (max-width: 501px) {
+  .navbar-header {
+    display: none;
+  }
+}
+// application.hbs very small screen
+@media screen and (max-width: 416px) {
+  .navbar-brand {
+    font-size: 28px !important;
+  }
+}
+@media (max-width: 416px) and (min-width: 800px) {
+  .navbar-brand {
+    font-size: 38px !important;
+  }
+}
 // application.hbs small screen
 @media screen and (max-width: 800px) {
   .navbar-brand {
     padding-left: 0px !important;
   }
   #navContainer {
-    padding-left: 10px;
+    padding-left: 25px;
+  }
+  .navbar-brand-sub {
+    padding-top: 0px !important;
+  }
+  #header-left {
+    width: 64% !important;
+  }
+  #header-mid {
+    width: 34% !important;
   }
 }
 @media screen and (max-width: 1200px) {
@@ -141,7 +166,7 @@
     display: none;
   }
   #cesium-right-col {
-    width: 64%;
+    width: 67.5%;
   }
   #map-legend, .credits-container {
     display: none;
@@ -169,6 +194,8 @@
     font-size: 20px !important;
   }
 }
+
+// fix left and middle column to pixel widths for larger screens
 @media screen and (min-width: 1280px) {
   #cesium-left-col {
     width: 300px !important;
@@ -187,5 +214,112 @@
     h3 {
       font-size: 13px;
     }
+  }
+}
+
+// cesium-container for larger screens
+@media screen and (min-width: 1280px) {
+  #cesium-right-col {
+    width: 66%;
+  }
+}
+@media screen and (min-width: 1350px) {
+  #cesium-right-col {
+    width: 67%;
+  }
+}
+@media screen and (min-width: 1400px) {
+  #cesium-right-col {
+    width: 68%;
+  }
+}
+@media screen and (min-width: 1450px) {
+  #cesium-right-col {
+    width: 69%;
+  }
+}
+@media screen and (min-width: 1500px) {
+  #cesium-right-col {
+    width: 70%;
+  }
+}
+@media screen and (min-width: 1550px) {
+  #cesium-right-col {
+    width: 71%;
+  }
+}
+@media screen and (min-width: 1600px) {
+  #cesium-right-col {
+    width: 72%;
+  }
+}
+@media screen and (min-width: 1700px) {
+  #cesium-right-col {
+    width: 73%;
+  }
+}
+@media screen and (min-width: 1800px) {
+  #cesium-right-col {
+    width: 74%;
+  }
+}
+@media screen and (min-width: 1900px) {
+  #cesium-right-col {
+    width: 75%;
+  }
+}
+@media screen and (min-width: 2000px) {
+  #cesium-right-col {
+    width: 76%;
+  }
+}
+@media screen and (min-width: 2100px) {
+  #cesium-right-col {
+    width: 77%;
+  }
+}
+@media screen and (min-width: 2200px) {
+  #cesium-right-col {
+    width: 78%;
+  }
+}
+@media screen and (min-width: 2300px) {
+  #cesium-right-col {
+    width: 79%;
+  }
+}
+@media screen and (min-width: 2400px) {
+  #cesium-right-col {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 2500px) {
+  #cesium-right-col {
+    width: 81%;
+  }
+}
+@media screen and (min-width: 2600px) {
+  #cesium-right-col {
+    width: 82%;
+  }
+}
+@media screen and (min-width: 2700px) {
+  #cesium-right-col {
+    width: 82%;
+  }
+}
+@media screen and (min-width: 2800px) {
+  #cesium-right-col {
+    width: 83%;
+  }
+}
+@media screen and (min-width: 2900px) {
+  #cesium-right-col {
+    width: 84%;
+  }
+}
+@media screen and (min-width: 3000px) {
+  #cesium-right-col {
+    width: 85%;
   }
 }

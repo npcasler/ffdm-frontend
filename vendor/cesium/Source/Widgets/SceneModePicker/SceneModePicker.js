@@ -69,6 +69,7 @@ define([
         viewModel._columbusViewPath = columbusViewPath;
 
         var wrapper = document.createElement('span');
+        wrapper.title = 'Change the map projection';
         wrapper.className = 'cesium-sceneModePicker-wrapper cesium-toolbar-button';
         container.appendChild(wrapper);
 
@@ -114,7 +115,7 @@ cesiumSvgPath: { path: _flatMapPath, width: 64, height: 64 }');
 
         var morphToCVButton = document.createElement('button');
         morphToCVButton.type = 'button';
-        morphToCVButton.className = 'cesium-button cesium-toolbar-button cesium-sceneModePicker-dropDown-icon';
+        morphToCVButton.className = 'cesium-button cesium-toolbar-button cesium-sceneModePicker-dropDown-icon hide-columbus-view';
         morphToCVButton.setAttribute('data-bind', '\
 css: { "cesium-sceneModePicker-visible" : (dropDownVisible && (sceneMode !== _sceneMode.COLUMBUS_VIEW)) || (!dropDownVisible && (sceneMode === _sceneMode.COLUMBUS_VIEW)),\
        "cesium-sceneModePicker-none" : sceneMode === _sceneMode.COLUMBUS_VIEW,\
@@ -123,6 +124,7 @@ attr: { title: tooltipColumbusView },\
 click: morphToColumbusView,\
 cesiumSvgPath: { path: _columbusViewPath, width: 64, height: 64 }');
         wrapper.appendChild(morphToCVButton);
+        
 
         knockout.applyBindings(viewModel, wrapper);
 

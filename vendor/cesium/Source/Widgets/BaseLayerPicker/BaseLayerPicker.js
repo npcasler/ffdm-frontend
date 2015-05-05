@@ -116,9 +116,11 @@ define([
         var element = document.createElement('button');
         element.type = 'button';
         element.className = 'cesium-button cesium-toolbar-button';
+        element.title = 'Choose another background map image';
         element.setAttribute('data-bind', '\
-attr: { title: buttonTooltip },\
+attr: {  },\
 click: toggleDropDown');
+        /*element.setAttribute( 'click: toggleDropDown');*/
         container.appendChild(element);
 
         var imgElement = document.createElement('img');

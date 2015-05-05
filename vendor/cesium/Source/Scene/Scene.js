@@ -1710,7 +1710,6 @@ define([
         duration = defaultValue(duration, 2.0);
         this._transitioner.morphToColumbusView(duration, ellipsoid);
     };
-
     /**
      * Asynchronously transitions the scene to 3D.
      * @param {Number} [duration=2.0] The amount of time, in seconds, for transition animations to complete.

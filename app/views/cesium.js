@@ -32,10 +32,11 @@ export default Ember.View.extend({
     var imageryViewModels = cesiumController.createDefaultImageryViewModels(); 
     var terrainViewModels = cesiumController.createDefaultTerrainViewModels();
     
-    
-    var extent =  new Cesium.Rectangle.fromDegrees(-125.0, 20.0, -80.0, 55); 
-    Cesium.Camera.DEFAULT_VIEW_RECTANGLE = extent;
-    Cesium.Camera.DEFAULT_VIEW_FACTOR = 0;
+    //-- Set cesium view extend with rectangle
+    //-- Can be substituted with view.camera.setView() for allowing zoom level (elevation)
+    //var extent =  new Cesium.Rectangle.fromDegrees(-125.0, 20.0, -80.0, 55); 
+    //Cesium.Camera.DEFAULT_VIEW_RECTANGLE = extent;
+    //Cesium.Camera.DEFAULT_VIEW_FACTOR = 0;
 
     var viewer = new Cesium.Viewer('cesiumContainer', {
       
@@ -54,13 +55,32 @@ export default Ember.View.extend({
     var globe = scene.globe;
     cesiumController.set('viewer', viewer);
     
+    //-- Set center of cesium view, with height
+    //-- Replaced DEFAULT_VEW_RECTANGLE with below- allows for elevation zoom
+    viewer.camera.setView( {
+      position: Cesium.Cartesian3.fromDegrees(-110, 40, 2500000.0)
+    });
+   
+
+    // if SCENE2D then flyTo Western United States.. not working
+
+    if (Cesium.SceneMode === SCENE2D) {
+      console.log("Switched to SCENE2D");
+            var position = new Cartesian3.fromDegrees(-110, 40, 3500000.0);
+            scene.camera.flyTo({
+                destination : position,
+                duration : duration,
+                endTransform : Matrix4.IDENTITY
+            });
+    };
+
     viewer.homeButton.viewModel.tooltip = 'Reset zoom';
     console.log(viewer.homeButton.viewModel.command);
     //set the imagery layers for controller
     imageryLayers = globe.imageryLayers; 
     cesiumController.set('imageryLayers', imageryLayers);
 
-/*
+    /*
     Create an event handler for onclick events
     var handler = new Cesium.ScreenSpaceEventHandler(scene.canvas);
     handler.setInputAction(function(cursor) {

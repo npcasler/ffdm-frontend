@@ -37,12 +37,18 @@ define([
         var up;
 
         if (mode === SceneMode.SCENE2D) {
+            // Added for Western United States view
+            var position = new Cartesian3.fromDegrees(-110, 40, 3500000.0);
             scene.camera.flyTo({
-                destination : Rectangle.MAX_VALUE,
+                destination : position,
+                // Removed for Western United States view
+                //destination : Rectangle.MAX_VALUE,
                 duration : duration,
                 endTransform : Matrix4.IDENTITY
             });
         } else if (mode === SceneMode.SCENE3D) {
+            // Added for Western United States view
+            var position = new Cartesian3.fromDegrees(-110, 40, 2500000.0);
             var destination = scene.camera.getRectangleCameraCoordinates(Camera.DEFAULT_VIEW_RECTANGLE);
 
             var mag = Cartesian3.magnitude(destination);
@@ -56,7 +62,9 @@ define([
             up = Cartesian3.cross(right, direction, new Cartesian3());
 
             scene.camera.flyTo({
-                destination : destination,
+                destination : position,
+                // Removed for Western United States view
+                //destination : destination,
                 orientation : {
                     direction: direction,
                     up : up
@@ -66,6 +74,9 @@ define([
             });
         } else if (mode === SceneMode.COLUMBUS_VIEW) {
             var maxRadii = scene.globe.ellipsoid.maximumRadius;
+            // Added for Western United States view
+            //var position = new Cartesian3.fromDegrees( -110, 40 , 2500000.0);
+            // Removed for Western United States view
             var position = new Cartesian3(0.0, -1.0, 1.0);
             position = Cartesian3.multiplyByScalar(Cartesian3.normalize(position, position), 5.0 * maxRadii, position);
             direction = new Cartesian3();
@@ -76,6 +87,7 @@ define([
             scene.camera.flyTo({
                 destination : position,
                 duration : duration,
+                // Removed for Western United Stated view
                 orientation : {
                     direction : direction,
                     up : up

@@ -3,6 +3,11 @@
 @import 'responsive.scss';
 @import 'bc-carousel.scss';
 
+// hide columbus view from scenemodepicker
+.hide-columbus-view {
+  display: none !important;
+}
+
 // sass variables //
 //colors
 $primary-green: #118c4e;
@@ -578,7 +583,7 @@ h3, h4, h5, h6, p, div {
 #cesium-right-col {
   padding-right: 0px !important;
   float: left;
-  width: 66% !important;
+  //width: 66%;
 }
   // providers logos
 .cesium-aces {
@@ -1530,7 +1535,8 @@ hr.headline {
   background: url(images/DSC_9838.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
 }
 #lost-climate {
-  background: url(images/IMG_1497.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+//  background: url(images/IMG_1497.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
+  background: url(images/carmanah-valley.jpg) 50% 0 no-repeat; background-size: cover; background-attachment: fixed;
 }
 #lost-movies {
   background: url(images/DSC_6055.jpg) 50% 0 no-repeat;  background-size: cover;  background-attachment: fixed;
